@@ -8,6 +8,7 @@ const ScanFragrance = () => {
   const [extractedText, setExtractedText] = useState('');
   const [matches, setMatches] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [status, setStatus] = useState(''); // user-facing status updates
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const streamRef = useRef(null);
@@ -16,17 +17,29 @@ const ScanFragrance = () => {
   // Start camera
   const startCamera = async () => {
     try {
+      // Immediately reflect UI state while we request the camera
+      setIsScanning(true);
+      setStatus('Camera on. Align the bottle in the frame, then tap Capture.');
+
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment' } // Use back camera on mobile
       });
+
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
+        // Some browsers need an explicit play() call
+        const playPromise = videoRef.current.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(err => {
+            console.warn('Video play was blocked:', err);
+          });
+        }
         streamRef.current = stream;
-        setIsScanning(true);
       }
     } catch (err) {
       console.error('Error accessing camera:', err);
       alert('Unable to access camera. Please check permissions.');
+      setIsScanning(false);
     }
   };
 
@@ -44,60 +57,59 @@ const ScanFragrance = () => {
     if (videoRef.current && canvasRef.current) {
       const canvas = canvasRef.current;
       const video = videoRef.current;
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      canvas.getContext('2d').drawImage(video, 0, 0);
+
+      // Guard against zero dimensions before metadata is ready
+      const width = video.videoWidth || video.clientWidth || 640;
+      const height = video.videoHeight || video.clientHeight || 480;
+      canvas.width = width;
+      canvas.height = height;
+
+      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
       const imageData = canvas.toDataURL('image/png');
       setCapturedImage(imageData);
       stopCamera();
+      setStatus('Processing image with Google Vision…');
       processImage(imageData);
     }
   };
 
-  // Process image with OCR
+  // Process image via backend (Vertex embedding + Pinecone)
   const processImage = async (imageData) => {
     setIsProcessing(true);
+    setMatches([]);
+    setExtractedText('');
+    setStatus('Sending to scan service…');
     
     try {
-      // Use Tesseract.js for client-side OCR
-      const Tesseract = (await import('tesseract.js')).default;
-      const { data: { text } } = await Tesseract.recognize(imageData, 'eng', {
-        logger: m => {
-          if (m.status === 'recognizing text') {
-            console.log(`Progress: ${Math.round(m.progress * 100)}%`);
-          }
-        }
+      const response = await fetch('/api/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: imageData }),
       });
-      
-      setExtractedText(text);
-      findMatches(text);
-      
+
+      if (!response.ok) {
+        throw new Error(`Scan API HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      const matches = data.matches || [];
+      setExtractedText('');
+      setMatches(matches.map(m => m.fragrance || m.metadata || {}).filter(Boolean));
+      if (matches.length === 0) {
+        setStatus('No matches found.');
+      } else {
+        setStatus(`Found ${matches.length} match${matches.length > 1 ? 'es' : ''}.`);
+      }
     } catch (error) {
-      console.error('OCR Error:', error);
+      console.error('Scan API Error:', error);
+      setStatus('Failed to process image. Please try again.');
       alert('Failed to process image. Please try again.');
     } finally {
       setIsProcessing(false);
     }
   };
 
-  // Find matching fragrances
-  const findMatches = (text) => {
-    const searchTerms = text
-      .split(/\s+/)
-      .filter(term => term.length > 2)
-      .map(term => term.toLowerCase());
-    
-    const results = fragranceData.filter(fragrance => {
-      const name = (fragrance.Name || '').toLowerCase();
-      const brand = (fragrance.Brand || '').toLowerCase();
-      
-      return searchTerms.some(term => 
-        name.includes(term) || brand.includes(term)
-      );
-    });
-    
-    setMatches(results.slice(0, 5)); // Top 5 matches
-  };
+  // findMatches is now handled server-side
 
   // Cleanup on unmount
   useEffect(() => {
@@ -144,7 +156,10 @@ const ScanFragrance = () => {
                 <div className="border-2 border-white rounded-2xl w-64 h-96 opacity-50"></div>
               </div>
             </div>
-            <div className="p-6 flex gap-4">
+            <div className="p-6 flex gap-4 flex-wrap items-center">
+              {status && (
+                <p className="text-sm text-gray-500 mb-2 w-full">{status}</p>
+              )}
               <button
                 onClick={capturePhoto}
                 className="flex-1 px-6 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
@@ -215,18 +230,25 @@ const ScanFragrance = () => {
             ) : extractedText && (
               <div className="bg-white rounded-3xl shadow-lg p-8 text-center">
                 <p className="text-gray-600 mb-4">No matches found. Try scanning again or search manually.</p>
-                <button
-                  onClick={() => {
-                    setCapturedImage(null);
-                    setExtractedText('');
-                    setMatches([]);
-                  }}
-                  className="px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Scan Again
-                </button>
               </div>
             )}
+
+            {/* Scan Again button always available after a capture */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => {
+                  setCapturedImage(null);
+                  setExtractedText('');
+                  setMatches([]);
+                  setStatus('');
+                  setIsProcessing(false);
+                  setIsScanning(false);
+                }}
+                className="mt-4 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
+              >
+                Scan Again
+              </button>
+            </div>
           </div>
         )}
       </div>

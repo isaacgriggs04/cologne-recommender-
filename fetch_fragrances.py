@@ -2,12 +2,12 @@ import json
 import os
 import requests
 
-API_KEY = "c49dadccbab44d3d33df7c58e46b4a97fb07a8f5d3db684223c16671689fdfd9"
+API_KEY = "ae18d9d596cc01f52d6630fda768a2aba68b8b5312023769a6fcc40fb99703af"
 URL = "https://api.fragella.com/api/v1/fragrances"
 # Persist the filtered dataset inside the project directory
 OUTPUT_FILE = "/Users/isaac/Projects/fragrances_filtered.json"
 # Default search configuration
-SEARCH_QUERY = "tom ford"
+SEARCH_QUERY = "Maison Francis Kurkdjian"
 RESULTS_PER_PAGE = 50  # Results per API request
 MAX_PAGES = None  # Maximum number of pages to fetch (set to None for unlimited, or a number like 10)
 
