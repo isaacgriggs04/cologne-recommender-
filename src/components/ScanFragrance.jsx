@@ -4,7 +4,8 @@ import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
 const NODE_ENV = import.meta.env.NODE_ENV;
-const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : 'cologne-recommender.vercel.app';
+// Use relative URLs in production (same domain), absolute in development
+const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : '';
 
 const ScanFragrance = () => {
   const [isScanning, setIsScanning] = useState(false);
