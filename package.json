@@ -4,10 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "node server.js",
     "build": "vite build",
+    "start": "node server.js",
     "preview": "vite preview",
     "server": "node server.js",
     "deploy": "npm run build && npm run server",
+    "railway:build": "npm run build",
     "ingest:pinecone": "node scripts/ingestPinecone.js",
     "ingest:pinecone:clip": "node scripts/ingestPineconeClip.js"
   },

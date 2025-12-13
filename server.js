@@ -7,9 +7,12 @@ import os from 'os';
 import { pipeline } from '@xenova/transformers';
 import sharp from 'sharp';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
 // Load environment variables from .env file
 dotenv.config();
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Environment expectations (do NOT hardcode secrets):
 // GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/to/service_account.json
@@ -27,7 +30,7 @@ const {
   PINECONE_INDEX = 'ndexforimagerecognition-img',
   // Pinecone index dimension (for padding/truncation)
   PINECONE_DIM = '2048',
-  PORT = 3001,
+  PORT = process.env.PORT || 3001,
 } = process.env;
 
 if (!PINECONE_API_KEY) {
@@ -161,8 +164,16 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true });
 });
 
+// Serve static files from Vite build
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Handle client-side routing - send all other requests to index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`Scan API listening on :${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 
 
