@@ -30,12 +30,30 @@ If you built a custom agent in Claude Console, update `src/services/claudeApi.js
 
 3. **Parameters**: Adjust `max_tokens` or other parameters as needed
 
-## Running the App
+## Environment Variables
+
+Add these to your Vercel project settings (Dashboard → Project → Settings → Environment Variables):
+
+```
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX=ndexforimagerecognition-img
+PINECONE_DIM=2048
+```
+
+## Running Locally
 
 ```bash
 npm install
-npm run dev
+npm run dev          # Frontend on http://localhost:5173
+npm run server       # Backend on http://localhost:3001 (optional)
 ```
 
-Visit http://localhost:5173
+## Deploying to Vercel
+
+1. **Push to GitHub/GitLab**
+2. **Connect to Vercel**: Import your repository
+3. **Set Environment Variables**: Add the Pinecone variables above
+4. **Deploy**: Vercel will automatically detect the serverless function in `/api/scan.js`
+
+The API will be available at `https://your-app.vercel.app/api/scan`
 
