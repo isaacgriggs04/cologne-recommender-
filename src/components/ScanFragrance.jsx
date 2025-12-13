@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
-const NODE_ENV = import.meta.env.NODE_ENV;
+const NODE_ENV = import.meta.env.VITE_NODE_ENV;
 // Use relative URLs in production (same domain), absolute in development
 const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : '';
 
@@ -86,6 +86,7 @@ const ScanFragrance = () => {
     setStatus('Sending to scan service…');
     
     try {
+      console.log("API_URL", API_URL);
       const response = await fetch(`${API_URL}/api/scan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
