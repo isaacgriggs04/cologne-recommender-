@@ -5,7 +5,7 @@ import FloatingChatButton from './FloatingChatButton';
 
 const NODE_ENV = import.meta.env.VITE_NODE_ENV;
 // Use relative URLs in production (same domain), absolute in development
-const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : '';
+const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://cologne-recommender-production.up.railway.app';
 
 const ScanFragrance = () => {
   const [isScanning, setIsScanning] = useState(false);
