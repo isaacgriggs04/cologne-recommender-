@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
-import dotenv from 'dotenv';
-dotenv.config();
 
-const NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = import.meta.env.NODE_ENV;
 const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : 'cologne-recommender.vercel.app';
 
 const ScanFragrance = () => {
