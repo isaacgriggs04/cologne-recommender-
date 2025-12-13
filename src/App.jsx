@@ -18,7 +18,7 @@ const Navigation = () => {
   return (
     <>
       <Link to="/" className="fixed top-6 left-6 z-[100] flex items-center gap-3 group no-underline">
-        <div className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-serif text-xl italic shadow-lg group-hover:scale-105 transition-transform duration-300">
+        <div className="w-24 h-24 bg-gray-900 text-white rounded-full flex items-center justify-center font-serif text-5xl italic shadow-lg group-hover:scale-105 transition-transform duration-300">
           S
         </div>
         <span className="text-2xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors drop-shadow-sm">Scentir</span>
