@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFragranceContext } from '../context/FragranceContext';
 import fragranceData from '../../fragrances_filtered.json';
+import FloatingChatButton from './FloatingChatButton';
 
 const FragranceCard = ({ fragrance, onClick }) => (
   <div 
@@ -280,6 +281,7 @@ const MyCollection = () => {
           activeTab={activeTab}
         />
       </div>
+      <FloatingChatButton />
     </div>
   );
 };

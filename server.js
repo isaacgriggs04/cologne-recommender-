@@ -3,8 +3,13 @@ import fetch from 'node-fetch';
 import { Pinecone } from '@pinecone-database/pinecone';
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { pipeline } from '@xenova/transformers';
 import sharp from 'sharp';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Environment expectations (do NOT hardcode secrets):
 // GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/to/service_account.json
@@ -25,14 +30,27 @@ const {
   PORT = 3001,
 } = process.env;
 
-if (!GCP_PROJECT_ID) {
-  console.error('Missing GCP_PROJECT_ID env var');
-}
 if (!PINECONE_API_KEY) {
   console.error('Missing PINECONE_API_KEY env var');
+  process.exit(1);
 }
 
 const app = express();
+
+// CORS middleware for development
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 app.use(express.json({ limit: '12mb' })); // allow base64 images
 
 // ---------- Local CLIP embedding helper ----------
@@ -47,17 +65,28 @@ async function getClipExtractor() {
 async function embedImageBase64(base64Data, mimeType = 'image/png') {
   const extractor = await getClipExtractor();
   const buffer = Buffer.from(base64Data, 'base64');
-  // Decode image to raw pixels to avoid unsupported input types
-  const { data, info } = await sharp(buffer).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  const input = {
-    data: new Uint8Array(data),
-    width: info.width,
-    height: info.height,
-    channels: info.channels, // likely 4 with alpha
-  };
-  const output = await extractor(input, { pooling: 'mean', normalize: true });
-  // output.data is Float32Array
-  return Array.from(output.data);
+
+  // Convert to JPEG format
+  const jpegBuffer = await sharp(buffer).jpeg().toBuffer();
+
+  // Save as temporary file (transformers works better with file paths)
+  const tempPath = path.join(os.tmpdir(), `temp_image_${Date.now()}.jpg`);
+  fs.writeFileSync(tempPath, jpegBuffer);
+
+  try {
+    // Pass the file path to the extractor
+    const output = await extractor(tempPath, { pooling: 'mean', normalize: true });
+
+    // output.data is Float32Array
+    return Array.from(output.data);
+  } finally {
+    // Clean up temporary file
+    try {
+      fs.unlinkSync(tempPath);
+    } catch (cleanupError) {
+      console.warn('Failed to cleanup temp file:', cleanupError);
+    }
+  }
 }
 
 function padVector(vec, targetDim) {

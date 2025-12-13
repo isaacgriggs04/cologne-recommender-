@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
+import FloatingChatButton from './FloatingChatButton';
 
 const FragranceDetails = () => {
   const { id } = useParams();
@@ -180,6 +181,7 @@ const FragranceDetails = () => {
           )}
         </div>
       </div>
+      <FloatingChatButton />
     </div>
   );
 };

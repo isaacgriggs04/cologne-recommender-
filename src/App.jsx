@@ -33,6 +33,16 @@ const Navigation = () => {
               : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
           }`}
         >
+          Discovery
+        </Link>
+        <Link
+          to="/chat"
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            location.pathname === '/chat'
+              ? 'bg-gray-900 text-white shadow-lg'
+              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
+          }`}
+        >
           Chat
         </Link>
         <Link

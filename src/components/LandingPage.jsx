@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ChatContainer from './ChatContainer';
+import FloatingChatButton from './FloatingChatButton';
 import fragranceData from '../../fragrances_filtered.json';
 
 const DiscoveryCard = ({ fragrance, onClick }) => (
@@ -34,7 +34,6 @@ const DiscoveryCard = ({ fragrance, onClick }) => (
 );
 
 const LandingPage = () => {
-  const [showChat, setShowChat] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -108,127 +107,87 @@ const LandingPage = () => {
 
   return (
     <div className="relative min-h-screen bg-[#F8F9FA] pt-24 pb-8 px-4 md:px-8">
-      {/* Main Content Container - Blurs when chat is open */}
-      <div className={`transition-all duration-500 ease-in-out ${showChat ? 'blur-md opacity-50 pointer-events-none' : ''}`}>
-        
-        {/* Header */}
-        <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <h1 className="text-4xl font-serif italic text-gray-900 mb-2">Discover</h1>
-            <p className="text-lg text-gray-500 font-light">Explore our curated collection of fine fragrances.</p>
-          </div>
-          
-          <div className="relative w-full md:w-96">
-            <input
-              type="text"
-              placeholder="Search fragrances..."
-              className="w-full px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all pl-12 text-gray-900"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              onKeyDown={handleKeyDown}
-              onFocus={() => {
-                if (searchSuggestions.length > 0) {
-                  setShowSuggestions(true);
-                }
-              }}
-              onBlur={() => {
-                // Delay to allow click events on suggestions
-                setTimeout(() => setShowSuggestions(false), 200);
-              }}
-            />
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              strokeWidth={1.5} 
-              stroke="currentColor" 
-              className="w-5 h-5 text-gray-400 absolute left-4 top-3.5 pointer-events-none"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-            
-            {/* Autofill Suggestions Dropdown */}
-            {showSuggestions && searchSuggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden z-50 max-h-80 overflow-y-auto">
-                {searchSuggestions.map((fragrance, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleSuggestionClick(fragrance)}
-                    className={`w-full flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors text-left ${
-                      selectedIndex === index ? 'bg-gray-50' : ''
-                    }`}
-                  >
-                    <div className="w-12 h-12 rounded-full bg-gray-100 flex-shrink-0 overflow-hidden">
-                      {fragrance['Image URL'] ? (
-                        <img src={fragrance['Image URL']} alt={fragrance.Name} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-medium text-gray-900 text-sm truncate">{fragrance.Name}</h4>
-                      <p className="text-xs text-gray-500 truncate">{fragrance.Brand}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+      {/* Header */}
+      <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 className="text-4xl font-serif italic text-gray-900 mb-2">Discover</h1>
+          <p className="text-lg text-gray-500 font-light">Explore our curated collection of fine fragrances.</p>
         </div>
 
-        {/* Discovery Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
-          {fragranceData.map((fragrance, index) => (
-            <DiscoveryCard 
-              key={index} 
-              fragrance={fragrance} 
-              onClick={() => navigate(`/fragrance/${index + 1}`)} 
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Floating Chat Button */}
-      {!showChat && (
-        <button
-          onClick={() => setShowChat(true)}
-          className="fixed bottom-8 right-8 z-40 group flex items-center justify-center px-6 py-4 bg-gray-900 text-white rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-        >
-          <span className="mr-2 font-medium">Chat with AI</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        <div className="relative w-full md:w-96">
+          <input
+            type="text"
+            placeholder="Search fragrances..."
+            className="w-full px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all pl-12 text-gray-900"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            onKeyDown={handleKeyDown}
+            onFocus={() => {
+              if (searchSuggestions.length > 0) {
+                setShowSuggestions(true);
+              }
+            }}
+            onBlur={() => {
+              // Delay to allow click events on suggestions
+              setTimeout(() => setShowSuggestions(false), 200);
+            }}
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5 text-gray-400 absolute left-4 top-3.5 pointer-events-none"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
-        </button>
-      )}
 
-      {/* Chat Overlay */}
-      <div 
-        className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
-          showChat ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-        }`}
-      >
-        <div className="relative w-full max-w-2xl h-[80vh] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden flex flex-col">
-          {/* Close Button */}
-          <div className="absolute top-4 right-4 z-10">
-            <button 
-              onClick={() => setShowChat(false)}
-              className="p-2 bg-gray-100/50 hover:bg-gray-200/50 rounded-full text-gray-500 hover:text-gray-900 transition-colors backdrop-blur-md"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          
-          <div className="flex-1 overflow-hidden">
-            <ChatContainer />
-          </div>
+          {/* Autofill Suggestions Dropdown */}
+          {showSuggestions && searchSuggestions.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden z-50 max-h-80 overflow-y-auto">
+              {searchSuggestions.map((fragrance, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleSuggestionClick(fragrance)}
+                  className={`w-full flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors text-left ${
+                    selectedIndex === index ? 'bg-gray-50' : ''
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-full bg-gray-100 flex-shrink-0 overflow-hidden">
+                    {fragrance['Image URL'] ? (
+                      <img src={fragrance['Image URL']} alt={fragrance.Name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-gray-900 text-sm truncate">{fragrance.Name}</h4>
+                    <p className="text-xs text-gray-500 truncate">{fragrance.Brand}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Discovery Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
+        {fragranceData.map((fragrance, index) => (
+          <DiscoveryCard
+            key={index}
+            fragrance={fragrance}
+            onClick={() => navigate(`/fragrance/${index + 1}`)}
+          />
+        ))}
+      </div>
+
+      <FloatingChatButton />
     </div>
   );
 };

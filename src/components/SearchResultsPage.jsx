@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
+import FloatingChatButton from './FloatingChatButton';
 
 const SearchResultCard = ({ fragrance, onClick }) => (
   <div 
@@ -102,6 +103,7 @@ const SearchResultsPage = () => {
           </div>
         )}
       </div>
+      <FloatingChatButton />
     </div>
   );
 };

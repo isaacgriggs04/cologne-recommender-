@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FloatingChatButton from './FloatingChatButton';
 
 const UserProfile = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -193,6 +194,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
+      <FloatingChatButton />
     </div>
   );
 };

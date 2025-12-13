@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useFragranceContext } from '../context/FragranceContext';
 import ScentDot from './ScentDot';
+import FloatingChatButton from './FloatingChatButton';
 
 // Map accords and notes to scent clusters
 const accordToCluster = {
@@ -374,6 +375,7 @@ const ScentProfile = () => {
           </div>
         )}
       </div>
+      <FloatingChatButton />
     </div>
   );
 };

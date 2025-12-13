@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
+import FloatingChatButton from './FloatingChatButton';
 
 const ScanFragrance = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -81,7 +82,7 @@ const ScanFragrance = () => {
     setStatus('Sending to scan service…');
     
     try {
-      const response = await fetch('/api/scan', {
+      const response = await fetch('http://localhost:3001/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image: imageData }),
@@ -252,6 +253,7 @@ const ScanFragrance = () => {
           </div>
         )}
       </div>
+      <FloatingChatButton />
     </div>
   );
 };
