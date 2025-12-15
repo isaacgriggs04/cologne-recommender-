@@ -141,14 +141,10 @@ app.post('/api/scan', async (req, res) => {
     // 3) Build response with local metadata fallback
     const matches = (query.matches || []).map((m) => {
       const idx = m.metadata?.jsonIndex;
-      console.log(`Looking up fragrance at index ${idx}`); // Debug
       const fragrance =
         typeof idx === 'number' && fragranceCache[idx]
           ? fragranceCache[idx]
           : null;
-      if (!fragrance) {
-        console.warn(`Fragrance not found at index ${idx}, cache length: ${fragranceCache.length}`);
-      }
       return {
         score: m.score,
         id: m.id,

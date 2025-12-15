@@ -10,73 +10,91 @@ import SearchResultsPage from './components/SearchResultsPage';
 import UserProfile from './components/UserProfile';
 import ScanFragrance from './components/ScanFragrance';
 import ChatPage from './components/ChatPage';
-// import logo from './assets/scentir-logo.png'; // Logo file doesn't exist
 
 const Navigation = () => {
   const location = useLocation();
 
-  return (
-    <>
-      <Link to="/" className="fixed top-3 left-3 sm:top-6 sm:left-6 z-[100] flex items-center gap-2 sm:gap-3 group no-underline">
-        <div className="logo-mobile h-8 w-8 sm:h-24 sm:w-24 bg-gray-900 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300 drop-shadow-lg">
-          <span className="text-white font-bold text-sm sm:text-lg">SC</span>
-        </div>
-        <span className="text-lg sm:text-2xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors drop-shadow-sm">Scentir</span>
-      </Link>
+  // Mock user data - in a real app, this would come from auth context
+  const user = {
+    name: "Isaac",
+    avatar: "https://ui-avatars.com/api/?name=Isaac&background=111827&color=fff",
+  };
 
-      <nav className="nav-mobile nav-tablet nav-desktop fixed top-3 right-3 sm:top-6 sm:right-6 z-[100] flex gap-1 sm:gap-3">
-        <Link
-          to="/"
-          className={`nav-link px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
-            location.pathname === '/'
-              ? 'bg-gray-900 text-white shadow-lg'
-              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
-          }`}
-        >
-          Discovery
-        </Link>
-        <Link
-          to="/chat"
-          className={`nav-link px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
-            location.pathname === '/chat'
-              ? 'bg-gray-900 text-white shadow-lg'
-              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
-          }`}
-        >
-          Chat
-        </Link>
-        <Link
-          to="/scent-profile"
-          className={`nav-link px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
-            location.pathname === '/scent-profile'
-              ? 'bg-gray-900 text-white shadow-lg'
-              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
-          }`}
-        >
-          Profile
-        </Link>
-        <Link
-          to="/my-collection"
-          className={`nav-link px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
-            location.pathname === '/my-collection'
-              ? 'bg-gray-900 text-white shadow-lg'
-              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
-          }`}
-        >
-          Collection
-        </Link>
-        <Link
-          to="/scan"
-          className={`nav-link px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
-            location.pathname === '/scan'
-              ? 'bg-gray-900 text-white shadow-lg'
-              : 'bg-white text-gray-500 hover:text-gray-900 hover:bg-gray-50 shadow-sm border border-gray-200'
-          }`}
-        >
-          Scan
-        </Link>
-      </nav>
-    </>
+  const navItems = [
+    { path: '/', label: 'Discovery' },
+    { path: '/chat', label: 'Chat' },
+    { path: '/scent-profile', label: 'Profile' },
+    { path: '/my-collection', label: 'Collection' },
+    { path: '/scan', label: 'Scan' },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center gap-3 group no-underline">
+            <div className="h-10 w-10 bg-gray-900 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
+              <span className="text-white font-bold text-lg">SC</span>
+            </div>
+            <span className="text-xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors">Scentir</span>
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  location.pathname === item.path
+                    ? 'bg-gray-900 text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Profile Image */}
+          <Link
+            to="/account"
+            className="flex items-center gap-3 group no-underline"
+          >
+            <div className="w-10 h-10 rounded-full border-2 border-gray-200 overflow-hidden shadow-sm group-hover:border-gray-300 transition-colors">
+              <img
+                src={user.avatar}
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="hidden sm:block text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+              {user.name}
+            </span>
+          </Link>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-lg">
+        <div className="px-4 py-2 flex justify-center space-x-1 overflow-x-auto">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 ${
+                location.pathname === item.path
+                  ? 'bg-gray-900 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
   );
 };
 
@@ -97,64 +115,64 @@ function App() {
         <Route
           path="/scent-profile"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <ScentProfile />
-            </>
+            </div>
           }
         />
         <Route
           path="/my-collection"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <MyCollection />
-            </>
+            </div>
           }
         />
         <Route
           path="/search"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <SearchResultsPage />
-            </>
+            </div>
           }
         />
         <Route
           path="/fragrance/:id"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <FragranceDetails />
-            </>
+            </div>
           }
         />
         <Route
           path="/chat"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <ChatPage />
-            </>
+            </div>
           }
         />
         <Route
           path="/scan"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <ScanFragrance />
-            </>
+            </div>
           }
         />
         <Route
           path="/account"
           element={
-            <>
+            <div className="pt-16 md:pt-16">
               <Navigation />
               <UserProfile />
-            </>
+            </div>
           }
         />
         </Routes>

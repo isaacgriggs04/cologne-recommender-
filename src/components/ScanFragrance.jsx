@@ -3,17 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
-// Use Vite's built-in MODE which is 'development' in dev and 'production' in production
-// In development, use relative URLs with Vite proxy, in production use full URL
-const API_URL = import.meta.env.MODE === 'development' ? '' : 'https://cologne-recommender-production.up.railway.app';
-
-// Debug logging
-console.log('Environment:', {
-  MODE: import.meta.env.MODE,
-  API_URL: API_URL || '(using proxy)',
-  DEV: import.meta.env.DEV,
-  PROD: import.meta.env.PROD
-});
+const NODE_ENV = import.meta.env.VITE_NODE_ENV;
+// Use relative URLs in production (same domain), absolute in development
+const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://cologne-recommender-production.up.railway.app';
 
 const ScanFragrance = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -108,7 +100,7 @@ const ScanFragrance = () => {
       const data = await response.json();
       const matches = data.matches || [];
       setExtractedText('');
-      setMatches(matches.map(m => m.fragrance || m.metadata || {}).filter(Boolean));
+      setMatches(matches.filter(m => m.fragrance)); // Only keep matches that have fragrance data
       if (matches.length === 0) {
         setStatus('No matches found.');
       } else {
@@ -215,12 +207,7 @@ const ScanFragrance = () => {
                 <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">Matches Found</h3>
                 <div className="space-y-2 sm:space-y-3">
                   {matches.map((match, index) => {
-                    console.log('Match:', match); // Debug: see what's in the match object
-                    const fragrance = match.fragrance; // Use the fragrance from server response
-                    if (!fragrance) {
-                      console.warn('No fragrance data for match:', match);
-                      return null; // Skip this match if no fragrance data
-                    }
+                    const fragrance = match.fragrance;
                     // Use the jsonIndex from metadata as primary, fallback to indexOf
                     const fragranceIndex = match.metadata?.jsonIndex ?? fragranceData.indexOf(fragrance);
                     return (
