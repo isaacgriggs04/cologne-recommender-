@@ -27,9 +27,9 @@ const {
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
   // default to the newly created image index; override via env if needed
-  PINECONE_INDEX = 'ndexforimagerecognition-img',
+  PINECONE_INDEX = 'scentir-clip-embeddings',
   // Pinecone index dimension (for padding/truncation)
-  PINECONE_DIM = '2048',
+  PINECONE_DIM = '1024',
   PORT = process.env.PORT || 3001,
 } = process.env;
 
@@ -60,8 +60,8 @@ app.use(express.json({ limit: '12mb' })); // allow base64 images
 let clipExtractor = null;
 async function getClipExtractor() {
   if (clipExtractor) return clipExtractor;
-  // Use image-feature-extraction task for CLIP
-  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-base-patch32');
+  // Use larger CLIP model for 1024-dimensional embeddings (768 + padding)
+  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-large-patch14');
   return clipExtractor;
 }
 
@@ -128,7 +128,7 @@ app.post('/api/scan', async (req, res) => {
     if (!embeddingRaw.length) {
       return res.status(500).json({ error: 'No embedding returned' });
     }
-    const targetDim = parseInt(PINECONE_DIM, 10) || 2048;
+    const targetDim = parseInt(PINECONE_DIM, 10) || 1024;
     const embedding = padVector(embeddingRaw, targetDim);
 
     // 2) Query Pinecone
@@ -141,10 +141,14 @@ app.post('/api/scan', async (req, res) => {
     // 3) Build response with local metadata fallback
     const matches = (query.matches || []).map((m) => {
       const idx = m.metadata?.jsonIndex;
+      console.log(`Looking up fragrance at index ${idx}`); // Debug
       const fragrance =
         typeof idx === 'number' && fragranceCache[idx]
           ? fragranceCache[idx]
           : null;
+      if (!fragrance) {
+        console.warn(`Fragrance not found at index ${idx}, cache length: ${fragranceCache.length}`);
+      }
       return {
         score: m.score,
         id: m.id,

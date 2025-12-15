@@ -419,28 +419,28 @@ const ChatContainer = () => {
   }, [hasInitialized, conversationHistory.length]); // Dependency on context values
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 py-8">
-      <div className="w-full max-w-3xl space-y-8 h-full flex flex-col">
+    <div className="flex flex-col items-center justify-center h-full container-padding py-4 sm:py-8">
+      <div className="w-full max-w-3xl space-y-4 sm:space-y-8 h-full flex flex-col">
         {/* Welcome Message - only show when no conversation started */}
         {conversationHistory.length === 0 && (
-          <div className="text-center space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-extralight tracking-tight text-gray-900 font-serif italic">
+          <div className="text-center space-y-4 sm:space-y-6 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 font-serif italic">
               Fragrance Finder
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 font-light max-w-lg mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-500 font-light max-w-lg mx-auto leading-relaxed px-4">
               A curated journey to discover your signature scent through conversation.
             </p>
           </div>
         )}
-        
+
         {/* Actions Bar */}
         {conversationHistory.length > 0 && (
-          <div className="flex justify-center pb-4">
+          <div className="flex justify-center pb-2 sm:pb-4">
             <button
               onClick={handleNewConversation}
-              className="group flex items-center gap-2 px-5 py-2.5 text-sm text-gray-500 hover:text-gray-900 bg-white/50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-full transition-all duration-300 shadow-sm hover:shadow"
+              className="group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-500 hover:text-gray-900 bg-white/50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-full transition-all duration-300 shadow-sm hover:shadow touch-target"
             >
-              <span className="w-2 h-2 rounded-full bg-gray-400 group-hover:bg-emerald-400 transition-colors" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-400 group-hover:bg-emerald-400 transition-colors" />
               Start New Conversation
             </button>
           </div>
@@ -449,12 +449,12 @@ const ChatContainer = () => {
         {/* Main Chat Interface */}
         <div className="relative group flex-1 h-full flex flex-col">
           {/* Decorative backdrop blur */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
-          
-          <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-1 flex-1 flex flex-col overflow-hidden">
-            <div className="bg-white/50 rounded-[1.4rem] p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
+          <div className="absolute -inset-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-2xl sm:rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
+
+          <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-1 flex-1 flex flex-col overflow-hidden">
+            <div className="bg-white/50 rounded-[1.2rem] sm:rounded-[1.4rem] p-4 sm:p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
               {/* Scrollable Content Area */}
-              <div className="flex-1 overflow-y-auto mb-6 pr-2 space-y-6">
+              <div className="flex-1 overflow-y-auto mb-4 sm:mb-6 pr-1 sm:pr-2 space-y-4 sm:space-y-6">
                 {conversationHistory.map((msg, idx) => {
                   let messageContent = null;
                   
@@ -467,7 +467,7 @@ const ChatContainer = () => {
                       <div className="space-y-6">
                         {sections.map((section, sIdx) => (
                           <div key={sIdx}>
-                            <p className="whitespace-pre-wrap leading-relaxed font-light text-lg text-gray-800">
+                            <p className="whitespace-pre-wrap leading-relaxed font-light text-base sm:text-lg text-gray-800">
                               {section.lines.join('\n')}
                             </p>
                             {/* Render card if this section has a fragrance match */}
@@ -485,7 +485,7 @@ const ChatContainer = () => {
                   } else {
                     // User message
                     messageContent = (
-                      <p className="whitespace-pre-wrap leading-relaxed font-light text-lg text-gray-800">
+                      <p className="whitespace-pre-wrap leading-relaxed font-light text-base sm:text-lg text-gray-800">
                         {msg.content}
                       </p>
                     );
@@ -498,7 +498,7 @@ const ChatContainer = () => {
                           F
                         </div>
                       )}
-                      <div className={`max-w-[80%] space-y-2 ${msg.role === 'user' ? 'bg-gray-100 rounded-2xl rounded-tr-sm p-4' : ''}`}>
+                      <div className={`max-w-[85%] sm:max-w-[80%] space-y-2 ${msg.role === 'user' ? 'bg-gray-100 rounded-xl sm:rounded-2xl rounded-tr-sm p-3 sm:p-4' : ''}`}>
                         {messageContent}
                       </div>
                       {msg.role === 'user' && (
@@ -512,23 +512,23 @@ const ChatContainer = () => {
 
                 {/* Loading State - inside scroll area */}
                 {isLoading && (
-                  <div className="flex justify-start py-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex gap-1.5">
-                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce" />
+                  <div className="flex justify-start py-3 sm:py-4">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="flex gap-1 sm:gap-1.5">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce" />
                       </div>
                       <p className="text-xs text-gray-400 uppercase tracking-widest font-medium">Thinking</p>
                     </div>
                   </div>
                 )}
-                
+
                 {/* Error State */}
                 {error && (
-                  <div className="bg-red-50/50 border border-red-100 rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400" />
-                    <p className="text-red-600 text-sm">{error}</p>
+                  <div className="bg-red-50/50 border border-red-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-400" />
+                    <p className="text-red-600 text-xs sm:text-sm">{error}</p>
                   </div>
                 )}
               </div>

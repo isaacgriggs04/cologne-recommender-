@@ -9,10 +9,167 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Minimum font size for mobile */
+  line-height: 1.5;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Mobile-first responsive styles */
+
+/* Images scale properly on all devices */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure touch targets are at least 44px */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Mobile-specific styles (< 480px) */
+@media (max-width: 479px) {
+  body {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  /* Reduce padding on mobile */
+  .container-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Stack flex items vertically on mobile */
+  .flex-stack-mobile {
+    flex-direction: column;
+  }
+
+  /* Adjust navigation for mobile */
+  .nav-mobile {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .nav-mobile .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  /* Mobile logo */
+  .logo-mobile {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  /* Adjust button sizes for mobile */
+  .btn-mobile {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-height: 44px;
+  }
+
+  /* Camera interface for mobile */
+  .camera-mobile {
+    max-height: 60vh;
+  }
+
+  /* Form inputs on mobile */
+  .input-mobile {
+    font-size: 16px; /* Prevent zoom */
+    padding: 0.75rem;
+    min-height: 44px;
+  }
+
+  /* Cards and content spacing */
+  .card-mobile {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablet styles (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .container-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .nav-tablet {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .nav-tablet .nav-link {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-tablet {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Desktop styles (768px+) */
+@media (min-width: 768px) {
+  .container-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .nav-desktop {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .nav-desktop .nav-link {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-desktop {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Utility classes for responsive design */
+.responsive-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (max-width: 479px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Camera capture for mobile */
+input[type="file"][capture] {
+  /* Ensure camera input works on mobile */
+  -webkit-appearance: none;
+  appearance: none;
 }
 

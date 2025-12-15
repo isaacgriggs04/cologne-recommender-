@@ -3,9 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
-const NODE_ENV = import.meta.env.VITE_NODE_ENV;
-// Use relative URLs in production (same domain), absolute in development
-const API_URL = NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://cologne-recommender-production.up.railway.app';
+// Use Vite's built-in MODE which is 'development' in dev and 'production' in production
+// In development, use relative URLs with Vite proxy, in production use full URL
+const API_URL = import.meta.env.MODE === 'development' ? '' : 'https://cologne-recommender-production.up.railway.app';
+
+// Debug logging
+console.log('Environment:', {
+  MODE: import.meta.env.MODE,
+  API_URL: API_URL || '(using proxy)',
+  DEV: import.meta.env.DEV,
+  PROD: import.meta.env.PROD
+});
 
 const ScanFragrance = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -125,23 +133,23 @@ const ScanFragrance = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] p-8 pt-24">
+    <div className="min-h-screen bg-[#F8F9FA] container-padding pt-20 sm:pt-24">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-serif italic text-gray-900 mb-8">Scan Fragrance</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-gray-900 mb-6 sm:mb-8">Scan Fragrance</h1>
         
         {!isScanning && !capturedImage && (
-          <div className="bg-white rounded-3xl shadow-lg p-8 text-center">
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-gray-400">
+          <div className="card-mobile bg-white rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8 text-center">
+            <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 rounded-full bg-gray-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 sm:w-12 sm:h-12 text-gray-400">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
               </svg>
             </div>
-            <h2 className="text-2xl font-medium text-gray-900 mb-4">Scan a Fragrance Bottle</h2>
-            <p className="text-gray-500 mb-8">Point your camera at the fragrance bottle label to identify it</p>
+            <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-3 sm:mb-4">Scan a Fragrance Bottle</h2>
+            <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8">Point your camera at the fragrance bottle label to identify it</p>
             <button
               onClick={startCamera}
-              className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
+              className="btn-mobile btn-tablet btn-desktop px-6 py-3 sm:px-8 sm:py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl touch-target"
             >
               Start Scanning
             </button>
@@ -149,32 +157,32 @@ const ScanFragrance = () => {
         )}
 
         {isScanning && (
-          <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden">
             <div className="relative bg-black">
               <video
                 ref={videoRef}
                 autoPlay
                 playsInline
-                className="w-full h-auto max-h-[70vh] object-contain"
+                className="camera-mobile w-full h-auto max-h-[50vh] sm:max-h-[70vh] object-contain"
               />
               <canvas ref={canvasRef} className="hidden" />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="border-2 border-white rounded-2xl w-64 h-96 opacity-50"></div>
+                <div className="border-2 border-white rounded-xl sm:rounded-2xl w-48 h-72 sm:w-64 sm:h-96 opacity-50"></div>
               </div>
             </div>
-            <div className="p-6 flex gap-4 flex-wrap items-center">
+            <div className="p-4 sm:p-6 flex gap-3 sm:gap-4 flex-wrap items-center">
               {status && (
-                <p className="text-sm text-gray-500 mb-2 w-full">{status}</p>
+                <p className="text-xs sm:text-sm text-gray-500 mb-2 w-full">{status}</p>
               )}
               <button
                 onClick={capturePhoto}
-                className="flex-1 px-6 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
+                className="btn-mobile btn-tablet flex-1 px-4 py-3 sm:px-6 sm:py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors touch-target"
               >
                 Capture
               </button>
               <button
                 onClick={stopCamera}
-                className="px-6 py-4 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors"
+                className="btn-mobile btn-tablet px-4 py-3 sm:px-6 sm:py-4 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors touch-target"
               >
                 Cancel
               </button>
@@ -183,49 +191,56 @@ const ScanFragrance = () => {
         )}
 
         {isProcessing && (
-          <div className="bg-white rounded-3xl shadow-lg p-12 text-center">
-            <div className="animate-spin w-12 h-12 border-4 border-gray-900 border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p className="text-gray-600">Processing image...</p>
+          <div className="card-mobile bg-white rounded-2xl sm:rounded-3xl shadow-lg p-8 sm:p-12 text-center">
+            <div className="animate-spin w-8 h-8 sm:w-12 sm:h-12 border-4 border-gray-900 border-t-transparent rounded-full mx-auto mb-3 sm:mb-4"></div>
+            <p className="text-sm sm:text-base text-gray-600">Processing image...</p>
           </div>
         )}
 
         {capturedImage && !isProcessing && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-3xl shadow-lg p-6">
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Captured Image</h3>
-              <img src={capturedImage} alt="Captured" className="w-full max-w-md mx-auto rounded-2xl" />
+          <div className="space-y-4 sm:space-y-6">
+            <div className="card-mobile bg-white rounded-2xl sm:rounded-3xl shadow-lg p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">Captured Image</h3>
+              <img src={capturedImage} alt="Captured" className="w-full max-w-md mx-auto rounded-xl sm:rounded-2xl" />
               {extractedText && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-xl">
-                  <p className="text-sm text-gray-600 mb-2">Extracted Text:</p>
-                  <p className="text-sm text-gray-900 font-mono whitespace-pre-wrap break-words">{extractedText}</p>
+                <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-2">Extracted Text:</p>
+                  <p className="text-xs sm:text-sm text-gray-900 font-mono whitespace-pre-wrap break-words">{extractedText}</p>
                 </div>
               )}
             </div>
 
             {matches.length > 0 ? (
-              <div className="bg-white rounded-3xl shadow-lg p-6">
-                <h3 className="text-xl font-medium text-gray-900 mb-4">Matches Found</h3>
-                <div className="space-y-3">
-                  {matches.map((fragrance, index) => {
-                    const fragranceIndex = fragranceData.indexOf(fragrance);
+              <div className="card-mobile bg-white rounded-2xl sm:rounded-3xl shadow-lg p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">Matches Found</h3>
+                <div className="space-y-2 sm:space-y-3">
+                  {matches.map((match, index) => {
+                    console.log('Match:', match); // Debug: see what's in the match object
+                    const fragrance = match.fragrance; // Use the fragrance from server response
+                    if (!fragrance) {
+                      console.warn('No fragrance data for match:', match);
+                      return null; // Skip this match if no fragrance data
+                    }
+                    // Use the jsonIndex from metadata as primary, fallback to indexOf
+                    const fragranceIndex = match.metadata?.jsonIndex ?? fragranceData.indexOf(fragrance);
                     return (
                       <button
                         key={index}
                         onClick={() => navigate(`/fragrance/${fragranceIndex + 1}`)}
-                        className="w-full flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors text-left border border-gray-100"
+                        className="w-full flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50 rounded-lg sm:rounded-xl transition-colors text-left border border-gray-100 touch-target"
                       >
-                        <div className="w-16 h-16 rounded-full bg-gray-100 flex-shrink-0 overflow-hidden">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex-shrink-0 overflow-hidden">
                           {fragrance['Image URL'] ? (
                             <img src={fragrance['Image URL']} alt={fragrance.Name} className="w-full h-full object-cover" />
                           ) : (
                             <div className="w-full h-full bg-gray-200" />
                           )}
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-medium text-gray-900">{fragrance.Name}</h4>
-                          <p className="text-sm text-gray-500">{fragrance.Brand}</p>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-gray-900 text-sm sm:text-base truncate">{fragrance.Name}</h4>
+                          <p className="text-xs sm:text-sm text-gray-500 truncate">{fragrance.Brand}</p>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
                       </button>
@@ -234,8 +249,8 @@ const ScanFragrance = () => {
                 </div>
               </div>
             ) : extractedText && (
-              <div className="bg-white rounded-3xl shadow-lg p-8 text-center">
-                <p className="text-gray-600 mb-4">No matches found. Try scanning again or search manually.</p>
+              <div className="card-mobile bg-white rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8 text-center">
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">No matches found. Try scanning again or search manually.</p>
               </div>
             )}
 
@@ -250,7 +265,7 @@ const ScanFragrance = () => {
                   setIsProcessing(false);
                   setIsScanning(false);
                 }}
-                className="mt-4 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
+                className="btn-mobile btn-tablet btn-desktop mt-3 sm:mt-4 px-4 py-2 sm:px-6 sm:py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors touch-target"
               >
                 Scan Again
               </button>

@@ -5,28 +5,28 @@ import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
 const FragranceCard = ({ fragrance, onClick }) => (
-  <div 
+  <div
     onClick={onClick}
-    className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 cursor-pointer group hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform"
+    className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 cursor-pointer group hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform touch-target"
   >
-    <div className="flex justify-between items-start mb-4">
-      <div className="flex-1 pr-4">
-        <h3 className="text-lg font-medium text-gray-900 line-clamp-1 group-hover:text-gray-700 transition-colors">{fragrance.name}</h3>
-        <p className="text-sm text-gray-500">{fragrance.brand}</p>
+    <div className="flex justify-between items-start mb-3 sm:mb-4">
+      <div className="flex-1 pr-3 sm:pr-4">
+        <h3 className="text-base sm:text-lg font-medium text-gray-900 line-clamp-1 group-hover:text-gray-700 transition-colors">{fragrance.name}</h3>
+        <p className="text-xs sm:text-sm text-gray-500">{fragrance.brand}</p>
       </div>
-      <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-100 group-hover:bg-white transition-colors">
+      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-100 group-hover:bg-white transition-colors">
         {fragrance.image ? (
           <img src={fragrance.image} alt={fragrance.name} className="w-full h-full object-cover" />
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6 text-gray-400">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
           </svg>
         )}
       </div>
     </div>
-    <div className="flex gap-2 flex-wrap max-h-16 overflow-hidden">
+    <div className="flex gap-1.5 sm:gap-2 flex-wrap max-h-12 sm:max-h-16 overflow-hidden">
       {fragrance.notes.slice(0, 4).map((note, index) => (
-        <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+        <span key={index} className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
           {note}
         </span>
       ))}
@@ -92,13 +92,13 @@ const AddFragranceModal = ({ isOpen, onClose, onAdd, activeTab }) => {
           </button>
         </div>
         
-        <div className="space-y-4 flex-1 overflow-hidden flex flex-col">
+        <div className="space-y-3 sm:space-y-4 flex-1 overflow-hidden flex flex-col">
           {/* List Type Toggle */}
-          <div className="flex p-1 bg-gray-100 rounded-lg mb-4 flex-shrink-0">
+          <div className="flex p-1 bg-gray-100 rounded-lg mb-3 sm:mb-4 flex-shrink-0">
             <button
               type="button"
               onClick={() => setListType('collection')}
-              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${
+              className={`flex-1 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-all touch-target ${
                 listType === 'collection'
                   ? 'bg-white text-gray-900 shadow-sm'
                   : 'text-gray-500 hover:text-gray-700'
@@ -109,7 +109,7 @@ const AddFragranceModal = ({ isOpen, onClose, onAdd, activeTab }) => {
             <button
               type="button"
               onClick={() => setListType('wishlist')}
-              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${
+              className={`flex-1 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-all touch-target ${
                 listType === 'wishlist'
                   ? 'bg-white text-gray-900 shadow-sm'
                   : 'text-gray-500 hover:text-gray-700'
@@ -120,13 +120,13 @@ const AddFragranceModal = ({ isOpen, onClose, onAdd, activeTab }) => {
           </div>
 
           <div className="relative flex-shrink-0">
-            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Search Fragrances</label>
+            <label htmlFor="search" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Search Fragrances</label>
             <div className="relative">
               <input
                 type="text"
                 id="search"
                 autoFocus
-                className="w-full px-4 py-3 pl-10 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors bg-gray-50 focus:bg-white text-gray-900"
+                className="input-mobile w-full px-3 py-2 sm:px-4 sm:py-3 pl-8 sm:pl-10 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors bg-gray-50 focus:bg-white text-gray-900"
                 placeholder="Search by name or brand..."
                 value={searchTerm}
                 onChange={handleSearch}
@@ -136,7 +136,7 @@ const AddFragranceModal = ({ isOpen, onClose, onAdd, activeTab }) => {
                   }
                 }}
               />
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400 absolute left-3 top-3.5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-2.5 sm:left-3 top-2.5 sm:top-3.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
               
@@ -201,21 +201,21 @@ const MyCollection = () => {
   const filteredItems = activeTab === 'collection' ? getCollection() : getWishlist();
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] p-8 pt-20">
+    <div className="min-h-screen bg-[#F8F9FA] container-padding pt-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end md:items-end mb-8 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 sm:mb-8 gap-3 sm:gap-4">
           <div>
-            <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-2 font-serif italic">My Collection</h1>
-            <p className="text-lg text-gray-500 font-light">Manage your personal fragrance wardrobe</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-gray-900 mb-2 font-serif italic">My Collection</h1>
+            <p className="text-base sm:text-lg text-gray-500 font-light">Manage your personal fragrance wardrobe</p>
           </div>
-          
-          <div className="flex items-center gap-4">
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
             {/* Tabs */}
             <div className="bg-white p-1 rounded-full border border-gray-200 shadow-sm flex">
               <button
                 onClick={() => setActiveTab('collection')}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 touch-target ${
                   activeTab === 'collection'
                     ? 'bg-gray-900 text-white shadow-md'
                     : 'text-gray-500 hover:text-gray-900'
@@ -225,7 +225,7 @@ const MyCollection = () => {
               </button>
               <button
                 onClick={() => setActiveTab('wishlist')}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                   activeTab === 'wishlist'
                     ? 'bg-gray-900 text-white shadow-md'
                     : 'text-gray-500 hover:text-gray-900'
@@ -237,38 +237,37 @@ const MyCollection = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group flex items-center gap-2 px-5 py-2.5 text-sm text-white bg-gray-900 hover:bg-gray-800 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+              className="btn-mobile btn-tablet btn-desktop group flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm text-white bg-gray-900 hover:bg-gray-800 rounded-full transition-all duration-200 shadow-sm hover:shadow-md touch-target"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-              <span className="hidden md:inline">Add Fragrance</span>
-              <span className="md:hidden">Add</span>
+              <span>Add Fragrance</span>
             </button>
           </div>
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="responsive-grid gap-4 sm:gap-6">
           {filteredItems.map((fragrance) => (
-            <FragranceCard 
-              key={fragrance.id} 
-              fragrance={fragrance} 
+            <FragranceCard
+              key={fragrance.id}
+              fragrance={fragrance}
               onClick={() => navigate(`/fragrance/${fragrance.id}`)}
             />
           ))}
-          
+
           {/* Empty state card / Add button alternative */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex flex-col items-center justify-center p-6 h-full min-h-[200px] rounded-2xl border-2 border-dashed border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group"
+            className="flex flex-col items-center justify-center p-4 sm:p-6 h-full min-h-[150px] sm:min-h-[200px] rounded-xl sm:rounded-2xl border-2 border-dashed border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group touch-target"
           >
-            <div className="w-12 h-12 rounded-full bg-gray-100 group-hover:bg-white flex items-center justify-center text-gray-400 group-hover:text-gray-600 mb-3 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-gray-100 group-hover:bg-white flex items-center justify-center text-gray-400 group-hover:text-gray-600 mb-2 sm:mb-3 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500 group-hover:text-gray-700">
+            <span className="text-xs sm:text-sm font-medium text-gray-500 group-hover:text-gray-700">
               Add to {activeTab === 'collection' ? 'Collection' : 'Wishlist'}
             </span>
           </button>
