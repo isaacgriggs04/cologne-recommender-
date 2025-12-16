@@ -27,9 +27,9 @@ const {
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
   // default to the newly created image index; override via env if needed
-  PINECONE_INDEX = 'scentir-clip-embeddings',
+  PINECONE_INDEX = 'base-clip-model',
   // Pinecone index dimension (for padding/truncation)
-  PINECONE_DIM = '1024',
+  PINECONE_DIM = '512',
   PORT = process.env.PORT || 3001,
 } = process.env;
 
@@ -42,7 +42,7 @@ const app = express();
 
 // CORS middleware for development
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
@@ -61,7 +61,7 @@ let clipExtractor = null;
 async function getClipExtractor() {
   if (clipExtractor) return clipExtractor;
   // Use larger CLIP model for 1024-dimensional embeddings (768 + padding)
-  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-large-patch14');
+  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-base-patch32');
   return clipExtractor;
 }
 

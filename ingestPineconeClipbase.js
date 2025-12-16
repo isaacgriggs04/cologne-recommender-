@@ -6,16 +6,16 @@ import { Pinecone } from '@pinecone-database/pinecone';
 import { pipeline } from '@xenova/transformers';
 import sharp from 'sharp';
 
-const PINECONE_API_KEY = 'pcsk_3hH679_Mj82WvAP5xEu5bDw1JaDmz1ZZheUnKZxcAZEwQ9cKLGxFyQ85XNowVjpFjke969'
-const PINECONE_INDEX = 'scentir-clip-embeddings'
-const PINECONE_DIM = '1024'
-const BATCH_SIZE = 5
+const PINECONE_API_KEY = 'pcsk_3hH679_Mj82WvAP5xEu5bDw1JaDmz1ZZheUnKZxcAZEwQ9cKLGxFyQ85XNowVjpFjke969';
+const PINECONE_INDEX = 'base-clip-model';
+const PINECONE_DIM = '512';
+const BATCH_SIZE = 5;
 
 let clipExtractor = null;
 async function getClipExtractor() {
   if (clipExtractor) return clipExtractor;
   // Use larger CLIP model for higher dimensionality, then pad to 1024
-  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-large-patch14');
+  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-base-patch32');
   return clipExtractor;
 }
 
