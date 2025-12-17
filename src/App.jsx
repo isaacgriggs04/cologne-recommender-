@@ -1,24 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { FragranceProvider } from './context/FragranceContext';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { SignInPage, SignUpPage, ProtectedRoute, UserButton } from './components/Auth';
+import { useUser } from '@clerk/clerk-react';
 import Background from './components/Background';
 import LandingPage from './components/LandingPage';
 import ScentProfile from './components/ScentProfile';
 import MyCollection from './components/MyCollection';
 import FragranceDetails from './components/FragranceDetails';
 import SearchResultsPage from './components/SearchResultsPage';
-import UserProfile from './components/UserProfile';
 import ScanFragrance from './components/ScanFragrance';
 import ChatPage from './components/ChatPage';
 
 const Navigation = () => {
   const location = useLocation();
-
-  // Mock user data - in a real app, this would come from auth context
-  const user = {
-    name: "Isaac",
-    avatar: "https://ui-avatars.com/api/?name=Isaac&background=111827&color=fff",
-  };
+  const { isSignedIn } = useUser();
 
   const navItems = [
     { path: '/', label: 'Discovery' },
@@ -33,11 +28,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-3 group no-underline">
-            <div className="h-10 w-10 bg-gray-900 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
-              <span className="text-white font-bold text-lg">SC</span>
-            </div>
-            <span className="text-xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors">Scentir</span>
+          <Link to="/" className="flex items-center group no-underline">
+            <span className="text-5xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors leading-none">Scentir</span>
           </Link>
 
           {/* Navigation Links */}
@@ -57,22 +49,32 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Profile Image */}
-          <Link
-            to="/account"
-            className="flex items-center gap-3 group no-underline"
-          >
-            <div className="w-10 h-10 rounded-full border-2 border-gray-200 overflow-hidden shadow-sm group-hover:border-gray-300 transition-colors">
-              <img
-                src={user.avatar}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
+          {/* Auth Buttons or User Profile */}
+          {isSignedIn ? (
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-10 h-10",
+                  userButtonPopoverCard: "shadow-xl"
+                }
+              }}
+            />
+          ) : (
+            <div className="flex items-center space-x-2">
+              <Link
+                to="/sign-in"
+                className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/sign-up"
+                className="px-4 py-2 text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 rounded-lg transition-all duration-200"
+              >
+                Sign Up
+              </Link>
             </div>
-            <span className="hidden sm:block text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-              {user.name}
-            </span>
-          </Link>
+          )}
         </div>
       </div>
 
@@ -93,6 +95,22 @@ const Navigation = () => {
             </Link>
           ))}
         </div>
+        {!isSignedIn && (
+          <div className="px-4 py-2 flex justify-center space-x-2 border-t border-gray-200/50">
+            <Link
+              to="/sign-in"
+              className="px-3 py-2 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/sign-up"
+              className="px-3 py-2 text-xs font-medium bg-gray-900 text-white hover:bg-gray-800 rounded-lg transition-all duration-200"
+            >
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -100,84 +118,73 @@ const Navigation = () => {
 
 function App() {
   return (
-    <FragranceProvider>
-      <Router>
-        <Routes>
-        <Route
-          path="/"
-          element={
-            <Background>
-              <Navigation />
-              <LandingPage />
-            </Background>
-          }
-        />
-        <Route
-          path="/scent-profile"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <ScentProfile />
-            </div>
-          }
-        />
-        <Route
-          path="/my-collection"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <MyCollection />
-            </div>
-          }
-        />
-        <Route
-          path="/search"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <SearchResultsPage />
-            </div>
-          }
-        />
-        <Route
-          path="/fragrance/:id"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <FragranceDetails />
-            </div>
-          }
-        />
-        <Route
-          path="/chat"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <ChatPage />
-            </div>
-          }
-        />
-        <Route
-          path="/scan"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <ScanFragrance />
-            </div>
-          }
-        />
-        <Route
-          path="/account"
-          element={
-            <div className="pt-16 md:pt-16">
-              <Navigation />
-              <UserProfile />
-            </div>
-          }
-        />
-        </Routes>
-      </Router>
-    </FragranceProvider>
+    <Routes>
+      {/* Auth Routes */}
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
+
+      {/* Protected Routes */}
+      <Route path="/" element={
+        <ProtectedRoute>
+          <Background>
+            <Navigation />
+            <LandingPage />
+          </Background>
+        </ProtectedRoute>
+      } />
+      <Route path="/scent-profile" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <ScentProfile />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/my-collection" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <MyCollection />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/search" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <SearchResultsPage />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/fragrance/:id" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <FragranceDetails />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/chat" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <ChatPage />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/scan" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <ScanFragrance />
+          </div>
+        </ProtectedRoute>
+      } />
+
+      {/* Clerk Auth Routes - catch-all for Clerk's auth flow */}
+      <Route path="/sign-in/*" element={<SignInPage />} />
+      <Route path="/sign-up/*" element={<SignUpPage />} />
+    </Routes>
   );
 }
 

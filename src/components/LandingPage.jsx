@@ -123,7 +123,7 @@ const LandingPage = () => {
             onChange={handleSearchChange}
             onKeyDown={handleKeyDown}
             onFocus={() => {
-              if (searchSuggestions.length > 0) {
+              if (searchTerm.length > 0 && searchSuggestions.length > 0) {
                 setShowSuggestions(true);
               }
             }}
@@ -178,7 +178,7 @@ const LandingPage = () => {
 
       {/* Discovery Grid */}
       <div className="max-w-7xl mx-auto responsive-grid gap-4 sm:gap-6 pb-20 sm:pb-24">
-        {fragranceData.map((fragrance, index) => (
+        {fragranceData.slice(0, 50).map((fragrance, index) => (
           <DiscoveryCard
             key={index}
             fragrance={fragrance}
@@ -186,6 +186,21 @@ const LandingPage = () => {
           />
         ))}
       </div>
+
+      {/* Load More Button */}
+      {fragranceData.length > 50 && (
+        <div className="max-w-7xl mx-auto text-center mb-8">
+          <button
+            onClick={() => {
+              // For now, just show a message that more fragrances are available via search
+              alert('Use the search bar above to find specific fragrances! We have thousands of fragrances in our collection.');
+            }}
+            className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            Browse All {fragranceData.length.toLocaleString()} Fragrances
+          </button>
+        </div>
+      )}
 
       <FloatingChatButton />
     </div>

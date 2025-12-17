@@ -203,6 +203,292 @@ const handleSearchFragrances = (args) => {
   };
 };
 
+export const generateScentProfileDescription = async (collectionFragrances, wishlistFragrances) => {
+
+  try {
+
+    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
+
+    if (!apiKey) {
+
+      throw new Error('API key is not set. Please check your .env file and restart the dev server.');
+
+    }
+
+    const anthropic = getAnthropicClient();
+
+
+
+    const allFragrances = [...collectionFragrances, ...wishlistFragrances];
+
+    console.log('Collection fragrances:', collectionFragrances);
+    console.log('Wishlist fragrances:', wishlistFragrances);
+    console.log('Total fragrances:', allFragrances.length);
+
+    if (allFragrances.length === 0) {
+
+      return {
+
+        personality: "You haven't added any fragrances yet. Add some to discover your scent personality!",
+
+        recommendations: ""
+
+      };
+
+    }
+
+
+
+    const fragranceData = allFragrances.map(f => ({
+
+      name: f.Name || f.name,
+
+      brand: f.Brand || f.brand,
+
+      accords: f.accords || f['Main Accords'] || [],
+
+      notes: f.notes || f['General Notes'] || []
+
+    }));
+
+
+
+    const prompt = `Analyze these fragrances from the user's collection:
+
+${JSON.stringify(fragranceData, null, 2)}
+
+
+
+Respond in this EXACT format:
+
+
+
+First, write 2-3 direct sentences about their scent preferences. Example: "You gravitate toward woody, sophisticated scents with tobacco and leather. Your taste is classic and refined, favoring fragrances with strong longevity."
+
+
+
+Then write "Recommendations:" on a new line.
+
+
+
+Then use search_fragrances to find 5 fragrances that match their style. List them as:
+
+**1. Fragrance Name by Brand**
+
+**2. Fragrance Name by Brand**
+
+(etc)
+
+
+
+Keep it simple and structured exactly like this.`;
+
+
+
+    let messages = [{ role: 'user', content: prompt }];
+
+    console.log('Making API call with prompt:', prompt);
+
+    let response = await anthropic.messages.create({
+
+      model: 'claude-haiku-4-5-20251001',
+
+      max_tokens: 2048,
+
+      tools: [searchFragrancesTool],
+
+      messages: messages
+
+    });
+
+    console.log('API response received:', response);
+
+
+
+    // Handle tool calls
+
+    while (response.stop_reason === 'tool_use') {
+
+      const toolCalls = response.content.filter(item => item.type === 'tool_use');
+
+
+
+      const toolResults = toolCalls.map(toolCall => {
+
+        if (toolCall.name === 'search_fragrances') {
+
+          try {
+
+            const results = handleSearchFragrances(toolCall.input);
+
+            return {
+
+              type: 'tool_result',
+
+              tool_use_id: toolCall.id,
+
+              content: JSON.stringify(results, null, 2)
+
+            };
+
+          } catch (error) {
+
+            return {
+
+              type: 'tool_result',
+
+              tool_use_id: toolCall.id,
+
+              content: JSON.stringify({ error: error.message })
+
+            };
+
+          }
+
+        }
+
+        return null;
+
+      }).filter(Boolean);
+
+
+
+      messages.push({ role: 'assistant', content: response.content });
+
+      messages.push({ role: 'user', content: toolResults });
+
+
+
+      response = await anthropic.messages.create({
+
+        model: 'claude-haiku-4-5-20251001',
+
+        max_tokens: 2048,
+
+        tools: [searchFragrancesTool],
+
+        messages: messages
+
+      });
+
+    }
+
+
+
+    const textContent = response.content.find(item => item.type === 'text');
+
+    const fullText = textContent ? textContent.text : '';
+
+
+
+    console.log('Full Claude response:', fullText); // Debug log
+
+
+
+    // Split personality and recommendations more reliably
+
+    // Look for "Recommendations" or numbered list pattern
+
+    let personality = '';
+
+    let recommendations = '';
+
+
+
+    // Try to find where recommendations start
+
+    const recStartPatterns = [
+
+      /(?:##?\s*)?recommendations?:?\s*$/im,
+
+      /(?:here are|based on your)/i,
+
+      /^\s*(?:\*\*)?(?:1\.|\d+\.)(?:\s|\*\*)/m
+
+    ];
+
+
+
+    let splitIndex = -1;
+
+    for (const pattern of recStartPatterns) {
+
+      const match = fullText.search(pattern);
+
+      if (match !== -1) {
+
+        splitIndex = match;
+
+        break;
+
+      }
+
+    }
+
+
+
+    if (splitIndex !== -1) {
+
+      // Split at the found index
+
+      personality = fullText.substring(0, splitIndex).trim();
+
+      recommendations = fullText.substring(splitIndex).trim();
+
+
+
+      // Clean up personality - remove any "Recommendations" header if it snuck in
+
+      personality = personality.replace(/(?:##?\s*)?recommendations?:?\s*$/im, '').trim();
+
+
+
+      // Clean up recommendations - remove standalone "Recommendations:" header
+
+      recommendations = recommendations.replace(/^(?:##?\s*)?recommendations?:?\s*/im, '').trim();
+
+    } else {
+
+      // No clear split found - treat everything as personality
+
+      personality = fullText.trim();
+
+      recommendations = '';
+
+    }
+
+
+
+    console.log('Split result:', { personality, recommendations }); // Debug log
+
+
+
+    return {
+
+      personality: personality || 'Your collection shows sophisticated taste in fragrances.',
+
+      recommendations: recommendations
+
+    };
+
+
+
+  } catch (error) {
+
+    console.error('Error generating scent profile description:', error);
+
+    return {
+
+      personality: "Your collection shows sophisticated taste in fragrances.",
+
+      recommendations: ""
+
+    };
+
+  }
+
+};
+
 export const getFragranceRecommendation = async (userInput, conversationHistory = []) => {
   try {
     // Check if API key is available

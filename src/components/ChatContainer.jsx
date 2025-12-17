@@ -10,6 +10,8 @@ const patterns = [
   // "1. Name by Brand" or bullet variants
   /^[\d\-\•\*\.]+\s*(.+?)\s+by\s+(.+?)(?:\s|$|,|\.)/i,
   /^(.+?)\s+by\s+(.+?)(?:\s|$|,|\.)/i,
+  // Brand-prefixed names like "Dior Sauvage Parfum"
+  /^(Dior|Chanel|Gucci|Versace|Yves Saint Laurent|Tom Ford|Creed|Acqua di Parma|Jo Malone|Byredo|Maison Francis Kurkdjian|Frederic Malle|Penhaligons|Floris|Aedes de Venustas|Le Labo|Diptyque|Boucheron|Hermes|Chloe|Lancome|Guerlain|Givenchy|Prada|Calvin Klein|Ralph Lauren|Dolce & Gabbana|Armani|Burberry|Marc Jacobs|Victoria's Secret|Paco Rabanne|Carolina Herrera|Elizabeth Arden|Estee Lauder|Clinique|Shiseido|La Mer|La Prairie|Valentino|Moschino|Ferragamo|Jimmy Choo|Fendi|Loro Piana|Bottega Veneta|Celine|Saint Laurent|YSL|Bulgari|Cartier|Van Cleef & Arpels|Graff|Tiffany & Co|Harry Winston|Chopard)\s+(.+?)(?:\s|$|,|\.|\(|\[)/i,
   // Markdown headings like "### **2. Name**" or "### 2. **Name**"
   /^#{2,6}\s*[\d\.\)\-\s]*\**\s*([A-Za-z0-9][^\*]+?)\**.*$/i,
   // Labeled picks: "Top pick: Name" or "Top pick - Name"
@@ -71,13 +73,12 @@ const findBestFragrance = (name, brand) => {
       }
     }
 
-    // Name scoring
-    // Require name match to be significant
+    // Name scoring - more flexible matching for fragrance names
     let nameMatch = false;
     if (nName === targetName) {
       score += 10;
       nameMatch = true;
-    } 
+    }
     else if (nName.includes(targetName)) {
       // "Phantom" matching "Paco Rabanne Phantom"
       score += 5;
@@ -92,13 +93,56 @@ const findBestFragrance = (name, brand) => {
        }
     }
 
-    // Token overlap bonus
+    // Enhanced token overlap bonus with fragrance-specific logic
     const tokens = targetName.split(' ').filter(t => t.length > 2); // ignore short words
     if (tokens.length > 0) {
       const tokenMatches = tokens.filter(t => nName.includes(t)).length;
       const matchRatio = tokenMatches / tokens.length;
       score += matchRatio * 4;
       if (matchRatio > 0.5) nameMatch = true;
+
+      // Special handling for fragrance names: if we have key brand words, boost score
+      const brandTokens = targetBrand ? targetBrand.split(' ').filter(t => t.length > 2) : [];
+      const brandTokenMatches = brandTokens.filter(t => nBrand.includes(t)).length;
+      if (brandTokenMatches > 0) {
+        score += brandTokenMatches * 3; // Extra points for brand matches
+        if (tokenMatches > 0) nameMatch = true; // Brand + some name match is good enough
+      }
+
+      // Handle common fragrance naming patterns
+      // "Dior Sauvage Parfum" should match "Sauvage Eau de Parfum for men"
+      if (targetName.includes('sauvage') && nName.includes('sauvage')) {
+        score += 15; // High bonus for Sauvage matches
+        nameMatch = true;
+
+        // Extra boost for fragrances that start with "Sauvage" (prioritize main line over variants)
+        if (nName.startsWith('sauvage')) {
+          score += 5; // Prefer "Sauvage Eau de Parfum" over "Balade Sauvage"
+        }
+      }
+
+      // Handle fragrance type variations (Parfum, Eau de Parfum, EDT, etc.)
+      const normalizeFragranceType = (str) => {
+        return str.toLowerCase()
+          .replace(/\s*eau\s+de\s+/g, ' ')
+          .replace(/\s*edt\s*/g, ' ')
+          .replace(/\s*edp\s*/g, ' ')
+          .replace(/\s*parfum\s*/g, ' ')
+          .replace(/\s*cologne\s*/g, ' ')
+          .replace(/\s*for\s+(men|women|unisex)\s*/g, ' ')
+          .trim();
+      };
+
+      const normalizedTarget = normalizeFragranceType(targetName);
+      const normalizedName = normalizeFragranceType(nName);
+
+      // If names match after normalizing fragrance types, give high score
+      if (normalizedTarget === normalizedName ||
+          normalizedName.includes(normalizedTarget) ||
+          normalizedTarget.includes(normalizedName)) {
+        score += 12;
+        nameMatch = true;
+      }
     }
 
     // CRITICAL: We need a NAME match, not just a brand match.
@@ -107,14 +151,15 @@ const findBestFragrance = (name, brand) => {
       score = 0;
     }
 
-    if (score > bestScore) {
+    // Only consider this a candidate if it has a reasonable score
+    if (score >= 4 && score > bestScore) {
       bestScore = score;
       best = f;
     }
   });
 
-  // Increased threshold to 6 to be safer
-  // This requires at least a partial name match (5) + some token overlap or brand match
+  // Increased threshold to 4 to be safer
+  // This requires at least a partial name match + some token overlap or brand match
   return bestScore >= 4 ? best : null; 
 };
 
@@ -277,14 +322,23 @@ const processMessageContent = (text) => {
     let foundFragrance = null;
 
     if (trimmed.length >= 3) {
-      for (const pattern of patterns) {
+      for (let i = 0; i < patterns.length; i++) {
+        const pattern = patterns[i];
         const match = trimmed.match(pattern);
         if (match) {
           let name = match[1].trim();
           let brand = match[2] ? match[2].trim().replace(/[.,;]$/, '') : null;
-          
+
+          // Special handling for brand-prefixed patterns (index 2)
+          if (i === 2 && match[2]) {
+            brand = match[1].trim();
+            name = match[2].trim();
+          }
+
           foundFragrance = findBestFragrance(name, brand);
-          if (foundFragrance) break;
+          if (foundFragrance) {
+            break;
+          }
         }
       }
     }
@@ -341,12 +395,8 @@ const ChatContainer = () => {
   };
 
   const handleViewDetails = (fragrance) => {
-    const index = fragranceData.findIndex(f => 
-      f.Name === fragrance.Name && f.Brand === fragrance.Brand
-    );
-    if (index !== -1) {
-      navigate(`/fragrance/${index + 1}`);
-    }
+    // Navigate back to chat page instead of fragrance details
+    navigate('/chat');
   };
 
   const handleInputChange = (value) => {
@@ -389,6 +439,7 @@ const ChatContainer = () => {
     setHasInitialized(false);
   };
 
+
   // Send initial prompt once, but suppress cards for that first assistant reply
   useEffect(() => {
     if (!hasInitialized && conversationHistory.length === 0) {
@@ -419,28 +470,28 @@ const ChatContainer = () => {
   }, [hasInitialized, conversationHistory.length]); // Dependency on context values
 
   return (
-    <div className="flex flex-col items-center justify-center h-full container-padding py-4 sm:py-8">
-      <div className="w-full max-w-3xl space-y-4 sm:space-y-8 h-full flex flex-col">
+    <div className="flex flex-col items-center justify-center h-full px-4 py-8">
+      <div className="w-full max-w-3xl space-y-8 h-full flex flex-col">
         {/* Welcome Message - only show when no conversation started */}
         {conversationHistory.length === 0 && (
-          <div className="text-center space-y-4 sm:space-y-6 animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 font-serif italic">
+          <div className="text-center space-y-6 animate-fade-in">
+            <h1 className="text-5xl md:text-6xl font-extralight tracking-tight text-gray-900 font-serif italic">
               Fragrance Finder
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-500 font-light max-w-lg mx-auto leading-relaxed px-4">
+            <p className="text-lg md:text-xl text-gray-500 font-light max-w-lg mx-auto leading-relaxed">
               A curated journey to discover your signature scent through conversation.
             </p>
           </div>
         )}
-
+        
         {/* Actions Bar */}
         {conversationHistory.length > 0 && (
-          <div className="flex justify-center pb-2 sm:pb-4">
+          <div className="flex justify-center pb-4">
             <button
               onClick={handleNewConversation}
-              className="group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-500 hover:text-gray-900 bg-white/50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-full transition-all duration-300 shadow-sm hover:shadow touch-target"
+              className="group flex items-center gap-2 px-5 py-2.5 text-sm text-gray-500 hover:text-gray-900 bg-white/50 hover:bg-white border border-gray-200 hover:border-gray-300 rounded-full transition-all duration-300 shadow-sm hover:shadow"
             >
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-400 group-hover:bg-emerald-400 transition-colors" />
+              <span className="w-2 h-2 rounded-full bg-gray-400 group-hover:bg-emerald-400 transition-colors" />
               Start New Conversation
             </button>
           </div>
@@ -449,12 +500,12 @@ const ChatContainer = () => {
         {/* Main Chat Interface */}
         <div className="relative group flex-1 h-full flex flex-col">
           {/* Decorative backdrop blur */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-2xl sm:rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
-
-          <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-1 flex-1 flex flex-col overflow-hidden">
-            <div className="bg-white/50 rounded-[1.2rem] sm:rounded-[1.4rem] p-4 sm:p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
+          <div className="absolute -inset-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
+          
+          <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-1 flex-1 flex flex-col overflow-hidden">
+            <div className="bg-white/50 rounded-[1.4rem] p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
               {/* Scrollable Content Area */}
-              <div className="flex-1 overflow-y-auto mb-4 sm:mb-6 pr-1 sm:pr-2 space-y-4 sm:space-y-6">
+              <div className="flex-1 overflow-y-auto mb-6 pr-2 space-y-6">
                 {conversationHistory.map((msg, idx) => {
                   let messageContent = null;
                   
@@ -467,7 +518,7 @@ const ChatContainer = () => {
                       <div className="space-y-6">
                         {sections.map((section, sIdx) => (
                           <div key={sIdx}>
-                            <p className="whitespace-pre-wrap leading-relaxed font-light text-base sm:text-lg text-gray-800">
+                            <p className="whitespace-pre-wrap leading-relaxed font-light text-lg text-gray-800">
                               {section.lines.join('\n')}
                             </p>
                             {/* Render card if this section has a fragrance match */}
@@ -485,7 +536,7 @@ const ChatContainer = () => {
                   } else {
                     // User message
                     messageContent = (
-                      <p className="whitespace-pre-wrap leading-relaxed font-light text-base sm:text-lg text-gray-800">
+                      <p className="whitespace-pre-wrap leading-relaxed font-light text-lg text-gray-800">
                         {msg.content}
                       </p>
                     );
@@ -498,7 +549,7 @@ const ChatContainer = () => {
                           F
                         </div>
                       )}
-                      <div className={`max-w-[85%] sm:max-w-[80%] space-y-2 ${msg.role === 'user' ? 'bg-gray-100 rounded-xl sm:rounded-2xl rounded-tr-sm p-3 sm:p-4' : ''}`}>
+                      <div className={`max-w-[80%] space-y-2 ${msg.role === 'user' ? 'bg-gray-100 rounded-2xl rounded-tr-sm p-4' : ''}`}>
                         {messageContent}
                       </div>
                       {msg.role === 'user' && (
@@ -512,23 +563,23 @@ const ChatContainer = () => {
 
                 {/* Loading State - inside scroll area */}
                 {isLoading && (
-                  <div className="flex justify-start py-3 sm:py-4">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="flex gap-1 sm:gap-1.5">
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce" />
+                  <div className="flex justify-start py-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex gap-1.5">
+                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                        <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce" />
                       </div>
                       <p className="text-xs text-gray-400 uppercase tracking-widest font-medium">Thinking</p>
                     </div>
                   </div>
                 )}
-
+                
                 {/* Error State */}
                 {error && (
-                  <div className="bg-red-50/50 border border-red-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-400" />
-                    <p className="text-red-600 text-xs sm:text-sm">{error}</p>
+                  <div className="bg-red-50/50 border border-red-100 rounded-xl p-4 flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <p className="text-red-600 text-sm">{error}</p>
                   </div>
                 )}
               </div>
@@ -549,5 +600,8 @@ const ChatContainer = () => {
     </div>
   );
 };
+
+// Export utility functions for use in other components
+export { processMessageContent, RecommendationCard };
 
 export default ChatContainer;
