@@ -719,95 +719,6 @@
         ]
     },
     {
-        "Name": "V'E for women",
-        "Brand": "Versace",
-        "Year": "1989",
-        "rating": "4",
-        "Country": "Italy",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/ve-versace-for-women.jpg",
-        "Gender": "women",
-        "Price": "89",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Strong",
-        "General Notes": [
-            "Aldehydes",
-            "Green Notes",
-            "African Orange Flower",
-            "Bergamot",
-            "Amalfi Lemon",
-            "Narcissus",
-            "Rose",
-            "Ylang-Ylang",
-            "Cyclamen",
-            "Jasmine",
-            "Orris Root",
-            "Lily-of-the-Valley",
-            "oak moss",
-            "Sandalwood",
-            "Heliotrope",
-            "Virginia Cedar",
-            "Amber",
-            "Musk"
-        ],
-        "Main Accords": [
-            "woody",
-            "yellow floral",
-            "powdery",
-            "white floral",
-            "green",
-            "floral",
-            "fresh",
-            "citrus",
-            "mossy",
-            "rose"
-        ],
-        "Main Accords Percentage": {
-            "woody": "Dominant",
-            "yellow floral": "Dominant",
-            "powdery": "Dominant",
-            "white floral": "Dominant",
-            "green": "Prominent",
-            "floral": "Prominent",
-            "fresh": "Prominent",
-            "citrus": "Prominent",
-            "mossy": "Moderate",
-            "rose": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.649
-            },
-            {
-                "name": "summer",
-                "score": 1.788
-            },
-            {
-                "name": "fall",
-                "score": 0.9
-            },
-            {
-                "name": "winter",
-                "score": 0.7
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.42
-            },
-            {
-                "name": "casual",
-                "score": 1.794
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
         "Name": "Dior Homme Cologne for men",
         "Brand": "Dior",
         "Year": "2007",
@@ -1040,80 +951,6 @@
             {
                 "name": "casual",
                 "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Dior Me, Dior Me Not for women",
-        "Brand": "Dior",
-        "Year": "2004",
-        "rating": "4",
-        "Country": "France",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/dior-me,-dior-me-not-dior-for-women.jpg",
-        "Gender": "women",
-        "Price": "49",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Strong",
-        "General Notes": [
-            "Water Notes",
-            "Sweet Pea",
-            "Peony",
-            "Freesia",
-            "Violet",
-            "Cherry",
-            "Musk"
-        ],
-        "Main Accords": [
-            "floral",
-            "fresh",
-            "aquatic",
-            "sweet",
-            "powdery",
-            "cherry",
-            "violet",
-            "musky"
-        ],
-        "Main Accords Percentage": {
-            "floral": "Dominant",
-            "fresh": "Prominent",
-            "aquatic": "Moderate",
-            "sweet": "Moderate",
-            "powdery": "Moderate",
-            "cherry": "Moderate",
-            "violet": "Moderate",
-            "musky": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 1.7
-            },
-            {
-                "name": "summer",
-                "score": 1.258
-            },
-            {
-                "name": "fall",
-                "score": 0.414
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.22
-            },
-            {
-                "name": "night out",
-                "score": 0.414
-            },
-            {
-                "name": "professional",
-                "score": 0.294
             }
         ]
     },
@@ -1856,87 +1693,6 @@
             {
                 "name": "casual",
                 "score": 0.504
-            }
-        ]
-    },
-    {
-        "Name": "Paco Rabanne Variety",
-        "Brand": "Paco Rabanne",
-        "Year": "",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/paco-rabanne-variety.jpg",
-        "Gender": "women",
-        "Price": "90.99",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Amalfi Lemon",
-            "Pine",
-            "Mandarin Orange",
-            "Coriander",
-            "Tea",
-            "Lavender",
-            "Jasmine",
-            "Cyclamen",
-            "Musk",
-            "Sandalwood",
-            "Virginia Cedar",
-            "Tonka Bean"
-        ],
-        "Main Accords": [
-            "citrus",
-            "aromatic",
-            "woody",
-            "green",
-            "gourmand",
-            "fresh",
-            "lavender",
-            "powdery",
-            "conifer"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "aromatic": "Dominant",
-            "woody": "Dominant",
-            "green": "Moderate",
-            "gourmand": "Moderate",
-            "fresh": "Moderate",
-            "lavender": "Moderate",
-            "powdery": "Moderate",
-            "conifer": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.529
-            },
-            {
-                "name": "summer",
-                "score": 1.9
-            },
-            {
-                "name": "fall",
-                "score": 0.747
-            },
-            {
-                "name": "winter",
-                "score": 0.581
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 3.067
-            },
-            {
-                "name": "casual",
-                "score": 1.44
-            },
-            {
-                "name": "night out",
-                "score": 0
             }
         ]
     },
@@ -6105,1118 +5861,6 @@
         ]
     },
     {
-        "Name": "Perspective Man for men",
-        "Brand": "Mexx",
-        "Year": "2001",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/perspective-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Long Lasting",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Birch",
-            "Bergamot",
-            "Tangerine",
-            "Grapefruit",
-            "Red Apple",
-            "French labdanum",
-            "Pineapple",
-            "Mint",
-            "Pepper",
-            "Water Lily",
-            "Clary Sage",
-            "Sandalwood",
-            "Virginia Cedar",
-            "Amber",
-            "Tonka Bean",
-            "Musk",
-            "Vetyver",
-            "oak moss",
-            "Teak Wood",
-            "Angelica"
-        ],
-        "Main Accords": [
-            "woody",
-            "citrus",
-            "aromatic",
-            "amber",
-            "fresh spicy",
-            "leather",
-            "powdery",
-            "smoky",
-            "gourmand",
-            "sweet",
-            "musky"
-        ],
-        "Main Accords Percentage": {
-            "woody": "Dominant",
-            "citrus": "Dominant",
-            "aromatic": "Prominent",
-            "amber": "Prominent",
-            "fresh spicy": "Prominent",
-            "leather": "Prominent",
-            "powdery": "Moderate",
-            "smoky": "Moderate",
-            "gourmand": "Moderate",
-            "sweet": "Moderate",
-            "musky": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 2.141
-            },
-            {
-                "name": "spring",
-                "score": 1.421
-            },
-            {
-                "name": "winter",
-                "score": 1.268
-            },
-            {
-                "name": "summer",
-                "score": 0.98
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.62
-            },
-            {
-                "name": "night out",
-                "score": 1.96
-            },
-            {
-                "name": "casual",
-                "score": 1.236
-            }
-        ]
-    },
-    {
-        "Name": "Energizing Man for men",
-        "Brand": "Mexx",
-        "Year": "2013",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/energizing-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Soft",
-        "General Notes": [
-            "Orange",
-            "Watery Notes",
-            "Grapefruit",
-            "Artemisia",
-            "Nutmeg",
-            "Cedar",
-            "Patchouli",
-            "Musk",
-            "Amber"
-        ],
-        "Main Accords": [
-            "citrus",
-            "fresh spicy",
-            "aquatic",
-            "woody",
-            "herbal",
-            "aromatic",
-            "patchouli",
-            "fresh",
-            "musky",
-            "powdery"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "fresh spicy": "Prominent",
-            "aquatic": "Prominent",
-            "woody": "Moderate",
-            "herbal": "Moderate",
-            "aromatic": "Moderate",
-            "patchouli": "Moderate",
-            "fresh": "Moderate",
-            "musky": "Moderate",
-            "powdery": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "summer",
-                "score": 2.055
-            },
-            {
-                "name": "spring",
-                "score": 1.734
-            },
-            {
-                "name": "fall",
-                "score": 1.27
-            },
-            {
-                "name": "winter",
-                "score": 0.798
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.99
-            },
-            {
-                "name": "casual",
-                "score": 1.89
-            },
-            {
-                "name": "night out",
-                "score": 0.405
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Man for men",
-        "Brand": "Mexx",
-        "Year": "2000",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "9.8",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Lavender",
-            "Mandarin Orange",
-            "Pineapple",
-            "Basil",
-            "Fir",
-            "Fern",
-            "Geranium",
-            "Jasmine",
-            "Sandalwood",
-            "Cedar",
-            "Birch",
-            "Oakmoss"
-        ],
-        "Main Accords": [
-            "aromatic",
-            "woody",
-            "fresh spicy",
-            "lavender",
-            "citrus",
-            "sweet",
-            "fresh",
-            "fruity",
-            "herbal",
-            "powdery"
-        ],
-        "Main Accords Percentage": {
-            "aromatic": "Dominant",
-            "woody": "Dominant",
-            "fresh spicy": "Dominant",
-            "lavender": "Prominent",
-            "citrus": "Moderate",
-            "sweet": "Moderate",
-            "fresh": "Moderate",
-            "fruity": "Moderate",
-            "herbal": "Moderate",
-            "powdery": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 1.721
-            },
-            {
-                "name": "summer",
-                "score": 1.08
-            },
-            {
-                "name": "fall",
-                "score": 0.891
-            },
-            {
-                "name": "winter",
-                "score": 0.693
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.435
-            },
-            {
-                "name": "casual",
-                "score": 1.327
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Sapphire Man for men",
-        "Brand": "Shirley May",
-        "Year": "",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/sapphire-man-shirley-may-for-men.jpg",
-        "Gender": "men",
-        "Price": "25",
-        "OilType": "Eau de Toilette",
-        "Longevity": "Weak",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Mint",
-            "Green Notes",
-            "Lavender",
-            "Coriander",
-            "Rosemary",
-            "Geranium",
-            "Neroli",
-            "Jasmine",
-            "Sandalwood",
-            "Cedar",
-            "Musk",
-            "Amber",
-            "Tobacco"
-        ],
-        "Main Accords": [
-            "aromatic",
-            "green",
-            "fresh spicy",
-            "woody",
-            "white floral",
-            "powdery"
-        ],
-        "Main Accords Percentage": {
-            "aromatic": "Dominant",
-            "green": "Dominant",
-            "fresh spicy": "Prominent",
-            "woody": "Moderate",
-            "white floral": "Moderate",
-            "powdery": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 1.476
-            },
-            {
-                "name": "summer",
-                "score": 0.582
-            },
-            {
-                "name": "fall",
-                "score": 0.558
-            },
-            {
-                "name": "winter",
-                "score": 0.434
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.589
-            },
-            {
-                "name": "night out",
-                "score": 0
-            },
-            {
-                "name": "casual",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Waterlove Man for men",
-        "Brand": "Mexx",
-        "Year": "2004",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-waterlove-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Pineapple",
-            "Melon",
-            "Lime",
-            "Bergamot",
-            "Apple",
-            "Violet",
-            "Lily-of-the-Valley",
-            "Jasmine",
-            "Peach",
-            "Precious Woods",
-            "Amber",
-            "Vanilla"
-        ],
-        "Main Accords": [
-            "white floral",
-            "citrus",
-            "fruity",
-            "fresh",
-            "sweet",
-            "violet",
-            "powdery",
-            "woody",
-            "floral",
-            "ozonic"
-        ],
-        "Main Accords Percentage": {
-            "white floral": "Dominant",
-            "citrus": "Dominant",
-            "fruity": "Dominant",
-            "fresh": "Dominant",
-            "sweet": "Dominant",
-            "violet": "Prominent",
-            "powdery": "Prominent",
-            "woody": "Moderate",
-            "floral": "Moderate",
-            "ozonic": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.298
-            },
-            {
-                "name": "summer",
-                "score": 2.274
-            },
-            {
-                "name": "fall",
-                "score": 0.576
-            },
-            {
-                "name": "winter",
-                "score": 0.448
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.64
-            },
-            {
-                "name": "professional",
-                "score": 1.58
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Fly High Man for men",
-        "Brand": "Mexx",
-        "Year": "2007",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/fly-high-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "Eau de Toilette",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Tangerine",
-            "Black Currant",
-            "Basil",
-            "Saffron",
-            "Geranium",
-            "Woodsy Notes",
-            "Heliotrope"
-        ],
-        "Main Accords": [
-            "fresh spicy",
-            "fruity",
-            "aromatic",
-            "citrus",
-            "woody",
-            "green",
-            "warm spicy",
-            "herbal",
-            "powdery",
-            "floral"
-        ],
-        "Main Accords Percentage": {
-            "fresh spicy": "Dominant",
-            "fruity": "Dominant",
-            "aromatic": "Dominant",
-            "citrus": "Dominant",
-            "woody": "Prominent",
-            "green": "Prominent",
-            "warm spicy": "Moderate",
-            "herbal": "Moderate",
-            "powdery": "Moderate",
-            "floral": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.433
-            },
-            {
-                "name": "summer",
-                "score": 1.25
-            },
-            {
-                "name": "fall",
-                "score": 1.17
-            },
-            {
-                "name": "winter",
-                "score": 1.148
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 3.01
-            },
-            {
-                "name": "casual",
-                "score": 1.104
-            },
-            {
-                "name": "night out",
-                "score": 0.504
-            }
-        ]
-    },
-    {
-        "Name": "MEXX Fresh Man for men",
-        "Brand": "Mexx",
-        "Year": "2011",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-fresh-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "499",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Passionfruit",
-            "Nutmeg",
-            "Coriander",
-            "Amber"
-        ],
-        "Main Accords": [
-            "tropical",
-            "fruity",
-            "amber",
-            "sweet",
-            "fresh spicy",
-            "fresh",
-            "aromatic",
-            "soft spicy"
-        ],
-        "Main Accords Percentage": {
-            "tropical": "Dominant",
-            "fruity": "Dominant",
-            "amber": "Dominant",
-            "sweet": "Dominant",
-            "fresh spicy": "Prominent",
-            "fresh": "Prominent",
-            "aromatic": "Moderate",
-            "soft spicy": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "summer",
-                "score": 1.5
-            },
-            {
-                "name": "spring",
-                "score": 1.134
-            },
-            {
-                "name": "fall",
-                "score": 0.89
-            },
-            {
-                "name": "winter",
-                "score": 0.712
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 1.192
-            },
-            {
-                "name": "night out",
-                "score": 0.89
-            },
-            {
-                "name": "professional",
-                "score": 0.62
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Man Summer Edition for men",
-        "Brand": "Mexx",
-        "Year": "2011",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-man-summer-edition-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "Eau de Toilette",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Amalfi Lemon",
-            "Tropical Fruit",
-            "Grapefruit",
-            "Red Apple",
-            "Cinnamon",
-            "Star Anise",
-            "Patchouli",
-            "oak moss",
-            "Virginia Cedar"
-        ],
-        "Main Accords": [
-            "woody",
-            "citrus",
-            "earthy",
-            "fruity",
-            "patchouli",
-            "mossy",
-            "warm spicy",
-            "tropical",
-            "fresh",
-            "aromatic"
-        ],
-        "Main Accords Percentage": {
-            "woody": "Dominant",
-            "citrus": "Dominant",
-            "earthy": "Prominent",
-            "fruity": "Prominent",
-            "patchouli": "Prominent",
-            "mossy": "Prominent",
-            "warm spicy": "Moderate",
-            "tropical": "Moderate",
-            "fresh": "Moderate",
-            "aromatic": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 2.509
-            },
-            {
-                "name": "summer",
-                "score": 1.964
-            },
-            {
-                "name": "winter",
-                "score": 1.908
-            },
-            {
-                "name": "spring",
-                "score": 1.715
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.894
-            },
-            {
-                "name": "casual",
-                "score": 1.372
-            },
-            {
-                "name": "night out",
-                "score": 0.512
-            }
-        ]
-    },
-    {
-        "Name": "Mexx First Sunshine Man for men",
-        "Brand": "Mexx",
-        "Year": "2010",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-first-sunshine-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "89",
-        "OilType": "",
-        "Longevity": "Weak",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Granny Smith apple",
-            "Cinnamon",
-            "Sandalwood"
-        ],
-        "Main Accords": [
-            "fruity",
-            "fresh",
-            "woody",
-            "green",
-            "warm spicy",
-            "powdery",
-            "cinnamon"
-        ],
-        "Main Accords Percentage": {
-            "fruity": "Dominant",
-            "fresh": "Prominent",
-            "woody": "Prominent",
-            "green": "Prominent",
-            "warm spicy": "Moderate",
-            "powdery": "Moderate",
-            "cinnamon": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 1.26
-            },
-            {
-                "name": "fall",
-                "score": 1.138
-            },
-            {
-                "name": "summer",
-                "score": 1.13
-            },
-            {
-                "name": "winter",
-                "score": 1.108
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.415
-            },
-            {
-                "name": "casual",
-                "score": 0.74
-            },
-            {
-                "name": "night out",
-                "score": 0.472
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Ice Touch Man for men",
-        "Brand": "Mexx",
-        "Year": "2005",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-ice-touch-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "Eau de Toilette",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Green Apple",
-            "Pink Grapefruit",
-            "Mandarin Orange",
-            "Birch Leaf",
-            "Cedar Needles",
-            "Rose",
-            "Jasmine",
-            "Cedar",
-            "Amber",
-            "Tonka Bean",
-            "Patchouli",
-            "Musk",
-            "Sandalwood"
-        ],
-        "Main Accords": [
-            "citrus",
-            "woody",
-            "fruity",
-            "amber",
-            "gourmand",
-            "leather",
-            "rose",
-            "powdery",
-            "smoky",
-            "fresh",
-            "warm spicy"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "woody": "Dominant",
-            "fruity": "Prominent",
-            "amber": "Prominent",
-            "gourmand": "Moderate",
-            "leather": "Moderate",
-            "rose": "Moderate",
-            "powdery": "Moderate",
-            "smoky": "Moderate",
-            "fresh": "Moderate",
-            "warm spicy": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 1.915
-            },
-            {
-                "name": "winter",
-                "score": 1.689
-            },
-            {
-                "name": "summer",
-                "score": 1.5
-            },
-            {
-                "name": "spring",
-                "score": 1.4
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.809
-            },
-            {
-                "name": "night out",
-                "score": 1.639
-            },
-            {
-                "name": "casual",
-                "score": 1.4
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Man Festival Summer for men",
-        "Brand": "Mexx",
-        "Year": "2018",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-man-festival-summer-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Soft",
-        "General Notes": [
-            "Cardamom",
-            "Pepper",
-            "Apple",
-            "Cedar",
-            "Amber",
-            "Patchouli"
-        ],
-        "Main Accords": [
-            "fruity",
-            "amber",
-            "warm spicy",
-            "fresh",
-            "woody",
-            "green",
-            "aromatic",
-            "patchouli"
-        ],
-        "Main Accords Percentage": {
-            "fruity": "Dominant",
-            "amber": "Dominant",
-            "warm spicy": "Prominent",
-            "fresh": "Prominent",
-            "woody": "Prominent",
-            "green": "Prominent",
-            "aromatic": "Moderate",
-            "patchouli": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 2.387
-            },
-            {
-                "name": "winter",
-                "score": 2.292
-            },
-            {
-                "name": "spring",
-                "score": 1.617
-            },
-            {
-                "name": "summer",
-                "score": 1.13
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.571
-            },
-            {
-                "name": "night out",
-                "score": 1.418
-            },
-            {
-                "name": "casual",
-                "score": 0.74
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Cocktail Summer Man for men",
-        "Brand": "Mexx",
-        "Year": "2017",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-cocktail-summer-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Green Apple",
-            "Pineapple",
-            "Grapefruit",
-            "Watermelon",
-            "Geranium",
-            "Sea Notes",
-            "Palisander Rosewood",
-            "oak moss"
-        ],
-        "Main Accords": [
-            "aquatic",
-            "fruity",
-            "marine",
-            "aromatic",
-            "ozonic",
-            "sweet",
-            "fresh",
-            "salty",
-            "fresh spicy",
-            "tropical"
-        ],
-        "Main Accords Percentage": {
-            "aquatic": "Dominant",
-            "fruity": "Dominant",
-            "marine": "Dominant",
-            "aromatic": "Dominant",
-            "ozonic": "Dominant",
-            "sweet": "Moderate",
-            "fresh": "Moderate",
-            "salty": "Moderate",
-            "fresh spicy": "Moderate",
-            "tropical": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "summer",
-                "score": 2.494
-            },
-            {
-                "name": "spring",
-                "score": 1.137
-            },
-            {
-                "name": "fall",
-                "score": 0
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 1.73
-            },
-            {
-                "name": "professional",
-                "score": 0.81
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Spring Edition Man for men",
-        "Brand": "Mexx",
-        "Year": "2012",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-spring-edition-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "65.98",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Green Apple",
-            "Grapefruit",
-            "Pineapple",
-            "Watermelon",
-            "Geranium",
-            "Seaweed",
-            "Palisander Rosewood",
-            "Musk"
-        ],
-        "Main Accords": [
-            "fruity",
-            "citrus",
-            "fresh spicy",
-            "aquatic",
-            "aromatic",
-            "fresh",
-            "sweet",
-            "ozonic",
-            "musky",
-            "marine"
-        ],
-        "Main Accords Percentage": {
-            "fruity": "Dominant",
-            "citrus": "Dominant",
-            "fresh spicy": "Prominent",
-            "aquatic": "Prominent",
-            "aromatic": "Prominent",
-            "fresh": "Moderate",
-            "sweet": "Moderate",
-            "ozonic": "Moderate",
-            "musky": "Moderate",
-            "marine": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "summer",
-                "score": 2.601
-            },
-            {
-                "name": "spring",
-                "score": 1.875
-            },
-            {
-                "name": "fall",
-                "score": 0.504
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.36
-            },
-            {
-                "name": "professional",
-                "score": 1.366
-            },
-            {
-                "name": "night out",
-                "score": 0.504
-            }
-        ]
-    },
-    {
-        "Name": "Mexx Pure Life Man for men",
-        "Brand": "Mexx",
-        "Year": "2003",
-        "rating": "4",
-        "Country": "Netherlands",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/mexx-pure-life-man-mexx-for-men.jpg",
-        "Gender": "men",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Grapefruit",
-            "Ginger",
-            "Cassia",
-            "Coriander",
-            "Rosemary",
-            "Jasmine",
-            "Freesia",
-            "Oakmoss",
-            "Cedar",
-            "Sandalwood",
-            "Labdanum",
-            "Amber"
-        ],
-        "Main Accords": [
-            "citrus",
-            "fresh spicy",
-            "aromatic",
-            "woody",
-            "white floral",
-            "fresh",
-            "mossy",
-            "earthy",
-            "floral",
-            "soft spicy"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "fresh spicy": "Dominant",
-            "aromatic": "Dominant",
-            "woody": "Dominant",
-            "white floral": "Moderate",
-            "fresh": "Moderate",
-            "mossy": "Moderate",
-            "earthy": "Moderate",
-            "floral": "Moderate",
-            "soft spicy": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.595
-            },
-            {
-                "name": "summer",
-                "score": 1.55
-            },
-            {
-                "name": "fall",
-                "score": 1.218
-            },
-            {
-                "name": "winter",
-                "score": 0.63
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.38
-            },
-            {
-                "name": "casual",
-                "score": 1.786
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
         "Name": "Armani for women",
         "Brand": "Giorgio Armani",
         "Year": "1981",
@@ -10506,97 +9150,6 @@
         ]
     },
     {
-        "Name": "Carolina Herrera Variety",
-        "Brand": "Carolina Herrera",
-        "Year": "1988",
-        "rating": "4",
-        "Country": "USA",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/carolina-herrera-variety.jpg",
-        "Gender": "women",
-        "Price": "57.99",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Long Lasting",
-        "Sillage": "Strong",
-        "General Notes": [
-            "Apricot",
-            "Orange Blossom",
-            "Green Notes",
-            "Brazilian Rosewood",
-            "Bergamot",
-            "Indian Tuberose",
-            "Jasmine",
-            "Spanish Jasmine",
-            "Ylang-Ylang",
-            "Honeysuckle",
-            "Narcissus",
-            "Hiacynth",
-            "Lily-of-the-Valley",
-            "Civet",
-            "Musk",
-            "Oakmoss",
-            "Amber",
-            "Sandalwood",
-            "Vetiver",
-            "Cedar"
-        ],
-        "Main Accords": [
-            "white floral",
-            "tuberose",
-            "gourmand",
-            "green",
-            "animalic",
-            "woody",
-            "yellow floral",
-            "musky",
-            "powdery",
-            "floral"
-        ],
-        "Main Accords Percentage": {
-            "white floral": "Dominant",
-            "tuberose": "Moderate",
-            "gourmand": "Moderate",
-            "green": "Moderate",
-            "animalic": "Moderate",
-            "woody": "Moderate",
-            "yellow floral": "Moderate",
-            "musky": "Moderate",
-            "powdery": "Moderate",
-            "floral": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 0.927
-            },
-            {
-                "name": "spring",
-                "score": 0.904
-            },
-            {
-                "name": "winter",
-                "score": 0.378
-            },
-            {
-                "name": "summer",
-                "score": 0.348
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.182
-            },
-            {
-                "name": "night out",
-                "score": 0.441
-            },
-            {
-                "name": "casual",
-                "score": 0.308
-            }
-        ]
-    },
-    {
         "Name": "Carolina for women",
         "Brand": "Carolina Herrera",
         "Year": "2003",
@@ -13412,7 +11965,7 @@
         "Longevity": "Moderate",
         "Sillage": "Moderate",
         "General Notes": [
-            "Fougère Floral",
+            "Foug\u00e8re Floral",
             "Black Pepper",
             "Clary Sage",
             "Juniper Berries",
@@ -14537,7 +13090,7 @@
             "chinese jasmine",
             "rose",
             "sand",
-            "acácia"
+            "ac\u00e1cia"
         ],
         "Main Accords": [
             "floral",
@@ -14844,7 +13397,7 @@
             "chinese jasmine",
             "rose",
             "sand",
-            "acácia"
+            "ac\u00e1cia"
         ],
         "Main Accords": [
             "floral",
@@ -15157,7 +13710,7 @@
             "chinese jasmine",
             "rose",
             "sand",
-            "acácia"
+            "ac\u00e1cia"
         ],
         "Main Accords": [
             "floral",
@@ -15383,7 +13936,7 @@
             "cilantro",
             "rose",
             "sand",
-            "acácia",
+            "ac\u00e1cia",
             "dates",
             "fig",
             "peach",
@@ -19483,79 +18036,6 @@
         ]
     },
     {
-        "Name": "Prada Intense",
-        "Brand": "Prada",
-        "Year": "2017",
-        "rating": "4",
-        "Country": "Italy",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-intense.jpg",
-        "Gender": "men",
-        "Price": "15.59",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Patchouli",
-            "Labdanum",
-            "Amber",
-            "Musk",
-            "Saffron"
-        ],
-        "Main Accords": [
-            "iris",
-            "powdery",
-            "amber",
-            "woody",
-            "earthy",
-            "leather",
-            "violet",
-            "vanilla",
-            "warm spicy",
-            "patchouli"
-        ],
-        "Main Accords Percentage": {
-            "amber": "Subtle",
-            "warm spicy": "Subtle",
-            "woody": "Subtle",
-            "powdery": "Subtle",
-            "patchouli": "Subtle",
-            "iris": "Subtle",
-            "cherry": "Subtle"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 0.105
-            },
-            {
-                "name": "winter",
-                "score": 0.099
-            },
-            {
-                "name": "spring",
-                "score": 0
-            },
-            {
-                "name": "summer",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "night out",
-                "score": 0.064
-            },
-            {
-                "name": "professional",
-                "score": 0.033
-            },
-            {
-                "name": "casual",
-                "score": 0
-            }
-        ]
-    },
-    {
         "Name": "Emporio Armani Stronger With You",
         "Brand": "Giorgio Armani",
         "Year": "2017",
@@ -20326,745 +18806,6 @@
             {
                 "name": "casual",
                 "score": 0.6
-            }
-        ]
-    },
-    {
-        "Name": "Yue Tu unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2023",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/yue-tu-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "bergamot",
-            "bitter orange",
-            "lemon",
-            "mandarin orange",
-            "orange",
-            "citruses",
-            "hyacinth",
-            "jasmine sambac",
-            "muguet",
-            "rose",
-            "amber",
-            "jasmine",
-            "musk",
-            "woodsy notes",
-            "woody notes"
-        ],
-        "Main Accords": [
-            "citrus",
-            "green",
-            "fresh",
-            "sweet",
-            "fruity",
-            "fresh spicy",
-            "floral",
-            "tropical",
-            "musky",
-            "herbal"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "green": "Prominent",
-            "fresh": "Prominent",
-            "sweet": "Moderate",
-            "fruity": "Moderate",
-            "fresh spicy": "Moderate",
-            "floral": "Moderate",
-            "tropical": "Moderate",
-            "musky": "Moderate",
-            "herbal": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.57
-            },
-            {
-                "name": "summer",
-                "score": 2.408
-            },
-            {
-                "name": "fall",
-                "score": 0.414
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.218
-            },
-            {
-                "name": "professional",
-                "score": 1.385
-            },
-            {
-                "name": "night out",
-                "score": 0.414
-            }
-        ]
-    },
-    {
-        "Name": "Yuzu Soda unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2021",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/yuzu-soda-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Long Lasting",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "aldehydes",
-            "bergamot",
-            "grapefruit",
-            "mandarin orange",
-            "mint",
-            "apple",
-            "caraway",
-            "muguet",
-            "pineapple",
-            "rose",
-            "ambroxan",
-            "moss",
-            "musk",
-            "tonka bean",
-            "white musk"
-        ],
-        "Main Accords": [
-            "citrus",
-            "green",
-            "fresh spicy",
-            "aldehydic",
-            "aromatic",
-            "fresh",
-            "gourmand",
-            "sweet",
-            "camphor",
-            "musky",
-            "fruity"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "green": "Dominant",
-            "fresh spicy": "Dominant",
-            "aldehydic": "Prominent",
-            "aromatic": "Prominent",
-            "fresh": "Prominent",
-            "gourmand": "Moderate",
-            "sweet": "Moderate",
-            "camphor": "Moderate",
-            "musky": "Moderate",
-            "fruity": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.796
-            },
-            {
-                "name": "summer",
-                "score": 2.18
-            },
-            {
-                "name": "fall",
-                "score": 0.432
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.345
-            },
-            {
-                "name": "casual",
-                "score": 1.912
-            },
-            {
-                "name": "night out",
-                "score": 0.432
-            }
-        ]
-    },
-    {
-        "Name": "Sergio Tacchini With You",
-        "Brand": "Sergio Tacchini",
-        "Year": "2012",
-        "rating": "3",
-        "Country": "Italy",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/sergio-tacchini-with-you.jpg",
-        "Gender": "women",
-        "Price": "34.99",
-        "OilType": "Eau de Toilette",
-        "Longevity": "Moderate",
-        "Sillage": "Strong",
-        "General Notes": [
-            "Pink Grapefruit",
-            "Petitgrain",
-            "Mandarin Orange",
-            "Syringa",
-            "Rose",
-            "Freesia",
-            "Cedar",
-            "Musk",
-            "White Amber"
-        ],
-        "Main Accords": [
-            "citrus",
-            "white floral",
-            "woody",
-            "rose",
-            "floral",
-            "musky",
-            "green",
-            "sweet",
-            "aromatic",
-            "powdery"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "white floral": "Prominent",
-            "woody": "Prominent",
-            "rose": "Moderate",
-            "floral": "Moderate",
-            "musky": "Moderate",
-            "green": "Moderate",
-            "sweet": "Moderate",
-            "aromatic": "Moderate",
-            "powdery": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.21
-            },
-            {
-                "name": "summer",
-                "score": 1.3
-            },
-            {
-                "name": "fall",
-                "score": 1.044
-            },
-            {
-                "name": "winter",
-                "score": 0.455
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.499
-            },
-            {
-                "name": "casual",
-                "score": 1.592
-            },
-            {
-                "name": "night out",
-                "score": 0.459
-            }
-        ]
-    },
-    {
-        "Name": "Autumn Tea And Yuzu Vanilla unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2021",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/autumn-tea-and-yuzu-vanilla-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Soft",
-        "General Notes": [
-            "basil",
-            "bergamot",
-            "green notes",
-            "mint",
-            "orange",
-            "amber",
-            "cedar",
-            "jasmine",
-            "muguet",
-            "saffron",
-            "musk"
-        ],
-        "Main Accords": [
-            "green",
-            "fresh spicy",
-            "vanilla",
-            "citrus",
-            "musky",
-            "powdery",
-            "fresh",
-            "amber",
-            "aromatic",
-            "sweet"
-        ],
-        "Main Accords Percentage": {
-            "green": "Dominant",
-            "fresh spicy": "Dominant",
-            "vanilla": "Dominant",
-            "citrus": "Prominent",
-            "musky": "Prominent",
-            "powdery": "Prominent",
-            "fresh": "Prominent",
-            "amber": "Prominent",
-            "aromatic": "Moderate",
-            "sweet": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.638
-            },
-            {
-                "name": "summer",
-                "score": 2.09
-            },
-            {
-                "name": "fall",
-                "score": 1.374
-            },
-            {
-                "name": "winter",
-                "score": 1.326
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.562
-            },
-            {
-                "name": "night out",
-                "score": 1.976
-            },
-            {
-                "name": "casual",
-                "score": 1.771
-            }
-        ]
-    },
-    {
-        "Name": "The Rose With The Broken Neck unisex",
-        "Brand": "Strange Invisible Perfumes",
-        "Year": "2013",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/the-rose-with-the-broken-neck-strange-invisible-perfumes-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "",
-        "Longevity": "Long Lasting",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "bergamot",
-            "carnation",
-            "geranium",
-            "rose",
-            "vetiver",
-            "cedar",
-            "cypress",
-            "vanilla",
-            "yuzu",
-            "oakmoss",
-            "patchouli",
-            "sandalwood"
-        ],
-        "Main Accords": [
-            "woody",
-            "rose",
-            "fresh spicy",
-            "floral",
-            "vanilla",
-            "aromatic",
-            "earthy"
-        ],
-        "Main Accords Percentage": {
-            "woody": "Dominant",
-            "rose": "Prominent",
-            "fresh spicy": "Moderate",
-            "floral": "Moderate",
-            "vanilla": "Moderate",
-            "aromatic": "Moderate",
-            "earthy": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 1.26
-            },
-            {
-                "name": "winter",
-                "score": 1.132
-            },
-            {
-                "name": "spring",
-                "score": 0.819
-            },
-            {
-                "name": "summer",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 1.17
-            },
-            {
-                "name": "casual",
-                "score": 0.343
-            },
-            {
-                "name": "night out",
-                "score": 0.336
-            }
-        ]
-    },
-    {
-        "Name": "Plunge unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2021",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/plunge-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "90",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Long Lasting",
-        "Sillage": "Strong",
-        "General Notes": [
-            "aldehydes",
-            "carnation",
-            "geranium",
-            "jasmine",
-            "rose",
-            "turkish rose",
-            "amber",
-            "benzoin",
-            "cedar",
-            "sandalwood",
-            "vetiver"
-        ],
-        "Main Accords": [
-            "floral",
-            "fruity",
-            "amber",
-            "aldehydic",
-            "woody",
-            "warm spicy",
-            "fresh",
-            "rose",
-            "sweet",
-            "aromatic"
-        ],
-        "Main Accords Percentage": {
-            "floral": "Dominant",
-            "fruity": "Dominant",
-            "amber": "Dominant",
-            "aldehydic": "Dominant",
-            "woody": "Dominant",
-            "warm spicy": "Dominant",
-            "fresh": "Prominent",
-            "rose": "Prominent",
-            "sweet": "Prominent",
-            "aromatic": "Prominent"
-        },
-        "Season Ranking": [
-            {
-                "name": "fall",
-                "score": 2.311
-            },
-            {
-                "name": "spring",
-                "score": 2.291
-            },
-            {
-                "name": "winter",
-                "score": 2.123
-            },
-            {
-                "name": "summer",
-                "score": 0.78
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 1.924
-            },
-            {
-                "name": "night out",
-                "score": 1.528
-            },
-            {
-                "name": "professional",
-                "score": 1.339
-            }
-        ]
-    },
-    {
-        "Name": "Sombre unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2019",
-        "rating": "3",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/sombre-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Strong",
-        "General Notes": [
-            "champagne",
-            "jasmine",
-            "muguet",
-            "orange blossom",
-            "rose",
-            "amber",
-            "iris",
-            "musk",
-            "sandalwood",
-            "tuberose"
-        ],
-        "Main Accords": [
-            "Champagne",
-            "white floral",
-            "aldehydic",
-            "iris",
-            "rose",
-            "tuberose",
-            "citrus",
-            "powdery",
-            "floral",
-            "earthy"
-        ],
-        "Main Accords Percentage": {
-            "Champagne": "Dominant",
-            "white floral": "Dominant",
-            "aldehydic": "Dominant",
-            "iris": "Prominent",
-            "rose": "Prominent",
-            "tuberose": "Prominent",
-            "citrus": "Moderate",
-            "powdery": "Moderate",
-            "floral": "Moderate",
-            "earthy": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 1.068
-            },
-            {
-                "name": "summer",
-                "score": 0.62
-            },
-            {
-                "name": "fall",
-                "score": 0.368
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 0.915
-            },
-            {
-                "name": "professional",
-                "score": 0.82
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Oliver unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2018",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/oliver-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "bergamot",
-            "grapefruit",
-            "lemon",
-            "mandarin orange",
-            "orange",
-            "cyclamen",
-            "jasmine",
-            "lavender",
-            "muguet",
-            "peony",
-            "cedar",
-            "musk",
-            "sandalwood",
-            "vetiver",
-            "woody notes"
-        ],
-        "Main Accords": [
-            "citrus",
-            "aromatic",
-            "woody",
-            "green",
-            "fresh spicy",
-            "fresh",
-            "floral",
-            "sweet",
-            "fruity"
-        ],
-        "Main Accords Percentage": {
-            "citrus": "Dominant",
-            "aromatic": "Prominent",
-            "woody": "Moderate",
-            "green": "Moderate",
-            "fresh spicy": "Moderate",
-            "fresh": "Moderate",
-            "floral": "Moderate",
-            "sweet": "Moderate",
-            "fruity": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.83
-            },
-            {
-                "name": "summer",
-                "score": 1.824
-            },
-            {
-                "name": "fall",
-                "score": 0.54
-            },
-            {
-                "name": "winter",
-                "score": 0.42
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.491
-            },
-            {
-                "name": "casual",
-                "score": 1.975
-            },
-            {
-                "name": "night out",
-                "score": 0
-            }
-        ]
-    },
-    {
-        "Name": "Limonsitano unisex",
-        "Brand": "Strangers Parfumerie",
-        "Year": "2022",
-        "rating": "4",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/limonsitano-strangers-parfumerie-unisex.jpg",
-        "Gender": "unisex",
-        "Price": "",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "bergamot",
-            "lemon",
-            "mandarin orange",
-            "petitgrain",
-            "sea notes",
-            "basil",
-            "coriander",
-            "geranium",
-            "lavender",
-            "rosemary",
-            "amber",
-            "mint",
-            "musk",
-            "vetiver"
-        ],
-        "Main Accords": [
-            "aromatic",
-            "citrus",
-            "fresh spicy",
-            "green",
-            "fresh",
-            "herbal",
-            "marine"
-        ],
-        "Main Accords Percentage": {
-            "aromatic": "Dominant",
-            "citrus": "Dominant",
-            "fresh spicy": "Dominant",
-            "green": "Moderate",
-            "fresh": "Moderate",
-            "herbal": "Moderate",
-            "marine": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.506
-            },
-            {
-                "name": "summer",
-                "score": 1.764
-            },
-            {
-                "name": "fall",
-                "score": 0
-            },
-            {
-                "name": "winter",
-                "score": 0
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "professional",
-                "score": 2.264
-            },
-            {
-                "name": "casual",
-                "score": 1.294
-            },
-            {
-                "name": "night out",
-                "score": 0
             }
         ]
     },
@@ -27178,158 +24919,6 @@
         ]
     },
     {
-        "Name": "Maison Francis Kurkdjian Variety",
-        "Brand": "Maison Francis",
-        "Year": "",
-        "rating": "",
-        "Country": "",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/maison-francis-kurkdjian-variety.jpg",
-        "Gender": "men",
-        "Price": "400.99",
-        "OilType": "Eau de Cologne",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Aldehydes",
-            "Calabrian bergamot",
-            "Egyptian Jasmine",
-            "Mock Orange",
-            "Sweet Pea",
-            "White Musk",
-            "Sandalwood"
-        ],
-        "Main Accords": [
-            "woody",
-            "lavender",
-            "aromatic",
-            "earthy",
-            "patchouli",
-            "leather"
-        ],
-        "Main Accords Percentage": {
-            "white floral": "Dominant",
-            "aldehydic": "Dominant",
-            "musky": "Dominant",
-            "citrus": "Prominent",
-            "fresh": "Prominent",
-            "floral": "Prominent",
-            "powdery": "Prominent",
-            "sweet": "Moderate",
-            "fresh spicy": "Moderate",
-            "woody": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.114
-            },
-            {
-                "name": "summer",
-                "score": 1.5
-            },
-            {
-                "name": "fall",
-                "score": 1.179
-            },
-            {
-                "name": "winter",
-                "score": 0.357
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.285
-            },
-            {
-                "name": "professional",
-                "score": 1.373
-            },
-            {
-                "name": "night out",
-                "score": 0.72
-            }
-        ]
-    },
-    {
-        "Name": "Maison Francis Kurkdjian 724",
-        "Brand": "Maison Francis",
-        "Year": "2022",
-        "rating": "4",
-        "Country": "France",
-        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/maison-francis-kurkdjian-724.jpg",
-        "Gender": "unisex",
-        "Price": "359.99",
-        "OilType": "Eau de Parfum",
-        "Longevity": "Moderate",
-        "Sillage": "Moderate",
-        "General Notes": [
-            "Aldehydes",
-            "Calabrian bergamot",
-            "Egyptian Jasmine",
-            "Mock Orange",
-            "Sweet Pea",
-            "White Musk",
-            "Sandalwood"
-        ],
-        "Main Accords": [
-            "white floral",
-            "aldehydic",
-            "musky",
-            "citrus",
-            "fresh",
-            "floral",
-            "powdery",
-            "sweet",
-            "fresh spicy",
-            "woody"
-        ],
-        "Main Accords Percentage": {
-            "white floral": "Dominant",
-            "aldehydic": "Dominant",
-            "musky": "Dominant",
-            "citrus": "Prominent",
-            "fresh": "Prominent",
-            "floral": "Prominent",
-            "powdery": "Prominent",
-            "sweet": "Moderate",
-            "fresh spicy": "Moderate",
-            "woody": "Moderate"
-        },
-        "Season Ranking": [
-            {
-                "name": "spring",
-                "score": 2.114
-            },
-            {
-                "name": "summer",
-                "score": 1.5
-            },
-            {
-                "name": "fall",
-                "score": 1.188
-            },
-            {
-                "name": "winter",
-                "score": 0.364
-            }
-        ],
-        "Occasion Ranking": [
-            {
-                "name": "casual",
-                "score": 2.285
-            },
-            {
-                "name": "professional",
-                "score": 1.38
-            },
-            {
-                "name": "night out",
-                "score": 0.72
-            }
-        ]
-    },
-    {
         "Name": "APOM Pour Femme for women",
         "Brand": "Maison Francis Kurkdjian",
         "Year": "2009",
@@ -27796,6 +25385,4790 @@
             },
             {
                 "name": "night out",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb",
+        "Brand": "Viktor & Rolf",
+        "Year": "2012",
+        "rating": "4",
+        "Country": "Netherlands",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/spicebomb.jpg",
+        "Gender": "men",
+        "Price": "88.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Elemi",
+            "Pink Pepper",
+            "Grapefruit",
+            "Bergamot",
+            "Paprika",
+            "Cinnamon",
+            "Saffron",
+            "Leather",
+            "Tobacco",
+            "Vetiver"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "cinnamon",
+            "tobacco",
+            "sweet",
+            "soft spicy",
+            "leather",
+            "aromatic",
+            "citrus"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "cinnamon": "Dominant",
+            "tobacco": "Prominent",
+            "sweet": "Moderate",
+            "soft spicy": "Moderate",
+            "leather": "Moderate",
+            "aromatic": "Moderate",
+            "citrus": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1
+            },
+            {
+                "name": "spring",
+                "score": 0.837
+            },
+            {
+                "name": "fall",
+                "score": 0.8
+            },
+            {
+                "name": "summer",
+                "score": 0.51
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.136
+            },
+            {
+                "name": "professional",
+                "score": 0.948
+            },
+            {
+                "name": "casual",
+                "score": 0.801
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Infrared",
+        "Brand": "Viktor & Rolf",
+        "Year": "2021",
+        "rating": "4",
+        "Country": "Netherlands",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/spicebomb-infrared.jpg",
+        "Gender": "men",
+        "Price": "124.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "pink pepper",
+            "saffron",
+            "cinnamon",
+            "red pepper",
+            "tobacco"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "cinnamon",
+            "tobacco",
+            "sweet",
+            "fruity",
+            "soft spicy",
+            "amber",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "cinnamon": "Prominent",
+            "tobacco": "Moderate",
+            "sweet": "Moderate",
+            "fruity": "Moderate",
+            "soft spicy": "Moderate",
+            "amber": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.384
+            },
+            {
+                "name": "fall",
+                "score": 1.28
+            },
+            {
+                "name": "spring",
+                "score": 0.46
+            },
+            {
+                "name": "summer",
+                "score": 0.46
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.28
+            },
+            {
+                "name": "casual",
+                "score": 0.802
+            },
+            {
+                "name": "professional",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Extreme",
+        "Brand": "Viktor & Rolf",
+        "Year": "2015",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/spicebomb-extreme.jpg",
+        "Gender": "men",
+        "Price": "134.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Tobacco",
+            "Caraway",
+            "Lavender",
+            "Black Pepper",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "tobacco",
+            "sweet",
+            "warm spicy",
+            "cinnamon",
+            "powdery"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "tobacco": "Dominant",
+            "sweet": "Prominent",
+            "warm spicy": "Prominent",
+            "cinnamon": "Moderate",
+            "powdery": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.55
+            },
+            {
+                "name": "fall",
+                "score": 0.52
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.22
+            },
+            {
+                "name": "casual",
+                "score": 0.438
+            },
+            {
+                "name": "professional",
+                "score": 0.306
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Dark Leather",
+        "Brand": "Viktor & Rolf",
+        "Year": "2024",
+        "rating": "4",
+        "Country": "Netherlands",
+        "Image URL": "https://media.kohlsimg.com/is/image/kohls/7118298?wid=805&hei=805&op_sharpen=1",
+        "Gender": "men",
+        "Price": "156.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Pink Pepper",
+            "Cardamom",
+            "Black Pepper",
+            "Leather",
+            "Saffron",
+            "Tobacco",
+            "Vanilla",
+            "Amber",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "fresh spicy",
+            "warm spicy",
+            "tobacco",
+            "cinnamon",
+            "amber",
+            "sweet"
+        ],
+        "Main Accords Percentage": {
+            "fresh spicy": "Dominant",
+            "warm spicy": "Prominent",
+            "tobacco": "Moderate",
+            "cinnamon": "Moderate",
+            "amber": "Moderate",
+            "sweet": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.174
+            },
+            {
+                "name": "fall",
+                "score": 1.13
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.13
+            },
+            {
+                "name": "casual",
+                "score": 0.276
+            },
+            {
+                "name": "professional",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Night Vision",
+        "Brand": "Viktor & Rolf",
+        "Year": "2020",
+        "rating": "4",
+        "Country": "Netherlands",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/spicebomb-night-vision.jpg",
+        "Gender": "men",
+        "Price": "95.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "nutmeg",
+            "cloves",
+            "chili pepper",
+            "black pepper",
+            "patchouli"
+        ],
+        "Main Accords": [
+            "fresh spicy",
+            "aromatic",
+            "warm spicy",
+            "woody",
+            "amber",
+            "green",
+            "fresh",
+            "gourmand",
+            "nutty",
+            "fruity",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "fresh spicy": "Dominant",
+            "aromatic": "Dominant",
+            "warm spicy": "Dominant",
+            "woody": "Dominant",
+            "amber": "Prominent",
+            "green": "Moderate",
+            "fresh": "Moderate",
+            "gourmand": "Moderate",
+            "nutty": "Moderate",
+            "fruity": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.444
+            },
+            {
+                "name": "fall",
+                "score": 2.181
+            },
+            {
+                "name": "spring",
+                "score": 1.798
+            },
+            {
+                "name": "summer",
+                "score": 0.984
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.151
+            },
+            {
+                "name": "night out",
+                "score": 1.416
+            },
+            {
+                "name": "casual",
+                "score": 0.6
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Digital Art for men",
+        "Brand": "Viktor&Rolf",
+        "Year": "2015",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://fimgs.net/mdimg/perfume/o.33572.jpg",
+        "Gender": "men",
+        "Price": "49",
+        "OilType": "Eau de Cologne",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Elemi resin",
+            "Bergamot",
+            "Pink Pepper",
+            "Grapefruit",
+            "Paprika",
+            "Cinnamon",
+            "Saffron",
+            "Leather",
+            "Vetiver",
+            "Tobacco"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "leather",
+            "aromatic",
+            "cinnamon",
+            "balsamic",
+            "animalic",
+            "tobacco",
+            "conifer",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "leather": "Prominent",
+            "aromatic": "Prominent",
+            "cinnamon": "Moderate",
+            "balsamic": "Moderate",
+            "animalic": "Moderate",
+            "tobacco": "Moderate",
+            "conifer": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.336
+            },
+            {
+                "name": "spring",
+                "score": 0.944
+            },
+            {
+                "name": "fall",
+                "score": 0.8
+            },
+            {
+                "name": "summer",
+                "score": 0.44
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.244
+            },
+            {
+                "name": "professional",
+                "score": 0.72
+            },
+            {
+                "name": "casual",
+                "score": 0.44
+            }
+        ]
+    },
+    {
+        "Name": "Spicebomb Infrared Eau de Parfum for men",
+        "Brand": "Viktor&Rolf",
+        "Year": "2023",
+        "rating": "4",
+        "Country": "Netherlands",
+        "Image URL": "https://cdn.deloox.com/cdn/product/1223183/371657_500.jpg",
+        "Gender": "men",
+        "Price": "5.59",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Cinnamon",
+            "Chili Pepper",
+            "Pink Pepper",
+            "Chili Pepper",
+            "Leather",
+            "Resins",
+            "Woodsy Notes"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "cinnamon",
+            "woody",
+            "amber",
+            "soft spicy",
+            "leather",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "cinnamon": "Prominent",
+            "woody": "Moderate",
+            "amber": "Moderate",
+            "soft spicy": "Moderate",
+            "leather": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 1.92
+            },
+            {
+                "name": "winter",
+                "score": 1.884
+            },
+            {
+                "name": "spring",
+                "score": 0.46
+            },
+            {
+                "name": "summer",
+                "score": 0.46
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.704
+            },
+            {
+                "name": "casual",
+                "score": 0.46
+            },
+            {
+                "name": "professional",
+                "score": 0.42
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Le Beau",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2019",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-le-beau.jpg",
+        "Gender": "men",
+        "Price": "169.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "bergamot",
+            "tonka bean",
+            "coconut"
+        ],
+        "Main Accords": [
+            "coconut",
+            "vanilla",
+            "gourmand",
+            "sweet",
+            "citrus",
+            "lactonic",
+            "aromatic",
+            "amber",
+            "tropical",
+            "fresh spicy",
+            "nutty"
+        ],
+        "Main Accords Percentage": {
+            "coconut": "Dominant",
+            "vanilla": "Dominant",
+            "gourmand": "Dominant",
+            "sweet": "Prominent",
+            "citrus": "Moderate",
+            "lactonic": "Moderate",
+            "aromatic": "Moderate",
+            "amber": "Moderate",
+            "tropical": "Moderate",
+            "fresh spicy": "Moderate",
+            "nutty": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.197
+            },
+            {
+                "name": "summer",
+                "score": 1.028
+            },
+            {
+                "name": "spring",
+                "score": 0.936
+            },
+            {
+                "name": "fall",
+                "score": 0.54
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.135
+            },
+            {
+                "name": "professional",
+                "score": 1.036
+            },
+            {
+                "name": "casual",
+                "score": 1.02
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Le Beau Le Parfum",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://media.kohlsimg.com/is/image/kohls/7763636?wid=805&hei=805&op_sharpen=1",
+        "Gender": "men",
+        "Price": "214.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "ambergris",
+            "amber",
+            "tonka bean",
+            "coconut",
+            "cypress"
+        ],
+        "Main Accords": [
+            "sweet",
+            "woody",
+            "coconut",
+            "gourmand",
+            "amber",
+            "vanilla",
+            "tropical",
+            "fruity",
+            "powdery",
+            "iris",
+            "lactonic"
+        ],
+        "Main Accords Percentage": {
+            "sweet": "Dominant",
+            "woody": "Dominant",
+            "coconut": "Dominant",
+            "gourmand": "Dominant",
+            "amber": "Prominent",
+            "vanilla": "Prominent",
+            "tropical": "Prominent",
+            "fruity": "Prominent",
+            "powdery": "Moderate",
+            "iris": "Moderate",
+            "lactonic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.942
+            },
+            {
+                "name": "fall",
+                "score": 1.653
+            },
+            {
+                "name": "summer",
+                "score": 0.552
+            },
+            {
+                "name": "spring",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.277
+            },
+            {
+                "name": "professional",
+                "score": 1.021
+            },
+            {
+                "name": "casual",
+                "score": 0.6
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Le Beau Paradise Garden",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2024",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://media.kohlsimg.com/is/image/kohls/7472406?wid=805&hei=805&op_sharpen=1",
+        "Gender": "men",
+        "Price": "156.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Green Notes",
+            "Watery Notes",
+            "Mint",
+            "Ginger",
+            "Coconut",
+            "Fig",
+            "Salt",
+            "Tonka Bean",
+            "Sandalwood"
+        ],
+        "Main Accords": [
+            "green",
+            "coconut",
+            "sweet",
+            "vanilla",
+            "woody",
+            "aquatic",
+            "gourmand",
+            "aromatic",
+            "fruity",
+            "fresh spicy",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "green": "Dominant",
+            "coconut": "Dominant",
+            "sweet": "Prominent",
+            "vanilla": "Moderate",
+            "woody": "Moderate",
+            "aquatic": "Moderate",
+            "gourmand": "Moderate",
+            "aromatic": "Moderate",
+            "fruity": "Moderate",
+            "fresh spicy": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1.706
+            },
+            {
+                "name": "summer",
+                "score": 1.64
+            },
+            {
+                "name": "winter",
+                "score": 0.978
+            },
+            {
+                "name": "fall",
+                "score": 0.54
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.9
+            },
+            {
+                "name": "casual",
+                "score": 1.436
+            },
+            {
+                "name": "night out",
+                "score": 0.434
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Le Parfum",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2020",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-le-parfum.jpg",
+        "Gender": "men",
+        "Price": "119.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "cardamom",
+            "lavender",
+            "iris",
+            "vanilla"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "vanilla",
+            "lavender",
+            "aromatic",
+            "powdery",
+            "iris",
+            "woody",
+            "amber",
+            "violet"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "vanilla": "Dominant",
+            "lavender": "Prominent",
+            "aromatic": "Moderate",
+            "powdery": "Moderate",
+            "iris": "Moderate",
+            "woody": "Moderate",
+            "amber": "Moderate",
+            "violet": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.574
+            },
+            {
+                "name": "fall",
+                "score": 1.882
+            },
+            {
+                "name": "spring",
+                "score": 0.448
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.92
+            },
+            {
+                "name": "professional",
+                "score": 1.43
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "1995",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier.jpg",
+        "Gender": "men",
+        "Price": "140.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Cardamom",
+            "Bergamot",
+            "Mint",
+            "Lavender",
+            "Artemisia",
+            "Cinnamon",
+            "Orange Blossom",
+            "Caraway",
+            "Cedar",
+            "Vanilla",
+            "Amber",
+            "Tonka Bean",
+            "Sandalwood"
+        ],
+        "Main Accords": [
+            "aromatic",
+            "vanilla",
+            "gourmand",
+            "fresh spicy",
+            "lavender",
+            "warm spicy",
+            "green",
+            "powdery",
+            "sweet",
+            "amber",
+            "cinnamon"
+        ],
+        "Main Accords Percentage": {
+            "aromatic": "Dominant",
+            "vanilla": "Dominant",
+            "gourmand": "Dominant",
+            "fresh spicy": "Prominent",
+            "lavender": "Prominent",
+            "warm spicy": "Prominent",
+            "green": "Prominent",
+            "powdery": "Moderate",
+            "sweet": "Moderate",
+            "amber": "Moderate",
+            "cinnamon": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.032
+            },
+            {
+                "name": "spring",
+                "score": 1.236
+            },
+            {
+                "name": "fall",
+                "score": 1.118
+            },
+            {
+                "name": "summer",
+                "score": 0.402
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.951
+            },
+            {
+                "name": "night out",
+                "score": 1.804
+            },
+            {
+                "name": "casual",
+                "score": 0.33
+            }
+        ]
+    },
+    {
+        "Name": "Le Beau Male Edition Collector for men",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2014",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/le-beau-male-edition-collector-jean-paul-gaultier-for-men.jpg",
+        "Gender": "men",
+        "Price": "49",
+        "OilType": "Eau de Cologne",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Mint",
+            "Wormwood",
+            "Sage",
+            "Lavender",
+            "Orange Blossom",
+            "Musk"
+        ],
+        "Main Accords": [
+            "aromatic",
+            "fresh spicy",
+            "green",
+            "herbal",
+            "musky",
+            "lavender",
+            "white floral",
+            "soft spicy"
+        ],
+        "Main Accords Percentage": {
+            "aromatic": "Dominant",
+            "fresh spicy": "Moderate",
+            "green": "Moderate",
+            "herbal": "Moderate",
+            "musky": "Moderate",
+            "lavender": "Moderate",
+            "white floral": "Moderate",
+            "soft spicy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1.172
+            },
+            {
+                "name": "fall",
+                "score": 0.504
+            },
+            {
+                "name": "summer",
+                "score": 0.354
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.531
+            },
+            {
+                "name": "night out",
+                "score": 0.504
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Le Beau Male Capitaine Collector for men",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2014",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/le-beau-male-capitaine-collector-jean-paul-gaultier-for-men.jpg",
+        "Gender": "men",
+        "Price": "107.98",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "bergamot",
+            "grapefruit",
+            "lavender",
+            "mandarin orange",
+            "mint",
+            "geranium",
+            "jasmine",
+            "muguet",
+            "orange blossom",
+            "ambroxan",
+            "musk",
+            "oakmoss",
+            "tonka bean",
+            "white musk"
+        ],
+        "Main Accords": [
+            "lavender",
+            "musky",
+            "aromatic",
+            "white floral",
+            "green",
+            "fresh spicy",
+            "powdery",
+            "gourmand",
+            "citrus",
+            "sweet",
+            "animalic"
+        ],
+        "Main Accords Percentage": {
+            "lavender": "Dominant",
+            "musky": "Dominant",
+            "aromatic": "Dominant",
+            "white floral": "Dominant",
+            "green": "Prominent",
+            "fresh spicy": "Prominent",
+            "powdery": "Moderate",
+            "gourmand": "Moderate",
+            "citrus": "Moderate",
+            "sweet": "Moderate",
+            "animalic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1.792
+            },
+            {
+                "name": "summer",
+                "score": 1.058
+            },
+            {
+                "name": "fall",
+                "score": 0.828
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.45
+            },
+            {
+                "name": "casual",
+                "score": 0.873
+            },
+            {
+                "name": "night out",
+                "score": 0.828
+            }
+        ]
+    },
+    {
+        "Name": "Le Beau Male Summer 2014 for men",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2014",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/le-beau-male-summer-2014-jean-paul-gaultier-for-men.jpg",
+        "Gender": "men",
+        "Price": "74.9",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Mint",
+            "Lavender",
+            "Violet",
+            "Sandalwood",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "aromatic",
+            "powdery",
+            "green",
+            "lavender",
+            "woody",
+            "fresh spicy",
+            "violet",
+            "vanilla",
+            "warm spicy",
+            "floral"
+        ],
+        "Main Accords Percentage": {
+            "aromatic": "Dominant",
+            "powdery": "Dominant",
+            "green": "Dominant",
+            "lavender": "Dominant",
+            "woody": "Dominant",
+            "fresh spicy": "Prominent",
+            "violet": "Prominent",
+            "vanilla": "Prominent",
+            "warm spicy": "Moderate",
+            "floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1.902
+            },
+            {
+                "name": "winter",
+                "score": 1.701
+            },
+            {
+                "name": "fall",
+                "score": 1.139
+            },
+            {
+                "name": "summer",
+                "score": 0.534
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.952
+            },
+            {
+                "name": "night out",
+                "score": 0.882
+            },
+            {
+                "name": "casual",
+                "score": 0.343
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Divine Le Parfum",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2024",
+        "rating": "3",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-divine-le-parfum.jpg",
+        "Gender": "women",
+        "Price": "200.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Lily",
+            "Solar Notes",
+            "Frangipani",
+            "Sea Salt",
+            "Amber",
+            "Benzoin"
+        ],
+        "Main Accords": [
+            "amber",
+            "floral",
+            "white floral",
+            "tropical",
+            "salty",
+            "aldehydic",
+            "soft spicy",
+            "animalic",
+            "lactonic"
+        ],
+        "Main Accords Percentage": {
+            "amber": "Dominant",
+            "floral": "Prominent",
+            "white floral": "Moderate",
+            "tropical": "Moderate",
+            "salty": "Moderate",
+            "aldehydic": "Moderate",
+            "soft spicy": "Moderate",
+            "animalic": "Moderate",
+            "lactonic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 1
+            },
+            {
+                "name": "winter",
+                "score": 0.8
+            },
+            {
+                "name": "spring",
+                "score": 0.66
+            },
+            {
+                "name": "summer",
+                "score": 0.472
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1
+            },
+            {
+                "name": "casual",
+                "score": 0.462
+            },
+            {
+                "name": "professional",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Scandal Le Parfum",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-scandal-le-parfum.jpg",
+        "Gender": "women",
+        "Price": "159.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "jasmine",
+            "caramel",
+            "vanilla",
+            "salt"
+        ],
+        "Main Accords": [
+            "caramel",
+            "vanilla",
+            "gourmand",
+            "white floral",
+            "sweet",
+            "salty",
+            "powdery",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "caramel": "Dominant",
+            "vanilla": "Dominant",
+            "gourmand": "Dominant",
+            "white floral": "Prominent",
+            "sweet": "Prominent",
+            "salty": "Moderate",
+            "powdery": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.236
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            },
+            {
+                "name": "fall",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 0.7
+            },
+            {
+                "name": "casual",
+                "score": 0.432
+            },
+            {
+                "name": "professional",
+                "score": 0.306
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Summer for women",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "1997",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-summer-jean-paul-gaultier-for-women.jpg",
+        "Gender": "women",
+        "Price": "49",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "copahu balm",
+            "macarons",
+            "rice",
+            "spruce",
+            "wisteria",
+            "citrus blossom",
+            "copal",
+            "french violet",
+            "labdanum",
+            "syrup",
+            "cupcake",
+            "hyacinth",
+            "musk",
+            "rosemary",
+            "white suede"
+        ],
+        "Main Accords": [
+            "gourmand",
+            "sweet",
+            "floral",
+            "oud",
+            "woody",
+            "citrus",
+            "green",
+            "amber"
+        ],
+        "Main Accords Percentage": {
+            "gourmand": "Moderate",
+            "sweet": "Subtle",
+            "floral": "Subtle",
+            "oud": "Subtle",
+            "woody": "Subtle",
+            "citrus": "Subtle",
+            "green": "Subtle",
+            "amber": "Subtle"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 0.064
+            },
+            {
+                "name": "fall",
+                "score": 0.038
+            },
+            {
+                "name": "summer",
+                "score": 0.032
+            },
+            {
+                "name": "winter",
+                "score": 0.03
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 0.057
+            },
+            {
+                "name": "professional",
+                "score": 0.048
+            },
+            {
+                "name": "night out",
+                "score": 0.02
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier La Belle",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2019",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-la-belle.jpg",
+        "Gender": "women",
+        "Price": "98.39",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Pear",
+            "Vetiver",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "fruity",
+            "sweet",
+            "powdery",
+            "aquatic",
+            "aromatic",
+            "woody",
+            "amber",
+            "fresh",
+            "earthy"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "fruity": "Dominant",
+            "sweet": "Dominant",
+            "powdery": "Prominent",
+            "aquatic": "Moderate",
+            "aromatic": "Moderate",
+            "woody": "Moderate",
+            "amber": "Moderate",
+            "fresh": "Moderate",
+            "floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.717
+            },
+            {
+                "name": "spring",
+                "score": 1.416
+            },
+            {
+                "name": "fall",
+                "score": 1.035
+            },
+            {
+                "name": "summer",
+                "score": 1.032
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.81
+            },
+            {
+                "name": "professional",
+                "score": 1.355
+            },
+            {
+                "name": "night out",
+                "score": 1.24
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier La Belle Le Parfum Intense",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2021",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-la-belle-le-parfum-intense.jpg",
+        "Gender": "women",
+        "Price": "168.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "pear",
+            "tonka bean",
+            "jasmine",
+            "vanilla"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "gourmand",
+            "sweet",
+            "fruity",
+            "amber"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "gourmand": "Dominant",
+            "sweet": "Prominent",
+            "fruity": "Moderate",
+            "amber": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.3
+            },
+            {
+                "name": "fall",
+                "score": 0.5
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.2
+            },
+            {
+                "name": "casual",
+                "score": 0.426
+            },
+            {
+                "name": "professional",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Jean Paul Gaultier Cabaret",
+        "Brand": "Jean Paul Gaultier",
+        "Year": "2019",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/jean-paul-gaultier-cabaret.jpg",
+        "Gender": "women",
+        "Price": "248.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Ginger",
+            "Orange Blossom",
+            "Amber",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "white floral",
+            "citrus",
+            "vanilla",
+            "sweet",
+            "warm spicy",
+            "animalic",
+            "amber",
+            "powdery",
+            "soapy",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "citrus": "Dominant",
+            "vanilla": "Dominant",
+            "sweet": "Prominent",
+            "warm spicy": "Prominent",
+            "animalic": "Moderate",
+            "amber": "Moderate",
+            "powdery": "Moderate",
+            "soapy": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.84
+            },
+            {
+                "name": "summer",
+                "score": 1.34
+            },
+            {
+                "name": "spring",
+                "score": 1.252
+            },
+            {
+                "name": "fall",
+                "score": 1.094
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.702
+            },
+            {
+                "name": "night out",
+                "score": 1.654
+            },
+            {
+                "name": "professional",
+                "score": 1.022
+            }
+        ]
+    },
+    {
+        "Name": "Ch Bad Boy",
+        "Brand": "Carolina Herrera",
+        "Year": "2019",
+        "rating": "4",
+        "Country": "USA",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/ch-bad-boy.jpg",
+        "Gender": "men",
+        "Price": "134.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Pepper",
+            "Bergamot",
+            "Cedar",
+            "Sage",
+            "Cacao"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "fresh spicy",
+            "cacao",
+            "gourmand",
+            "vanilla",
+            "aromatic",
+            "sweet",
+            "citrus",
+            "amber",
+            "woody"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "fresh spicy": "Dominant",
+            "cacao": "Dominant",
+            "gourmand": "Dominant",
+            "vanilla": "Prominent",
+            "aromatic": "Prominent",
+            "sweet": "Prominent",
+            "citrus": "Prominent",
+            "amber": "Moderate",
+            "woody": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.646
+            },
+            {
+                "name": "fall",
+                "score": 2.007
+            },
+            {
+                "name": "spring",
+                "score": 1.135
+            },
+            {
+                "name": "summer",
+                "score": 0.67
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.979
+            },
+            {
+                "name": "professional",
+                "score": 1.737
+            },
+            {
+                "name": "casual",
+                "score": 1.035
+            }
+        ]
+    },
+    {
+        "Name": "Ch Bad Boy Extreme",
+        "Brand": "Carolina Herrera",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/ch-bad-boy-extreme.jpg",
+        "Gender": "men",
+        "Price": "149.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "cacao",
+            "cardamom",
+            "elemi",
+            "jasmine",
+            "olibanum",
+            "clary sage",
+            "myrrh",
+            "rose",
+            "vetiver",
+            "amber",
+            "benzoin",
+            "myrhh",
+            "patchouli",
+            "sandalwood"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "amber",
+            "gourmand",
+            "cacao",
+            "aromatic",
+            "woody",
+            "balsamic",
+            "sweet",
+            "patchouli",
+            "earthy",
+            "smoky"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "amber": "Dominant",
+            "gourmand": "Dominant",
+            "cacao": "Prominent",
+            "aromatic": "Prominent",
+            "woody": "Prominent",
+            "balsamic": "Moderate",
+            "sweet": "Moderate",
+            "patchouli": "Moderate",
+            "earthy": "Moderate",
+            "smoky": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 3.141
+            },
+            {
+                "name": "winter",
+                "score": 3.084
+            },
+            {
+                "name": "spring",
+                "score": 0.511
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.93
+            },
+            {
+                "name": "professional",
+                "score": 1.22
+            },
+            {
+                "name": "casual",
+                "score": 0.36
+            }
+        ]
+    },
+    {
+        "Name": "Ch Bad Boy Cobalt",
+        "Brand": "Carolina Herrera",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "USA",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/ch-bad-boy-cobalt.jpg",
+        "Gender": "men",
+        "Price": "14.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "pink pepper",
+            "lavender",
+            "cedar",
+            "oak",
+            "vetiver",
+            "truffle"
+        ],
+        "Main Accords": [
+            "aromatic",
+            "woody",
+            "fruity",
+            "fresh spicy",
+            "lavender",
+            "earthy",
+            "sweet",
+            "soft spicy",
+            "herbal",
+            "rose"
+        ],
+        "Main Accords Percentage": {
+            "aromatic": "Dominant",
+            "woody": "Dominant",
+            "fruity": "Dominant",
+            "fresh spicy": "Prominent",
+            "lavender": "Prominent",
+            "earthy": "Prominent",
+            "sweet": "Prominent",
+            "soft spicy": "Moderate",
+            "herbal": "Moderate",
+            "rose": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 1.44
+            },
+            {
+                "name": "spring",
+                "score": 0.7
+            },
+            {
+                "name": "winter",
+                "score": 0.672
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.672
+            },
+            {
+                "name": "casual",
+                "score": 0.414
+            },
+            {
+                "name": "night out",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Ch Bad Boy Superstars",
+        "Brand": "Carolina Herrera",
+        "Year": "",
+        "rating": "",
+        "Country": "USA",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/ch-bad-boy-superstars.jpg",
+        "Gender": "men",
+        "Price": "197.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "sage",
+            "cedar",
+            "amberwood",
+            "tonka bean",
+            "cacao pod",
+            "black pepper"
+        ],
+        "Main Accords": [
+            "woody",
+            "warm spicy",
+            "gourmand",
+            "amber",
+            "cacao",
+            "fresh spicy",
+            "aromatic",
+            "vanilla",
+            "sweet",
+            "herbal",
+            "citrus"
+        ],
+        "Main Accords Percentage": {
+            "woody": "Dominant",
+            "warm spicy": "Dominant",
+            "gourmand": "Dominant",
+            "amber": "Dominant",
+            "cacao": "Dominant",
+            "fresh spicy": "Prominent",
+            "aromatic": "Prominent",
+            "vanilla": "Moderate",
+            "sweet": "Moderate",
+            "herbal": "Moderate",
+            "citrus": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.991
+            },
+            {
+                "name": "fall",
+                "score": 2.632
+            },
+            {
+                "name": "spring",
+                "score": 0.902
+            },
+            {
+                "name": "summer",
+                "score": 0.45
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.159
+            },
+            {
+                "name": "professional",
+                "score": 1.77
+            },
+            {
+                "name": "casual",
+                "score": 0.759
+            }
+        ]
+    },
+    {
+        "Name": "Ch Bad Boy Elixir",
+        "Brand": "Carolina Herrera",
+        "Year": "",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://media.kohlsimg.com/is/image/kohls/7471139?wid=805&hei=805&op_sharpen=1",
+        "Gender": "men",
+        "Price": "199.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "bergamot",
+            "pink pepper",
+            "lavender",
+            "geranium",
+            "tonka bean",
+            "vanilla",
+            "amber",
+            "sandalwood"
+        ],
+        "Main Accords": [
+            "leather",
+            "gourmand",
+            "woody",
+            "animalic",
+            "aromatic",
+            "smoky",
+            "herbal"
+        ],
+        "Main Accords Percentage": {
+            "leather": "Dominant",
+            "gourmand": "Dominant",
+            "woody": "Prominent",
+            "animalic": "Prominent",
+            "aromatic": "Moderate",
+            "smoky": "Moderate",
+            "herbal": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 0.594
+            },
+            {
+                "name": "winter",
+                "score": 0.462
+            },
+            {
+                "name": "spring",
+                "score": 0.371
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0.992
+            },
+            {
+                "name": "night out",
+                "score": 0.855
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Carolina Herrera Burning Rose",
+        "Brand": "Carolina Herrera",
+        "Year": "2015",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/carolina-herrera-burning-rose.jpg",
+        "Gender": "unisex",
+        "Price": "455.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "bulgarian rose",
+            "ginger",
+            "cinnamon",
+            "patchouli"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "rose",
+            "cinnamon",
+            "patchouli",
+            "woody",
+            "floral"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "rose": "Dominant",
+            "cinnamon": "Prominent",
+            "patchouli": "Moderate",
+            "woody": "Moderate",
+            "floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.801
+            },
+            {
+                "name": "fall",
+                "score": 1.636
+            },
+            {
+                "name": "spring",
+                "score": 0.45
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 0.8
+            },
+            {
+                "name": "professional",
+                "score": 0.329
+            },
+            {
+                "name": "casual",
+                "score": 0.315
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior",
+        "Brand": "Christian Dior",
+        "Year": "2021",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior.jpg",
+        "Gender": "women",
+        "Price": "144.59",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "rose",
+            "gardenia",
+            "sage",
+            "and other green florals."
+        ],
+        "Main Accords": [
+            "vanilla",
+            "powdery",
+            "gourmand",
+            "rose",
+            "floral",
+            "fruity",
+            "sweet",
+            "fresh",
+            "iris",
+            "musky",
+            "amber"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "powdery": "Dominant",
+            "gourmand": "Dominant",
+            "rose": "Prominent",
+            "floral": "Prominent",
+            "fruity": "Prominent",
+            "sweet": "Prominent",
+            "fresh": "Moderate",
+            "iris": "Moderate",
+            "musky": "Moderate",
+            "amber": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.356
+            },
+            {
+                "name": "spring",
+                "score": 1.32
+            },
+            {
+                "name": "fall",
+                "score": 1.083
+            },
+            {
+                "name": "summer",
+                "score": 0.6
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.783
+            },
+            {
+                "name": "casual",
+                "score": 1.5
+            },
+            {
+                "name": "professional",
+                "score": 0.588
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior 2012 for women",
+        "Brand": "Dior",
+        "Year": "2012",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-2012-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "3.49",
+        "OilType": "",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Italian Mandarin",
+            "Rose",
+            "Egyptian Jasmine",
+            "Patchouli",
+            "Musk"
+        ],
+        "Main Accords": [
+            "patchouli",
+            "citrus",
+            "rose",
+            "woody",
+            "white floral",
+            "warm spicy",
+            "musky",
+            "earthy",
+            "floral",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "patchouli": "Dominant",
+            "citrus": "Dominant",
+            "rose": "Prominent",
+            "woody": "Prominent",
+            "white floral": "Prominent",
+            "warm spicy": "Prominent",
+            "musky": "Moderate",
+            "earthy": "Moderate",
+            "floral": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.863
+            },
+            {
+                "name": "winter",
+                "score": 2.311
+            },
+            {
+                "name": "spring",
+                "score": 1.348
+            },
+            {
+                "name": "summer",
+                "score": 0.92
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.24
+            },
+            {
+                "name": "casual",
+                "score": 1.192
+            },
+            {
+                "name": "night out",
+                "score": 1.051
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Parfum for women",
+        "Brand": "Dior",
+        "Year": "1947",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-parfum-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Galbanum",
+            "Jasmine",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "green",
+            "patchouli",
+            "white floral",
+            "balsamic",
+            "woody",
+            "aromatic",
+            "warm spicy",
+            "earthy",
+            "bitter"
+        ],
+        "Main Accords Percentage": {
+            "green": "Dominant",
+            "patchouli": "Dominant",
+            "white floral": "Dominant",
+            "balsamic": "Prominent",
+            "woody": "Prominent",
+            "aromatic": "Prominent",
+            "warm spicy": "Moderate",
+            "earthy": "Moderate",
+            "bitter": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.33
+            },
+            {
+                "name": "fall",
+                "score": 2.199
+            },
+            {
+                "name": "spring",
+                "score": 1.255
+            },
+            {
+                "name": "summer",
+                "score": 0.6
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.026
+            },
+            {
+                "name": "night out",
+                "score": 0.496
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Cherie for women",
+        "Brand": "Dior",
+        "Year": "2005",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-cherie-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "49",
+        "OilType": "",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Cherry",
+            "Strawberry",
+            "Pineapple",
+            "Mandarin Orange",
+            "Popcorn",
+            "Caramel",
+            "Rose",
+            "Jasmine",
+            "Violet",
+            "Patchouli",
+            "Musk",
+            "Amber"
+        ],
+        "Main Accords": [
+            "sweet",
+            "fruity",
+            "caramel",
+            "gourmand",
+            "cherry",
+            "patchouli",
+            "woody"
+        ],
+        "Main Accords Percentage": {
+            "sweet": "Dominant",
+            "fruity": "Dominant",
+            "caramel": "Moderate",
+            "gourmand": "Moderate",
+            "cherry": "Moderate",
+            "patchouli": "Moderate",
+            "woody": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 0.803
+            },
+            {
+                "name": "winter",
+                "score": 0.76
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 0.6
+            },
+            {
+                "name": "professional",
+                "score": 0.336
+            },
+            {
+                "name": "night out",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Originale",
+        "Brand": "Christian Dior",
+        "Year": "2011",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-originale.jpg",
+        "Gender": "women",
+        "Price": "180.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "jasmine sambac",
+            "patchouli",
+            "galbanum"
+        ],
+        "Main Accords": [
+            "green",
+            "patchouli",
+            "white floral",
+            "aromatic",
+            "balsamic",
+            "woody",
+            "warm spicy",
+            "earthy"
+        ],
+        "Main Accords Percentage": {
+            "green": "Dominant",
+            "patchouli": "Prominent",
+            "white floral": "Prominent",
+            "aromatic": "Prominent",
+            "balsamic": "Prominent",
+            "woody": "Moderate",
+            "warm spicy": "Moderate",
+            "earthy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.984
+            },
+            {
+                "name": "fall",
+                "score": 1.846
+            },
+            {
+                "name": "spring",
+                "score": 1.255
+            },
+            {
+                "name": "summer",
+                "score": 0.6
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.949
+            },
+            {
+                "name": "night out",
+                "score": 0.424
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Cherie L'Eau for women",
+        "Brand": "Dior",
+        "Year": "2009",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-cherie-leau-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "49",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Bitter Orange",
+            "Gardenia",
+            "Musk"
+        ],
+        "Main Accords": [
+            "white floral",
+            "citrus",
+            "musky",
+            "lactonic",
+            "powdery",
+            "animalic",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "citrus": "Dominant",
+            "musky": "Prominent",
+            "lactonic": "Moderate",
+            "powdery": "Moderate",
+            "animalic": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "summer",
+                "score": 1.43
+            },
+            {
+                "name": "spring",
+                "score": 1.336
+            },
+            {
+                "name": "fall",
+                "score": 0.657
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.336
+            },
+            {
+                "name": "professional",
+                "score": 1.058
+            },
+            {
+                "name": "night out",
+                "score": 0.657
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Couture Edition for women",
+        "Brand": "Dior",
+        "Year": "2011",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-couture-edition-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Orange",
+            "Mandarin Orange",
+            "Bergamot",
+            "Jasmine",
+            "Rose",
+            "Patchouli",
+            "Sandalwood",
+            "Vetiver"
+        ],
+        "Main Accords": [
+            "citrus",
+            "woody",
+            "patchouli",
+            "warm spicy",
+            "white floral",
+            "earthy",
+            "rose",
+            "fresh spicy",
+            "balsamic",
+            "aromatic"
+        ],
+        "Main Accords Percentage": {
+            "citrus": "Dominant",
+            "woody": "Prominent",
+            "patchouli": "Prominent",
+            "warm spicy": "Moderate",
+            "white floral": "Moderate",
+            "earthy": "Moderate",
+            "rose": "Moderate",
+            "fresh spicy": "Moderate",
+            "balsamic": "Moderate",
+            "aromatic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.034
+            },
+            {
+                "name": "winter",
+                "score": 1.965
+            },
+            {
+                "name": "spring",
+                "score": 1.208
+            },
+            {
+                "name": "summer",
+                "score": 1
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.786
+            },
+            {
+                "name": "casual",
+                "score": 0.9
+            },
+            {
+                "name": "night out",
+                "score": 0.448
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Le Parfum for women",
+        "Brand": "Dior",
+        "Year": "2012",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-le-parfum-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "49",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Mandarin Orange",
+            "Turkish Rose",
+            "Bulgarian Rose",
+            "Amber",
+            "Patchouli",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "amber",
+            "patchouli",
+            "rose",
+            "vanilla",
+            "woody",
+            "citrus",
+            "warm spicy",
+            "balsamic",
+            "earthy",
+            "powdery"
+        ],
+        "Main Accords Percentage": {
+            "amber": "Dominant",
+            "patchouli": "Dominant",
+            "rose": "Dominant",
+            "vanilla": "Prominent",
+            "woody": "Prominent",
+            "citrus": "Prominent",
+            "warm spicy": "Moderate",
+            "balsamic": "Moderate",
+            "earthy": "Moderate",
+            "powdery": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 3.7
+            },
+            {
+                "name": "fall",
+                "score": 3.175
+            },
+            {
+                "name": "summer",
+                "score": 0.67
+            },
+            {
+                "name": "spring",
+                "score": 0.603
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.027
+            },
+            {
+                "name": "professional",
+                "score": 1.335
+            },
+            {
+                "name": "casual",
+                "score": 0.603
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Edition d'Exception for women",
+        "Brand": "Dior",
+        "Year": "2015",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-edition-dexception-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Mandarin Orange",
+            "Rose",
+            "Egyptian Jasmine",
+            "Musk",
+            "Indonesian Patchouli Leaf"
+        ],
+        "Main Accords": [
+            "rose",
+            "citrus",
+            "musky",
+            "patchouli",
+            "white floral",
+            "floral",
+            "woody",
+            "powdery",
+            "warm spicy",
+            "earthy"
+        ],
+        "Main Accords Percentage": {
+            "rose": "Dominant",
+            "citrus": "Dominant",
+            "musky": "Prominent",
+            "patchouli": "Prominent",
+            "white floral": "Moderate",
+            "floral": "Moderate",
+            "woody": "Moderate",
+            "powdery": "Moderate",
+            "warm spicy": "Moderate",
+            "earthy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.377
+            },
+            {
+                "name": "winter",
+                "score": 1.413
+            },
+            {
+                "name": "spring",
+                "score": 1.316
+            },
+            {
+                "name": "summer",
+                "score": 0.84
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.349
+            },
+            {
+                "name": "casual",
+                "score": 1.148
+            },
+            {
+                "name": "night out",
+                "score": 1.049
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Cherie 2007 for women",
+        "Brand": "Dior",
+        "Year": "2007",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-cherie-2007-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "849",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Strong",
+        "General Notes": [
+            "bergamot",
+            "bitter orange",
+            "lemon",
+            "mandarin orange",
+            "orange",
+            "black pepper",
+            "freesia",
+            "jasmine",
+            "orange blossom",
+            "rose",
+            "lavender",
+            "olibanum",
+            "patchouli",
+            "vanilla",
+            "woodsy notes"
+        ],
+        "Main Accords": [
+            "citrus",
+            "patchouli",
+            "floral",
+            "woody",
+            "warm spicy",
+            "white floral",
+            "fresh spicy",
+            "earthy",
+            "balsamic",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "citrus": "Dominant",
+            "patchouli": "Dominant",
+            "floral": "Prominent",
+            "woody": "Moderate",
+            "warm spicy": "Moderate",
+            "white floral": "Moderate",
+            "fresh spicy": "Moderate",
+            "earthy": "Moderate",
+            "balsamic": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 2.15
+            },
+            {
+                "name": "fall",
+                "score": 2.013
+            },
+            {
+                "name": "winter",
+                "score": 1.994
+            },
+            {
+                "name": "summer",
+                "score": 1.46
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.913
+            },
+            {
+                "name": "professional",
+                "score": 1.248
+            },
+            {
+                "name": "night out",
+                "score": 0.448
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Parfum 2024 for women",
+        "Brand": "Dior",
+        "Year": "2024",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-parfum-2024-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "3.49",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Apricot",
+            "Peach",
+            "Mandarin Orange",
+            "Wild Strawberry",
+            "Floral Notes",
+            "Jasmine",
+            "Patchouli",
+            "Amberwood",
+            "Amber",
+            "Moss",
+            "Atlas Cedar"
+        ],
+        "Main Accords": [
+            "woody",
+            "fruity",
+            "amber",
+            "sweet",
+            "earthy",
+            "patchouli",
+            "warm spicy",
+            "floral",
+            "citrus",
+            "white floral"
+        ],
+        "Main Accords Percentage": {
+            "woody": "Dominant",
+            "fruity": "Dominant",
+            "amber": "Prominent",
+            "sweet": "Prominent",
+            "earthy": "Prominent",
+            "patchouli": "Moderate",
+            "warm spicy": "Moderate",
+            "floral": "Moderate",
+            "citrus": "Moderate",
+            "white floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.985
+            },
+            {
+                "name": "winter",
+                "score": 2.294
+            },
+            {
+                "name": "spring",
+                "score": 0.935
+            },
+            {
+                "name": "summer",
+                "score": 0.45
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.19
+            },
+            {
+                "name": "night out",
+                "score": 1.124
+            },
+            {
+                "name": "professional",
+                "score": 1.06
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Rose Essence for women",
+        "Brand": "Dior",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-rose-essence-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "100",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Soft",
+        "General Notes": [
+            "Green Notes",
+            "Geranium",
+            "Grasse Rose",
+            "Musk",
+            "Guaiac Wood",
+            "Vetiver",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "woody",
+            "rose",
+            "aromatic",
+            "musky",
+            "green",
+            "earthy",
+            "fresh spicy",
+            "powdery",
+            "patchouli",
+            "warm spicy"
+        ],
+        "Main Accords Percentage": {
+            "woody": "Dominant",
+            "rose": "Dominant",
+            "aromatic": "Prominent",
+            "musky": "Prominent",
+            "green": "Moderate",
+            "earthy": "Moderate",
+            "fresh spicy": "Moderate",
+            "powdery": "Moderate",
+            "patchouli": "Moderate",
+            "warm spicy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.692
+            },
+            {
+                "name": "winter",
+                "score": 1.568
+            },
+            {
+                "name": "spring",
+                "score": 1
+            },
+            {
+                "name": "summer",
+                "score": 0.372
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.29
+            },
+            {
+                "name": "night out",
+                "score": 0.971
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Eau Fraiche for women",
+        "Brand": "Dior",
+        "Year": "2012",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-eau-fraiche-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "60",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Citruses",
+            "Bergamot",
+            "Galbanum",
+            "Jasmine",
+            "Gardenia",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "citrus",
+            "white floral",
+            "patchouli",
+            "woody",
+            "green",
+            "fresh",
+            "warm spicy",
+            "fresh spicy",
+            "aromatic",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "citrus": "Dominant",
+            "white floral": "Dominant",
+            "patchouli": "Prominent",
+            "woody": "Moderate",
+            "green": "Moderate",
+            "fresh": "Moderate",
+            "warm spicy": "Moderate",
+            "fresh spicy": "Moderate",
+            "aromatic": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 2.286
+            },
+            {
+                "name": "winter",
+                "score": 1.93
+            },
+            {
+                "name": "summer",
+                "score": 1.904
+            },
+            {
+                "name": "fall",
+                "score": 1.512
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.278
+            },
+            {
+                "name": "casual",
+                "score": 1.45
+            },
+            {
+                "name": "night out",
+                "score": 0.424
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Blooming Bouquet 2023 for women",
+        "Brand": "Dior",
+        "Year": "2023",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-blooming-bouquet-2023-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "3.14",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Soft",
+        "General Notes": [
+            "Sweet Pea",
+            "Bergamot",
+            "Peony",
+            "Damask Rose",
+            "White Musk"
+        ],
+        "Main Accords": [
+            "floral",
+            "rose",
+            "fresh",
+            "musky",
+            "citrus",
+            "sweet"
+        ],
+        "Main Accords Percentage": {
+            "floral": "Dominant",
+            "rose": "Prominent",
+            "fresh": "Moderate",
+            "musky": "Moderate",
+            "citrus": "Moderate",
+            "sweet": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 2.06
+            },
+            {
+                "name": "summer",
+                "score": 1.11
+            },
+            {
+                "name": "fall",
+                "score": 0.45
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 2.03
+            },
+            {
+                "name": "night out",
+                "score": 0.45
+            },
+            {
+                "name": "professional",
+                "score": 0.4
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Eau De Toilette for women",
+        "Brand": "Dior",
+        "Year": "2013",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-eau-de-toilette-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "93",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Blood Orange",
+            "Damask Rose",
+            "Bulgarian Rose",
+            "Neroli",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "patchouli",
+            "rose",
+            "citrus",
+            "woody",
+            "warm spicy",
+            "earthy",
+            "floral",
+            "white floral",
+            "balsamic",
+            "fresh spicy"
+        ],
+        "Main Accords Percentage": {
+            "patchouli": "Dominant",
+            "rose": "Dominant",
+            "citrus": "Dominant",
+            "woody": "Prominent",
+            "warm spicy": "Prominent",
+            "earthy": "Moderate",
+            "floral": "Moderate",
+            "white floral": "Moderate",
+            "balsamic": "Moderate",
+            "fresh spicy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.341
+            },
+            {
+                "name": "winter",
+                "score": 2.318
+            },
+            {
+                "name": "spring",
+                "score": 1.299
+            },
+            {
+                "name": "summer",
+                "score": 0.81
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.159
+            },
+            {
+                "name": "casual",
+                "score": 1.128
+            },
+            {
+                "name": "night out",
+                "score": 0.52
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Parfum pour Cheveux for women",
+        "Brand": "Dior",
+        "Year": "2015",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-parfum-pour-cheveux-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Bergamot",
+            "Rose",
+            "Egyptian Jasmine",
+            "Musk",
+            "Indonesian Patchouli Leaf"
+        ],
+        "Main Accords": [
+            "rose",
+            "citrus",
+            "musky",
+            "white floral",
+            "patchouli",
+            "floral",
+            "powdery",
+            "woody",
+            "fresh spicy",
+            "warm spicy"
+        ],
+        "Main Accords Percentage": {
+            "rose": "Dominant",
+            "citrus": "Dominant",
+            "musky": "Dominant",
+            "white floral": "Dominant",
+            "patchouli": "Prominent",
+            "floral": "Prominent",
+            "powdery": "Prominent",
+            "woody": "Moderate",
+            "fresh spicy": "Moderate",
+            "warm spicy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.231
+            },
+            {
+                "name": "spring",
+                "score": 1.537
+            },
+            {
+                "name": "winter",
+                "score": 1.48
+            },
+            {
+                "name": "summer",
+                "score": 0.93
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.554
+            },
+            {
+                "name": "casual",
+                "score": 1.327
+            },
+            {
+                "name": "night out",
+                "score": 1.201
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Bobby Limited Edition for women",
+        "Brand": "Dior",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-bobby-limited-edition-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Peony",
+            "Lily-of-the-Valley",
+            "Iris",
+            "Apricot",
+            "Peach",
+            "Rose",
+            "Benzoin",
+            "Vanilla",
+            "Tonka Bean",
+            "Sandalwood",
+            "Musk"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "powdery",
+            "amber",
+            "floral",
+            "fresh",
+            "rose",
+            "gourmand",
+            "fruity",
+            "warm spicy",
+            "white floral",
+            "woody"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "powdery": "Dominant",
+            "amber": "Dominant",
+            "floral": "Dominant",
+            "fresh": "Dominant",
+            "rose": "Dominant",
+            "gourmand": "Dominant",
+            "fruity": "Prominent",
+            "warm spicy": "Prominent",
+            "white floral": "Prominent",
+            "woody": "Prominent"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 2.84
+            },
+            {
+                "name": "fall",
+                "score": 2.118
+            },
+            {
+                "name": "spring",
+                "score": 1.73
+            },
+            {
+                "name": "summer",
+                "score": 0.85
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.206
+            },
+            {
+                "name": "casual",
+                "score": 1.466
+            },
+            {
+                "name": "professional",
+                "score": 1.064
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Extrait de Parfum for women",
+        "Brand": "Dior",
+        "Year": "2014",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-extrait-de-parfum-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "Extrait",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "african orange flower",
+            "bergamot",
+            "jasmine",
+            "orange blossom",
+            "petitgrain",
+            "bulgarian rose",
+            "grasse rose",
+            "incense",
+            "lily",
+            "benzoin",
+            "mate",
+            "oud",
+            "patchouli",
+            "vetiver"
+        ],
+        "Main Accords": [
+            "white floral",
+            "patchouli",
+            "rose",
+            "woody",
+            "warm spicy",
+            "citrus",
+            "earthy",
+            "floral",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "patchouli": "Dominant",
+            "rose": "Prominent",
+            "woody": "Moderate",
+            "warm spicy": "Moderate",
+            "citrus": "Moderate",
+            "earthy": "Moderate",
+            "floral": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 1.995
+            },
+            {
+                "name": "winter",
+                "score": 1.98
+            },
+            {
+                "name": "spring",
+                "score": 0.986
+            },
+            {
+                "name": "summer",
+                "score": 0.54
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0.866
+            },
+            {
+                "name": "casual",
+                "score": 0.836
+            },
+            {
+                "name": "night out",
+                "score": 0.448
+            }
+        ]
+    },
+    {
+        "Name": "Miss Dior Esprit de Parfum for women",
+        "Brand": "Dior",
+        "Year": "2011",
+        "rating": "4",
+        "Country": "France",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/miss-dior-esprit-de-parfum-dior-for-women.jpg",
+        "Gender": "women",
+        "Price": "49",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Galbanum",
+            "Jasmine Sambac",
+            "Patchouli"
+        ],
+        "Main Accords": [
+            "green",
+            "patchouli",
+            "white floral",
+            "aromatic",
+            "balsamic",
+            "woody",
+            "warm spicy",
+            "earthy",
+            "bitter"
+        ],
+        "Main Accords Percentage": {
+            "green": "Dominant",
+            "patchouli": "Prominent",
+            "white floral": "Prominent",
+            "aromatic": "Prominent",
+            "balsamic": "Moderate",
+            "woody": "Moderate",
+            "warm spicy": "Moderate",
+            "earthy": "Moderate",
+            "bitter": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.952
+            },
+            {
+                "name": "fall",
+                "score": 1.822
+            },
+            {
+                "name": "spring",
+                "score": 1.255
+            },
+            {
+                "name": "summer",
+                "score": 0.6
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 1.942
+            },
+            {
+                "name": "night out",
+                "score": 0.416
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Prada Paradoxe",
+        "Brand": "Prada",
+        "Year": "2022",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-paradoxe.jpg",
+        "Gender": "women",
+        "Price": "184.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Pear",
+            "Tangerine",
+            "Bergamot",
+            "Orange Blossom",
+            "Neroli Essence",
+            "Neroli",
+            "Jasmine Sambac",
+            "Bourbon Vanilla",
+            "Amber",
+            "White Musk",
+            "Benzoin"
+        ],
+        "Main Accords": [
+            "white floral",
+            "citrus",
+            "sweet",
+            "amber",
+            "vanilla",
+            "powdery",
+            "fruity",
+            "musky",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "citrus": "Dominant",
+            "sweet": "Moderate",
+            "amber": "Moderate",
+            "vanilla": "Moderate",
+            "powdery": "Moderate",
+            "fruity": "Moderate",
+            "musky": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "summer",
+                "score": 1.35
+            },
+            {
+                "name": "spring",
+                "score": 1.261
+            },
+            {
+                "name": "fall",
+                "score": 1.042
+            },
+            {
+                "name": "winter",
+                "score": 1.028
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.633
+            },
+            {
+                "name": "night out",
+                "score": 1.462
+            },
+            {
+                "name": "professional",
+                "score": 1.018
+            }
+        ]
+    },
+    {
+        "Name": "Prada Paradoxe Intense",
+        "Brand": "Prada",
+        "Year": "2023",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-paradoxe-intense.jpg",
+        "Gender": "women",
+        "Price": "159.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "jasmine",
+            "neroli",
+            "vanilla",
+            "bourbon vanilla",
+            "amber"
+        ],
+        "Main Accords": [
+            "white floral",
+            "vanilla",
+            "mossy",
+            "citrus",
+            "amber",
+            "fruity",
+            "sweet",
+            "earthy",
+            "fresh",
+            "powdery"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "vanilla": "Dominant",
+            "mossy": "Dominant",
+            "citrus": "Prominent",
+            "fruity": "Prominent",
+            "amber": "Prominent",
+            "sweet": "Prominent",
+            "earthy": "Prominent",
+            "fresh": "Moderate",
+            "powdery": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "summer",
+                "score": 1.4
+            },
+            {
+                "name": "winter",
+                "score": 1.388
+            },
+            {
+                "name": "spring",
+                "score": 1.324
+            },
+            {
+                "name": "fall",
+                "score": 1.228
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.738
+            },
+            {
+                "name": "night out",
+                "score": 1.344
+            },
+            {
+                "name": "professional",
+                "score": 0.95
+            }
+        ]
+    },
+    {
+        "Name": "Prada Paradoxe Virtual Flower",
+        "Brand": "Prada",
+        "Year": "2024",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-paradoxe-virtual-flower.jpg",
+        "Gender": "women",
+        "Price": "189.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Bergamot",
+            "Jasmine",
+            "Neroli",
+            "Musk",
+            "Ambrette"
+        ],
+        "Main Accords": [
+            "white floral",
+            "musky",
+            "citrus",
+            "floral",
+            "fresh spicy",
+            "aromatic",
+            "powdery",
+            "fresh"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "citrus": "Dominant",
+            "musky": "Dominant",
+            "floral": "Prominent",
+            "fresh spicy": "Moderate",
+            "aromatic": "Moderate",
+            "powdery": "Moderate",
+            "fresh": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 2.219
+            },
+            {
+                "name": "summer",
+                "score": 1.28
+            },
+            {
+                "name": "fall",
+                "score": 0.729
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.668
+            },
+            {
+                "name": "professional",
+                "score": 1.442
+            },
+            {
+                "name": "night out",
+                "score": 0.729
+            }
+        ]
+    },
+    {
+        "Name": "Prada Candy",
+        "Brand": "Prada",
+        "Year": "2011",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-candy.jpg",
+        "Gender": "women",
+        "Price": "159.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Caramel",
+            "Musk",
+            "Powdery Notes",
+            "Benzoin",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "caramel",
+            "gourmand",
+            "powdery",
+            "amber",
+            "sweet",
+            "vanilla",
+            "musky",
+            "warm spicy",
+            "balsamic"
+        ],
+        "Main Accords Percentage": {
+            "caramel": "Dominant",
+            "gourmand": "Dominant",
+            "powdery": "Prominent",
+            "amber": "Prominent",
+            "sweet": "Prominent",
+            "vanilla": "Moderate",
+            "musky": "Moderate",
+            "warm spicy": "Moderate",
+            "balsamic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.896
+            },
+            {
+                "name": "fall",
+                "score": 1.538
+            },
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 1.979
+            },
+            {
+                "name": "professional",
+                "score": 0.474
+            },
+            {
+                "name": "casual",
+                "score": 0.39
+            }
+        ]
+    },
+    {
+        "Name": "Prada Amber",
+        "Brand": "Prada",
+        "Year": "2006",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-amber.jpg",
+        "Gender": "men",
+        "Price": "142.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "patchouli",
+            "labdanum",
+            "leather",
+            "vanilla",
+            "bergamot"
+        ],
+        "Main Accords": [
+            "warm spicy",
+            "amber",
+            "gourmand",
+            "aromatic",
+            "citrus",
+            "woody",
+            "musky",
+            "vanilla",
+            "sweet",
+            "leather",
+            "white floral"
+        ],
+        "Main Accords Percentage": {
+            "warm spicy": "Dominant",
+            "amber": "Dominant",
+            "gourmand": "Dominant",
+            "aromatic": "Prominent",
+            "citrus": "Prominent",
+            "woody": "Prominent",
+            "musky": "Moderate",
+            "vanilla": "Moderate",
+            "sweet": "Moderate",
+            "leather": "Moderate",
+            "white floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.743
+            },
+            {
+                "name": "winter",
+                "score": 2.635
+            },
+            {
+                "name": "spring",
+                "score": 1.139
+            },
+            {
+                "name": "summer",
+                "score": 0.69
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.92
+            },
+            {
+                "name": "professional",
+                "score": 1.747
+            },
+            {
+                "name": "casual",
+                "score": 0.969
+            }
+        ]
+    },
+    {
+        "Name": "Prada L'Homme Absolu for men",
+        "Brand": "Prada",
+        "Year": "2018",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://www.prada.com/content/dam/pradanux_products/2/2A0/2A0281/ZX2F0Z99/2A0281_ZX2_F0Z99_SLF.png",
+        "Gender": "men",
+        "Price": "49",
+        "OilType": "Eau de Cologne",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Cardamom",
+            "Black Pepper",
+            "Green Mandarin",
+            "Bergamot",
+            "Iris",
+            "Geranium",
+            "Neroli",
+            "Amber",
+            "Labdanum",
+            "Cedar"
+        ],
+        "Main Accords": [
+            "fresh spicy",
+            "warm spicy",
+            "citrus",
+            "aromatic",
+            "amber",
+            "iris",
+            "woody",
+            "powdery",
+            "violet",
+            "earthy"
+        ],
+        "Main Accords Percentage": {
+            "fresh spicy": "Dominant",
+            "warm spicy": "Dominant",
+            "citrus": "Dominant",
+            "aromatic": "Dominant",
+            "amber": "Dominant",
+            "iris": "Prominent",
+            "woody": "Prominent",
+            "powdery": "Prominent",
+            "violet": "Moderate",
+            "earthy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.527
+            },
+            {
+                "name": "winter",
+                "score": 2.031
+            },
+            {
+                "name": "spring",
+                "score": 1.41
+            },
+            {
+                "name": "summer",
+                "score": 0.89
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.461
+            },
+            {
+                "name": "night out",
+                "score": 1.53
+            },
+            {
+                "name": "casual",
+                "score": 0.801
+            }
+        ]
+    },
+    {
+        "Name": "Prada Candy L'Eau for women",
+        "Brand": "Prada",
+        "Year": "2013",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://fimgs.net/mdimg/perfume/o.17640.jpg",
+        "Gender": "women",
+        "Price": "",
+        "OilType": "",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Citruses",
+            "Sweet Pea",
+            "Caramel",
+            "Benzoin",
+            "White Musk"
+        ],
+        "Main Accords": [
+            "caramel",
+            "sweet",
+            "amber",
+            "citrus",
+            "musky",
+            "floral",
+            "gourmand",
+            "warm spicy",
+            "fresh",
+            "powdery",
+            "vanilla"
+        ],
+        "Main Accords Percentage": {
+            "caramel": "Dominant",
+            "sweet": "Dominant",
+            "amber": "Dominant",
+            "citrus": "Prominent",
+            "musky": "Prominent",
+            "floral": "Prominent",
+            "gourmand": "Moderate",
+            "warm spicy": "Moderate",
+            "fresh": "Moderate",
+            "powdery": "Moderate",
+            "vanilla": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 1.97
+            },
+            {
+                "name": "spring",
+                "score": 1.934
+            },
+            {
+                "name": "winter",
+                "score": 1.675
+            },
+            {
+                "name": "summer",
+                "score": 1.29
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.313
+            },
+            {
+                "name": "casual",
+                "score": 2.264
+            },
+            {
+                "name": "professional",
+                "score": 0.926
+            }
+        ]
+    },
+    {
+        "Name": "Prada La Femme",
+        "Brand": "Prada",
+        "Year": "2016",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-la-femme.jpg",
+        "Gender": "women",
+        "Price": "149.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Tuberose",
+            "Vanilla",
+            "Frangipani",
+            "Iris",
+            "Vetiver"
+        ],
+        "Main Accords": [
+            "floral",
+            "tuberose",
+            "beeswax",
+            "tropical",
+            "white floral",
+            "yellow floral",
+            "animalic",
+            "woody",
+            "honey",
+            "powdery"
+        ],
+        "Main Accords Percentage": {
+            "floral": "Dominant",
+            "tuberose": "Prominent",
+            "beeswax": "Prominent",
+            "tropical": "Prominent",
+            "white floral": "Prominent",
+            "yellow floral": "Moderate",
+            "animalic": "Moderate",
+            "woody": "Moderate",
+            "honey": "Moderate",
+            "powdery": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1
+            },
+            {
+                "name": "fall",
+                "score": 0.576
+            },
+            {
+                "name": "summer",
+                "score": 0.552
+            },
+            {
+                "name": "winter",
+                "score": 0.448
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0.808
+            },
+            {
+                "name": "casual",
+                "score": 0.7
+            },
+            {
+                "name": "night out",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Prada Infusion d'Iris",
+        "Brand": "Prada",
+        "Year": "2007",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/prada-infusion-diris.jpg",
+        "Gender": "women",
+        "Price": "104.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Neroli",
+            "Mandarin Orange",
+            "Orange",
+            "African Orange Flower",
+            "Galbanum",
+            "Mastic or Lentisque",
+            "Iris",
+            "Benzoin",
+            "Incense",
+            "Virginia Cedar",
+            "Vetiver"
+        ],
+        "Main Accords": [
+            "iris",
+            "woody",
+            "amber",
+            "powdery",
+            "citrus",
+            "earthy",
+            "aromatic",
+            "balsamic",
+            "violet",
+            "white floral"
+        ],
+        "Main Accords Percentage": {
+            "iris": "Dominant",
+            "woody": "Dominant",
+            "amber": "Prominent",
+            "powdery": "Prominent",
+            "citrus": "Prominent",
+            "earthy": "Prominent",
+            "aromatic": "Prominent",
+            "balsamic": "Prominent",
+            "violet": "Prominent",
+            "white floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.223
+            },
+            {
+                "name": "winter",
+                "score": 1.787
+            },
+            {
+                "name": "spring",
+                "score": 1.176
+            },
+            {
+                "name": "summer",
+                "score": 0.77
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 2.453
+            },
+            {
+                "name": "night out",
+                "score": 0.79
+            },
+            {
+                "name": "casual",
+                "score": 0.693
+            }
+        ]
+    },
+    {
+        "Name": "Valentino Donna Born In Roma Extradose",
+        "Brand": "Valentino",
+        "Year": "",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://www.valentino-beauty.us/dw/image/v2/AAFM_PRD/on/demandware.static/-/Sites-valentino-master-catalog/default/dwa120268c/images/pdp/MPL02808/vlt_frag_bir-extradose_launch-25_dmi_donna-100ml_3614274350753_front%20white-1x1.jpg",
+        "Gender": "women",
+        "Price": "270.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Blackcurrant",
+            "Rum",
+            "Vanilla"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "fruity",
+            "rum",
+            "woody",
+            "soft spicy",
+            "powdery",
+            "sweet",
+            "floral"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "fruity": "Dominant",
+            "rum": "Moderate",
+            "woody": "Moderate",
+            "soft spicy": "Moderate",
+            "powdery": "Moderate",
+            "sweet": "Moderate",
+            "floral": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "winter",
+                "score": 1.32
+            },
+            {
+                "name": "fall",
+                "score": 0.54
+            },
+            {
+                "name": "spring",
+                "score": 0.44
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0.726
+            },
+            {
+                "name": "night out",
+                "score": 0.7
+            },
+            {
+                "name": "casual",
+                "score": 0.596
+            }
+        ]
+    },
+    {
+        "Name": "Pantheon Roma Donna Margherita",
+        "Brand": "Pantheon Roma",
+        "Year": "",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/pantheon-roma-donna-margherita.jpg",
+        "Gender": "women",
+        "Price": "179.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "bergamot",
+            "cinnamon",
+            "green notes",
+            "rhubarb",
+            "tuberose",
+            "jasmine",
+            "muguet",
+            "narcissus",
+            "orange blossom",
+            "amber",
+            "benzoin",
+            "cedar",
+            "musk",
+            "sandalwood"
+        ],
+        "Main Accords": [
+            "white floral",
+            "tuberose",
+            "green",
+            "yellow floral",
+            "animalic",
+            "amber"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "tuberose": "Prominent",
+            "green": "Moderate",
+            "yellow floral": "Moderate",
+            "animalic": "Moderate",
+            "amber": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 0.45
+            },
+            {
+                "name": "spring",
+                "score": 0.416
+            },
+            {
+                "name": "winter",
+                "score": 0.36
+            },
+            {
+                "name": "summer",
+                "score": 0.312
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0.468
+            },
+            {
+                "name": "night out",
+                "score": 0.45
+            },
+            {
+                "name": "casual",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Valentino Donna Born In Roma Pink Pp",
+        "Brand": "Valentino",
+        "Year": "2023",
+        "rating": "4",
+        "Country": "Italy",
+        "Image URL": "https://fimgs.net/mdimg/perfume-thumbs/375x500.84444.avif",
+        "Gender": "women",
+        "Price": "12.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "Pink Pepper",
+            "Blackcurrant",
+            "Jasmine",
+            "Rose",
+            "Vanilla",
+            "White Musk",
+            "Woody Notes"
+        ],
+        "Main Accords": [
+            "citrus",
+            "vanilla",
+            "white floral",
+            "sweet",
+            "powdery",
+            "soapy"
+        ],
+        "Main Accords Percentage": {
+            "citrus": "Dominant",
+            "vanilla": "Dominant",
+            "white floral": "Dominant",
+            "sweet": "Prominent",
+            "powdery": "Moderate",
+            "soapy": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "summer",
+                "score": 1
+            },
+            {
+                "name": "spring",
+                "score": 0.9
+            },
+            {
+                "name": "winter",
+                "score": 0.9
+            },
+            {
+                "name": "fall",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.296
+            },
+            {
+                "name": "professional",
+                "score": 1.106
+            },
+            {
+                "name": "night out",
+                "score": 0.7
+            }
+        ]
+    },
+    {
+        "Name": "Profumum Roma Dulcis In Fundo",
+        "Brand": "Profumum Roma",
+        "Year": "2006",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/profumum-roma-dulcis-in-fundo.jpg",
+        "Gender": "unisex",
+        "Price": "418.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "citruses",
+            "vanilla"
+        ],
+        "Main Accords": [
+            "vanilla",
+            "citrus",
+            "fresh",
+            "powdery"
+        ],
+        "Main Accords Percentage": {
+            "vanilla": "Dominant",
+            "citrus": "Dominant",
+            "fresh": "Moderate",
+            "powdery": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "summer",
+                "score": 1.58
+            },
+            {
+                "name": "spring",
+                "score": 1.485
+            },
+            {
+                "name": "winter",
+                "score": 0.9
+            },
+            {
+                "name": "fall",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.485
+            },
+            {
+                "name": "professional",
+                "score": 1.066
+            },
+            {
+                "name": "night out",
+                "score": 0.7
+            }
+        ]
+    },
+    {
+        "Name": "Pantheon Roma Il Giardino",
+        "Brand": "Pantheon Roma",
+        "Year": "",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/pantheon-roma-il-giardino.jpg",
+        "Gender": "unisex",
+        "Price": "266.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Floral Notes",
+            "Ivy",
+            "Apple",
+            "Pear",
+            "Vetiver",
+            "Leather",
+            "Cedar",
+            "Benzoin",
+            "Musk"
+        ],
+        "Main Accords": [
+            "green",
+            "fresh",
+            "floral",
+            "fruity",
+            "ozonic",
+            "woody"
+        ],
+        "Main Accords Percentage": {
+            "green": "Dominant",
+            "fresh": "Dominant",
+            "floral": "Dominant",
+            "fruity": "Dominant",
+            "ozonic": "Moderate",
+            "woody": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 2.69
+            },
+            {
+                "name": "summer",
+                "score": 2.022
+            },
+            {
+                "name": "fall",
+                "score": 0.459
+            },
+            {
+                "name": "winter",
+                "score": 0.357
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.608
+            },
+            {
+                "name": "professional",
+                "score": 1.257
+            },
+            {
+                "name": "night out",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "Name": "Donna Pavarotti",
+        "Brand": "Donna Pavarotti",
+        "Year": "",
+        "rating": "",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/donna-pavarotti.jpg",
+        "Gender": "women",
+        "Price": "8.99",
+        "OilType": "Eau de Toilette",
+        "Longevity": "Moderate",
+        "Sillage": "Moderate",
+        "General Notes": [
+            "forest notes and citrus",
+            "a refreshing blend."
+        ],
+        "Main Accords": [
+            "white floral",
+            "sweet",
+            "woody",
+            "powdery",
+            "fruity",
+            "amber",
+            "balsamic",
+            "floral",
+            "fresh",
+            "citrus"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "sweet": "Dominant",
+            "woody": "Dominant",
+            "powdery": "Prominent",
+            "fruity": "Prominent",
+            "amber": "Moderate",
+            "balsamic": "Moderate",
+            "floral": "Moderate",
+            "fresh": "Moderate",
+            "citrus": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 1.597
+            },
+            {
+                "name": "winter",
+                "score": 1.504
+            },
+            {
+                "name": "fall",
+                "score": 1.394
+            },
+            {
+                "name": "summer",
+                "score": 1.08
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "casual",
+                "score": 1.966
+            },
+            {
+                "name": "professional",
+                "score": 1.5
+            },
+            {
+                "name": "night out",
+                "score": 0.62
+            }
+        ]
+    },
+    {
+        "Name": "Donna Karan for women",
+        "Brand": "Donna Karan",
+        "Year": "1992",
+        "rating": "4",
+        "Country": "USA",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/donna-karan-donna-karan-for-women.jpg",
+        "Gender": "women",
+        "Price": "99",
+        "OilType": "",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "Osmanthus",
+            "Orange Blossom",
+            "Apricot",
+            "Pineapple",
+            "Peach",
+            "Bergamot",
+            "Green Notes",
+            "Ylang-Ylang",
+            "Carnation",
+            "Heliotrope",
+            "Lily",
+            "Orchid",
+            "Jasmine",
+            "Rose",
+            "Cassia",
+            "Suede",
+            "Incense",
+            "Amber",
+            "Benzoin",
+            "Tonka Bean",
+            "Sandalwood",
+            "Musk",
+            "Patchouli",
+            "Vanilla",
+            "Vetiver",
+            "Cedar",
+            "Citruses"
+        ],
+        "Main Accords": [
+            "amber",
+            "gourmand",
+            "powdery",
+            "woody",
+            "floral",
+            "warm spicy",
+            "fruity",
+            "sweet",
+            "white floral",
+            "vanilla",
+            "musky"
+        ],
+        "Main Accords Percentage": {
+            "amber": "Dominant",
+            "gourmand": "Dominant",
+            "powdery": "Dominant",
+            "woody": "Dominant",
+            "floral": "Dominant",
+            "warm spicy": "Prominent",
+            "fruity": "Prominent",
+            "sweet": "Prominent",
+            "white floral": "Prominent",
+            "vanilla": "Prominent",
+            "musky": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "fall",
+                "score": 2.905
+            },
+            {
+                "name": "winter",
+                "score": 2.752
+            },
+            {
+                "name": "spring",
+                "score": 0.8
+            },
+            {
+                "name": "summer",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "night out",
+                "score": 2.641
+            },
+            {
+                "name": "professional",
+                "score": 1.091
+            },
+            {
+                "name": "casual",
+                "score": 0.986
+            }
+        ]
+    },
+    {
+        "Name": "Profumum Roma Tuberosa",
+        "Brand": "Profumum Roma",
+        "Year": "2007",
+        "rating": "4",
+        "Country": "",
+        "Image URL": "https://d2k6fvhyk5xgx.cloudfront.net/images/profumum-roma-tuberosa.jpg",
+        "Gender": "unisex",
+        "Price": "391.99",
+        "OilType": "Eau de Parfum",
+        "Longevity": "Long Lasting",
+        "Sillage": "Strong",
+        "General Notes": [
+            "tuberose",
+            "gardenia",
+            "jasmine"
+        ],
+        "Main Accords": [
+            "white floral",
+            "tuberose",
+            "animalic"
+        ],
+        "Main Accords Percentage": {
+            "white floral": "Dominant",
+            "tuberose": "Prominent",
+            "animalic": "Moderate"
+        },
+        "Season Ranking": [
+            {
+                "name": "spring",
+                "score": 0
+            },
+            {
+                "name": "summer",
+                "score": 0
+            },
+            {
+                "name": "fall",
+                "score": 0
+            },
+            {
+                "name": "winter",
+                "score": 0
+            }
+        ],
+        "Occasion Ranking": [
+            {
+                "name": "professional",
+                "score": 0
+            },
+            {
+                "name": "night out",
+                "score": 0
+            },
+            {
+                "name": "casual",
                 "score": 0
             }
         ]

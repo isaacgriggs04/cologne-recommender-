@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
@@ -12,15 +12,20 @@ const FragranceDetails = () => {
   const fragranceIndex = parseInt(id) - 1;
   const fragrance = fragranceData[fragranceIndex];
 
+  // Scroll to top when component mounts (navigating to fragrance profile)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [id]);
+
   if (!fragrance) {
     return (
       <div className="min-h-screen bg-[#F8F9FA] p-8 pt-20 flex flex-col items-center justify-center">
         <h1 className="text-2xl text-gray-900 mb-4">Fragrance not found</h1>
-        <button
-          onClick={() => navigate('/chat')}
+        <button 
+          onClick={() => navigate(-1)}
           className="text-gray-600 hover:text-gray-900 underline"
         >
-          Return to Chat
+          Go Back
         </button>
       </div>
     );
@@ -39,14 +44,14 @@ const FragranceDetails = () => {
   return (
     <div className="min-h-screen bg-[#F8F9FA] p-4 md:p-8 pt-20">
       <div className="max-w-4xl mx-auto">
-        <button
-          onClick={() => navigate('/chat')}
+        <button 
+          onClick={() => navigate(-1)}
           className="mb-6 flex items-center text-gray-500 hover:text-gray-900 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-1">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Back to Chat
+          Back
         </button>
 
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">

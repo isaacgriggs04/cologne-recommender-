@@ -8,6 +8,7 @@ import ScentProfile from './components/ScentProfile';
 import MyCollection from './components/MyCollection';
 import FragranceDetails from './components/FragranceDetails';
 import SearchResultsPage from './components/SearchResultsPage';
+import UserProfile from './components/UserProfile';
 import ScanFragrance from './components/ScanFragrance';
 import ChatPage from './components/ChatPage';
 
@@ -177,6 +178,14 @@ function App() {
           <div className="pt-16 md:pt-16">
             <Navigation />
             <ScanFragrance />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/account" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <UserProfile />
           </div>
         </ProtectedRoute>
       } />

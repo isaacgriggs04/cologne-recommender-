@@ -395,8 +395,12 @@ const ChatContainer = () => {
   };
 
   const handleViewDetails = (fragrance) => {
-    // Navigate back to chat page instead of fragrance details
-    navigate('/chat');
+    // Find the index of the fragrance in the data array
+    const fragranceIndex = fragranceData.findIndex(f => f === fragrance);
+    if (fragranceIndex !== -1) {
+      // Navigate to fragrance details page (1-based index)
+      navigate(`/fragrance/${fragranceIndex + 1}`);
+    }
   };
 
   const handleInputChange = (value) => {
