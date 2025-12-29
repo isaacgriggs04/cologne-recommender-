@@ -7,7 +7,7 @@ URL = "https://api.fragella.com/api/v1/fragrances"
 # Persist the filtered dataset inside the project directory
 OUTPUT_FILE = "/Users/isaac/Projects/fragrances_filtered.json"
 # Default search configuration
-SEARCH_QUERY = "donna born in roma"
+SEARCH_QUERY = "azzaro wanted"
 RESULTS_PER_PAGE = 50  # Results per API request
 MAX_PAGES = None  # Maximum number of pages to fetch (set to None for unlimited, or a number like 10)
 

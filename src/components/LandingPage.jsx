@@ -1,31 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import FloatingChatButton from './FloatingChatButton';
 import fragranceData from '../../fragrances_filtered.json';
 
 const DiscoveryCard = ({ fragrance, onClick }) => (
-  <div 
+  <div
     onClick={onClick}
-    className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 cursor-pointer group hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform"
+    className="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-xl p-4 cursor-pointer group hover:border-blue-500/50 hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out transform overflow-hidden relative flex flex-col h-full aspect-[3/4]"
   >
-    <div className="flex justify-between items-start mb-4">
-      <div className="flex-1 pr-4">
-        <h3 className="text-lg font-medium text-gray-900 line-clamp-1 group-hover:text-gray-700 transition-colors">{fragrance.Name}</h3>
-        <p className="text-sm text-gray-500">{fragrance.Brand}</p>
-      </div>
-      <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-100 group-hover:bg-white transition-colors">
+    {/* Glowing border effect on hover */}
+    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-purple-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"></div>
+    
+    {/* Name at top */}
+    <div className="relative mb-3">
+      <h3 className="text-lg font-medium text-white line-clamp-2 group-hover:text-blue-300 transition-colors text-center">{fragrance.Name}</h3>
+      {fragrance.Brand && (
+        <p className="text-sm text-gray-400 text-center mt-1">{fragrance.Brand}</p>
+      )}
+    </div>
+
+    {/* Bigger image in the middle */}
+    <div className="relative flex-1 flex items-center justify-center my-3 min-h-0">
+      <div className="relative w-full h-full rounded-xl bg-gray-700/50 flex items-center justify-center overflow-hidden border border-gray-600/50 group-hover:border-blue-500/50 transition-colors">
         {fragrance["Image URL"] ? (
-          <img src={fragrance["Image URL"]} alt={fragrance.Name} className="w-full h-full object-cover" />
+          <img src={fragrance["Image URL"]} alt={fragrance.Name} className="w-full h-full object-contain" />
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-gray-500">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
           </svg>
         )}
       </div>
     </div>
-    <div className="flex gap-2 flex-wrap max-h-16 overflow-hidden">
+
+    {/* Notes at bottom */}
+    <div className="relative flex gap-2 flex-wrap justify-center mt-auto">
       {(fragrance["General Notes"] || []).slice(0, 4).map((note, index) => (
-        <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+        <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
           {note}
         </span>
       ))}
@@ -33,11 +43,77 @@ const DiscoveryCard = ({ fragrance, onClick }) => (
   </div>
 );
 
+// Filter Dropdown Component
+const FilterDropdown = ({ label, options, value, onChange, placeholder = "All" }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-2 bg-gray-800/60 backdrop-blur-sm border rounded-lg px-3 py-2 text-sm font-medium hover:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-colors min-w-[140px] ${
+          value ? 'border-blue-500/50 bg-blue-500/20 text-blue-300' : 'border-gray-700/50 text-gray-300'
+        }`}
+      >
+        <span className="truncate">{value || placeholder}</span>
+        <svg
+          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-10"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="absolute top-full mt-1 bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 rounded-lg shadow-2xl z-20 min-w-[200px] max-h-60 overflow-y-auto">
+            <div className="py-1">
+              <button
+                onClick={() => {
+                  onChange('');
+                  setIsOpen(false);
+                }}
+                className="w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-700/50 focus:bg-gray-700/50 focus:outline-none transition-colors"
+              >
+                All {label}
+              </button>
+              {options.map((option) => (
+                <button
+                  key={option}
+                  onClick={() => {
+                    onChange(option);
+                    setIsOpen(false);
+                  }}
+                  className="w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-700/50 focus:bg-gray-700/50 focus:outline-none transition-colors"
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 const LandingPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  // Filter states
+  const [genderFilter, setGenderFilter] = useState('');
+  const [brandFilter, setBrandFilter] = useState('');
+  const [oilTypeFilter, setOilTypeFilter] = useState('');
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -59,6 +135,56 @@ const LandingPage = () => {
     }
   }, [location.pathname]);
 
+  // Get unique filter options
+  const filterOptions = useMemo(() => {
+    const genders = new Set();
+    const brands = new Set();
+    const oilTypes = new Set();
+
+    fragranceData.forEach(f => {
+      if (f.Gender) genders.add(f.Gender.toLowerCase());
+      if (f.Brand) brands.add(f.Brand);
+      if (f.OilType) oilTypes.add(f.OilType);
+    });
+
+    return {
+      genders: Array.from(genders).sort(),
+      brands: Array.from(brands).sort(),
+      oilTypes: Array.from(oilTypes).sort()
+    };
+  }, []);
+
+  // Apply filters to fragrance data
+  const filteredFragrances = useMemo(() => {
+    let filtered = fragranceData;
+
+    if (genderFilter) {
+      filtered = filtered.filter(f =>
+        (f.Gender || '').toLowerCase() === genderFilter.toLowerCase()
+      );
+    }
+
+    if (brandFilter) {
+      filtered = filtered.filter(f => f.Brand === brandFilter);
+    }
+
+    if (oilTypeFilter) {
+      filtered = filtered.filter(f => f.OilType === oilTypeFilter);
+    }
+
+    return filtered;
+  }, [genderFilter, brandFilter, oilTypeFilter]);
+
+  // Clear all filters
+  const clearFilters = () => {
+    setGenderFilter('');
+    setBrandFilter('');
+    setOilTypeFilter('');
+  };
+
+  // Check if any filters are active
+  const hasActiveFilters = genderFilter || brandFilter || oilTypeFilter;
+
   // Handle search input changes
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -67,14 +193,14 @@ const LandingPage = () => {
     if (term.length > 0) {
       const searchTerms = term.toLowerCase().split(/\s+/).filter(t => t.length > 0);
       
-      const suggestions = fragranceData
+      const suggestions = filteredFragrances
         .filter(f => {
           const name = (f.Name || '').toLowerCase();
           const brand = (f.Brand || '').toLowerCase();
           const combined = `${name} ${brand}`;
-          
+
           // All search terms must match somewhere in name or brand
-          return searchTerms.every(searchTerm => 
+          return searchTerms.every(searchTerm =>
             name.includes(searchTerm) || brand.includes(searchTerm) || combined.includes(searchTerm)
           );
         })
@@ -137,19 +263,59 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#F8F9FA] pt-24 pb-8 px-4 md:px-8">
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-24 pb-8 px-4 md:px-8">
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <h1 className="text-4xl font-serif italic text-gray-900 mb-2">Discover</h1>
-          <p className="text-lg text-gray-500 font-light">Explore our curated collection of fine fragrances.</p>
+      <div className="max-w-7xl mx-auto mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
+          <div>
+            <h1 className="text-4xl font-serif italic text-white mb-2">Discover</h1>
+            <p className="text-lg text-gray-400 font-light">Explore our curated collection of fine fragrances.</p>
+            {hasActiveFilters && (
+              <p className="text-sm text-blue-400 font-medium mt-1">
+                Showing {filteredFragrances.length} fragrances
+              </p>
+            )}
+          </div>
+
+          {/* Filter Dropdowns */}
+          <div className="flex flex-wrap gap-3">
+            <FilterDropdown
+              label="Gender"
+              options={filterOptions.genders}
+              value={genderFilter}
+              onChange={setGenderFilter}
+              placeholder="All Genders"
+            />
+            <FilterDropdown
+              label="Brand"
+              options={filterOptions.brands}
+              value={brandFilter}
+              onChange={setBrandFilter}
+              placeholder="All Brands"
+            />
+            <FilterDropdown
+              label="Type"
+              options={filterOptions.oilTypes}
+              value={oilTypeFilter}
+              onChange={setOilTypeFilter}
+              placeholder="All Types"
+            />
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="text-sm font-medium text-orange-300 hover:text-orange-200 bg-orange-500/20 hover:bg-orange-500/30 px-4 py-2 rounded-lg border border-orange-500/50 transition-all whitespace-nowrap backdrop-blur-sm"
+              >
+                Clear Filters
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="relative w-full md:w-96">
           <input
             type="text"
             placeholder="Search fragrances..."
-            className="w-full px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all pl-12 text-gray-900"
+            className="w-full px-6 py-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 outline-none transition-all pl-12 text-white placeholder-gray-400"
             value={searchTerm}
             onChange={handleSearchChange}
             onKeyDown={handleKeyDown}
@@ -176,29 +342,29 @@ const LandingPage = () => {
 
           {/* Autofill Suggestions Dropdown */}
           {showSuggestions && searchSuggestions.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden z-50 max-h-80 overflow-y-auto">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-gray-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 overflow-hidden z-50 max-h-80 overflow-y-auto">
               {searchSuggestions.map((fragrance, index) => (
                 <button
                   key={index}
                   onClick={() => handleSuggestionClick(fragrance)}
-                  className={`w-full flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors text-left ${
-                    selectedIndex === index ? 'bg-gray-50' : ''
+                  className={`w-full flex items-center gap-3 p-4 hover:bg-gray-700/50 transition-colors text-left ${
+                    selectedIndex === index ? 'bg-gray-700/50' : ''
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gray-100 flex-shrink-0 overflow-hidden">
+                  <div className="w-12 h-12 rounded-full bg-gray-700/50 flex-shrink-0 overflow-hidden border border-gray-600/50">
                     {fragrance['Image URL'] ? (
                       <img src={fragrance['Image URL']} alt={fragrance.Name} className="w-full h-full object-cover" />
                     ) : (
-                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400">
+                      <div className="w-full h-full bg-gray-700 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
                         </svg>
                       </div>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-gray-900 text-sm truncate">{fragrance.Name}</h4>
-                    <p className="text-xs text-gray-500 truncate">{fragrance.Brand}</p>
+                    <h4 className="font-medium text-white text-sm truncate">{fragrance.Name}</h4>
+                    <p className="text-xs text-gray-400 truncate">{fragrance.Brand}</p>
                   </div>
                 </button>
               ))}
@@ -209,9 +375,9 @@ const LandingPage = () => {
 
       {/* Discovery Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
-        {fragranceData.map((fragrance, index) => (
+        {filteredFragrances.map((fragrance, index) => (
           <DiscoveryCard
-            key={index}
+            key={`${fragrance.Name}-${fragrance.Brand}-${index}`}
             fragrance={fragrance}
             onClick={() => {
               // Get scroll position synchronously at click time
@@ -219,9 +385,12 @@ const LandingPage = () => {
               console.log('Saving scroll position:', scrollY, 'window.scrollY:', window.scrollY); // Debug both methods
               sessionStorage.setItem('scrollPosition', scrollY.toString());
 
+              // Find the original index in fragranceData for navigation
+              const originalIndex = fragranceData.indexOf(fragrance);
+
               // Small delay before navigation to ensure save happens
               setTimeout(() => {
-                navigate(`/fragrance/${index + 1}`);
+                navigate(`/fragrance/${originalIndex + 1}`);
               }, 0);
             }}
           />

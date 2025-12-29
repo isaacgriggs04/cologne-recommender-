@@ -7,14 +7,14 @@ import { pipeline } from '@xenova/transformers';
 import sharp from 'sharp';
 
 const PINECONE_API_KEY = 'pcsk_3hH679_Mj82WvAP5xEu5bDw1JaDmz1ZZheUnKZxcAZEwQ9cKLGxFyQ85XNowVjpFjke969';
-const PINECONE_INDEX = 'base-clip-model';
+const PINECONE_INDEX = 'new-data-base-clip';
 const PINECONE_DIM = '512';
 const BATCH_SIZE = 5;
 
 let clipExtractor = null;
 async function getClipExtractor() {
   if (clipExtractor) return clipExtractor;
-  // Use larger CLIP model for higher dimensionality, then pad to 1024
+  // Use CLIP model for 512-dimensional embeddings
   clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-base-patch32');
   return clipExtractor;
 }
@@ -65,7 +65,7 @@ async function main() {
   const index = pinecone.index(PINECONE_INDEX);
 
   const points = [];
-  const targetDim = parseInt(PINECONE_DIM, 10) || 1024;
+  const targetDim = parseInt(PINECONE_DIM, 10) || 512;
 
   for (let i = 0; i < fragrances.length; i++) {
     const f = fragrances[i];

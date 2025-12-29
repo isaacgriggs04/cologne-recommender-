@@ -26,7 +26,7 @@ const getAnthropicClient = () => {
 // Tool definition for searching fragrances
 const searchFragrancesTool = {
   name: 'search_fragrances',
-  description: 'Search for fragrances based on criteria like accords, notes, gender, season, occasion, price range, or keywords. Returns matching fragrances with their details.',
+  description: 'Search for fragrances based on criteria like accords, notes, gender, season, occasion, price range, or keywords. Excludes fragrances already owned or wishlisted. Returns matching fragrances with their details.',
   input_schema: {
     type: 'object',
     properties: {
@@ -84,13 +84,27 @@ const handleSearchFragrances = (args) => {
   let results = [...fragranceData];
   const limit = Math.min(args.maxResults || 20, 50); // Cap at 50
 
-  // Filter by gender
-  if (args.gender) {
-    results = results.filter(f => {
-      const gender = (f.Gender || '').toLowerCase();
-      return gender.includes(args.gender);
-    });
-  }
+  // Create set of fragrances to exclude (by name-brand combination)
+  const excludeSet = new Set(
+    currentExcludeFragrances.map(f => `${(f.Name || f.name || '').toLowerCase()}-${(f.Brand || f.brand || '').toLowerCase()}`)
+  );
+
+  // Filter out owned/wishlisted fragrances
+  results = results.filter(f => {
+    const key = `${(f.Name || '').toLowerCase()}-${(f.Brand || '').toLowerCase()}`;
+    return !excludeSet.has(key);
+  });
+
+// Filter by gender
+if (args.gender) {
+  results = results.filter(f => {
+    const gender = (f.Gender || '').toLowerCase().trim();
+    const searchGender = args.gender.toLowerCase();
+
+    // Exact match or unisex fragrances (unisex can match any gender)
+    return gender === searchGender || gender === 'unisex';
+  });
+}
 
   // Filter by price
   if (args.priceMin !== undefined || args.priceMax !== undefined) {
@@ -203,26 +217,255 @@ const handleSearchFragrances = (args) => {
   };
 };
 
-export const generateScentProfileDescription = async (collectionFragrances, wishlistFragrances) => {
+// Store exclusion fragrances globally for the tool handler
+let currentExcludeFragrances = [];
 
+export const prepareSwipeData = (swipeHistory) => {
+  // Takes array of swipe actions: [{ fragrance: {...}, action: 'love'/'like'/'meh'/'skip' }, ...]
+  // Returns: { loved: [], liked: [], meh: [] }
+  // Filter and separate fragrances by action type
+  // Skip actions should be excluded from all arrays
+
+  const result = {
+    loved: [],
+    liked: [],
+    meh: []
+  };
+
+  swipeHistory.forEach(item => {
+    if (item.action === 'love') {
+      result.loved.push(item.fragrance);
+    } else if (item.action === 'like') {
+      result.liked.push(item.fragrance);
+    } else if (item.action === 'meh') {
+      result.meh.push(item.fragrance);
+    }
+    // Skip 'skip' actions - they are not included in any array
+  });
+
+  return result;
+};
+
+export const getSwipeBasedRecommendations = async (swipeData, userGender = null) => {
   try {
-
+    // Check if API key is available
     const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-
     if (!apiKey) {
-
       throw new Error('API key is not set. Please check your .env file and restart the dev server.');
-
     }
 
     const anthropic = getAnthropicClient();
 
+    // Set currentExcludeFragrances to all swiped fragrances
+    currentExcludeFragrances = [...swipeData.loved, ...swipeData.liked, ...swipeData.meh];
 
+    // Analyze gender from swipe data
+    const allSwipedFragrances = [...swipeData.loved, ...swipeData.liked, ...swipeData.meh];
+    const genderCounts = {};
+
+    allSwipedFragrances.forEach(f => {
+      const gender = (f.Gender || f.gender || '').toLowerCase().trim();
+      if (gender) {
+        genderCounts[gender] = (genderCounts[gender] || 0) + 1;
+      }
+    });
+
+    // Find dominant gender
+    let dominantGender = userGender || 'unisex';
+    if (Object.keys(genderCounts).length > 0) {
+      const sortedGenders = Object.entries(genderCounts).sort((a, b) => b[1] - a[1]);
+      dominantGender = sortedGenders[0][0];
+    }
+
+    // Build fragrance lists with proper field mapping
+    const formatFragrance = (f) => ({
+      name: f.Name || f.name || '',
+      brand: f.Brand || f.brand || '',
+      gender: f.Gender || f.gender || '',
+      notes: f['General Notes'] || f.notes || [],
+      accords: f['Main Accords'] || f.accords || [],
+      rating: f.rating || f.Rating || 0,
+      price: f.Price || f.price || 0
+    });
+
+    const lovedFragrances = swipeData.loved.map(formatFragrance);
+    const likedFragrances = swipeData.liked.map(formatFragrance);
+    const mehFragrances = swipeData.meh.map(formatFragrance);
+
+    const systemPrompt = `You are analyzing a user's fragrance preferences based on their swipe actions.
+
+LOVED Fragrances (Highest Priority - Weight: +2):
+${JSON.stringify(lovedFragrances, null, 2)}
+
+LIKED Fragrances (Medium Priority - Weight: +1):
+${JSON.stringify(likedFragrances, null, 2)}
+
+MEH Fragrances (Avoid These Characteristics - Weight: -1):
+${JSON.stringify(mehFragrances, null, 2)}
+
+Gender Preference: ${dominantGender}
+
+CRITICAL INSTRUCTIONS:
+1. You MUST use search_fragrances tool with gender parameter set to "${dominantGender}"
+2. Do NOT recommend fragrances the user has already seen
+3. Prioritize characteristics from LOVED fragrances most heavily
+4. Consider characteristics from LIKED fragrances secondarily
+5. AVOID characteristics that appear in MEH fragrances
+6. If no loved/liked fragrances, focus on popular highly-rated ${dominantGender} fragrances
+
+Your task:
+1. Identify common accords/notes in LOVED and LIKED fragrances
+2. Identify accords/notes to AVOID from MEH fragrances
+3. Use search_fragrances to find 10 new fragrances matching preferred profile
+4. Rank by how well they match user's preferences
+
+Format response as:
+[2-3 sentences explaining preference patterns]
+
+Based on your preferences, here are fragrances you'll love:
+
+**1. [Exact Name] by [Exact Brand]** - [Why this matches]
+**2. [Exact Name] by [Exact Brand]** - [Why this matches]
+...through 10`;
+
+    const messages = [{
+      role: 'user',
+      content: 'Analyze my swipe preferences and recommend fragrances based on my loved and liked fragrances.'
+    }];
+
+    // First API call - Claude may request tools
+    let response = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 3000,
+      tools: [searchFragrancesTool],
+      system: systemPrompt,
+      messages: messages
+    });
+
+    // Handle tool calls in a loop
+    while (response.stop_reason === 'tool_use') {
+      const toolCalls = response.content.filter(item => item.type === 'tool_use');
+
+      // Process each tool call
+      const toolResults = toolCalls.map(toolCall => {
+        if (toolCall.name === 'search_fragrances') {
+          try {
+            const results = handleSearchFragrances(toolCall.input);
+            return {
+              type: 'tool_result',
+              tool_use_id: toolCall.id,
+              content: JSON.stringify(results, null, 2)
+            };
+          } catch (error) {
+            return {
+              type: 'tool_result',
+              tool_use_id: toolCall.id,
+              content: JSON.stringify({ error: error.message })
+            };
+          }
+        }
+        return null;
+      }).filter(Boolean);
+
+      // Add assistant's tool use to messages
+      messages.push({
+        role: 'assistant',
+        content: response.content
+      });
+
+      // Add tool results to messages
+      messages.push({
+        role: 'user',
+        content: toolResults
+      });
+
+      // Get Claude's response with tool results
+      response = await anthropic.messages.create({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 3000,
+        tools: [searchFragrancesTool],
+        system: systemPrompt,
+        messages: messages
+      });
+    }
+
+    // Extract final response text
+    if (response.content && response.content.length > 0) {
+      const textContent = response.content.find(item => item.type === 'text');
+      if (textContent) {
+        const fullResponse = textContent.text;
+
+        // Split on "based on your preferences" pattern
+        const splitPattern = /based on your preferences/i;
+        const parts = fullResponse.split(splitPattern);
+
+        if (parts.length >= 2) {
+          return {
+            analysis: parts[0].trim(),
+            recommendations: 'Based on your preferences' + parts[1].trim()
+          };
+        } else {
+          // Fallback if pattern not found
+          return {
+            analysis: 'Based on your swipe preferences...',
+            recommendations: fullResponse
+          };
+        }
+      }
+      // Fallback if no text content
+      return {
+        analysis: 'Based on your swipe preferences...',
+        recommendations: response.content[0].text || 'I apologize, but I encountered an issue processing your request.'
+      };
+    }
+
+    throw new Error('No response content received');
+
+  } catch (error) {
+    console.error('Error calling Claude API for swipe recommendations:', error);
+
+    // Provide more specific error messages
+    if (error.message?.includes('API key')) {
+      throw new Error('API key error: ' + error.message);
+    } else if (error.status === 401) {
+      throw new Error('Invalid API key. Please check your API key in the .env file.');
+    } else if (error.status === 429) {
+      throw new Error('Rate limit exceeded. Please try again later.');
+    } else if (error.message) {
+      throw new Error('API Error: ' + error.message);
+    } else {
+      throw new Error('Failed to connect to Claude API. Please check your internet connection and API key.');
+    }
+  } finally {
+    // Clear currentExcludeFragrances
+    currentExcludeFragrances = [];
+  }
+};
+
+export const generateScentProfileDescription = async (collectionFragrances, wishlistFragrances) => {
+
+  try {
+    console.log('Starting scent profile generation...');
+
+    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
+
+    if (!apiKey) {
+      console.error('API key not found!');
+      throw new Error('API key is not set. Please check your .env file and restart the dev server.');
+    }
+
+    console.log('API key found, proceeding with Claude API call');
+
+    const anthropic = getAnthropicClient();
+
+    // Set the fragrances to exclude (owned + wishlisted)
+    currentExcludeFragrances = [...collectionFragrances, ...wishlistFragrances];
 
     const allFragrances = [...collectionFragrances, ...wishlistFragrances];
 
     console.log('Collection fragrances:', collectionFragrances);
     console.log('Wishlist fragrances:', wishlistFragrances);
+    console.log('Total fragrances to exclude:', currentExcludeFragrances.length);
     console.log('Total fragrances:', allFragrances.length);
 
     if (allFragrances.length === 0) {
@@ -239,51 +482,62 @@ export const generateScentProfileDescription = async (collectionFragrances, wish
 
 
 
-    const fragranceData = allFragrances.map(f => ({
+    const fragranceData = allFragrances.map(f => {
+      // Get gender from full fragrance data if available
+      const fullFragrance = f.fragranceData || f;
+      const gender = (fullFragrance.Gender || fullFragrance.gender || 'unisex').toLowerCase();
 
-      name: f.Name || f.name,
+      return {
+        name: f.Name || f.name,
+        brand: f.Brand || f.brand,
+        gender: gender,
+        accords: f.accords || f['Main Accords'] || [],
+        notes: f.notes || f['General Notes'] || []
+      };
+    });
 
-      brand: f.Brand || f.brand,
+    // Analyze gender distribution in user's collection
+    const genderStats = fragranceData.reduce((acc, f) => {
+      const gender = f.gender && f.gender !== '' ? f.gender : 'unisex';
+      acc[gender] = (acc[gender] || 0) + 1;
+      return acc;
+    }, {});
 
-      accords: f.accords || f['Main Accords'] || [],
+    const dominantGender = Object.entries(genderStats).reduce((a, b) =>
+      genderStats[a[0]] > genderStats[b[0]] ? a : b
+    )[0];
 
-      notes: f.notes || f['General Notes'] || []
-
-    }));
-
-
+    console.log('Gender analysis:', { genderStats, dominantGender, totalFragrances: fragranceData.length });
 
     const prompt = `Analyze these fragrances from the user's collection:
 
 ${JSON.stringify(fragranceData, null, 2)}
 
+Gender Analysis: The user primarily owns ${dominantGender} fragrances (${genderStats[dominantGender]} out of ${fragranceData.length} fragrances).
 
+IMPORTANT: Do NOT recommend any fragrances that are already in the user's collection or wishlist. The search_fragrances tool will automatically exclude these fragrances.
+
+CRITICAL: You MUST use the gender parameter set to "${dominantGender}" when calling search_fragrances. Only recommend fragrances that match this gender category. Do not recommend women's fragrances if the user owns men's fragrances, and vice versa.
 
 Respond in this EXACT format:
 
 
 
-First, write 2-3 direct sentences about their scent preferences. Example: "You gravitate toward woody, sophisticated scents with tobacco and leather. Your taste is classic and refined, favoring fragrances with strong longevity."
-
-
+First, write 2-3 direct sentences about their scent preferences.
 
 Then write "Recommendations:" on a new line.
 
-
-
-Then use search_fragrances to find 5 fragrances that match their style. List them as:
-
-**1. Fragrance Name by Brand**
-
-**2. Fragrance Name by Brand**
-
+Then list exactly 5 fragrances from the search results:
+**1. [Exact Name from search] by [Exact Brand from search]**
+**2. [Exact Name from search] by [Exact Brand from search]**
 (etc)
 
+Only use fragrances that were returned by search_fragrances. Do not add any fragrances from your general knowledge.`;
 
 
-Keep it simple and structured exactly like this.`;
 
 
+    console.log('Fragrance data prepared for Claude API call');
 
     let messages = [{ role: 'user', content: prompt }];
 
@@ -484,6 +738,12 @@ Keep it simple and structured exactly like this.`;
       recommendations: ""
 
     };
+
+  } finally {
+
+    // Clear the exclusion list after processing
+
+    currentExcludeFragrances = [];
 
   }
 

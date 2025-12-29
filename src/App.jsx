@@ -11,6 +11,8 @@ import SearchResultsPage from './components/SearchResultsPage';
 import UserProfile from './components/UserProfile';
 import ScanFragrance from './components/ScanFragrance';
 import ChatPage from './components/ChatPage';
+import Swipe from './components/Swipe';
+import SwipeResults from './components/SwipeResults';
 
 const Navigation = () => {
   const location = useLocation();
@@ -19,18 +21,19 @@ const Navigation = () => {
   const navItems = [
     { path: '/', label: 'Discovery' },
     { path: '/chat', label: 'Chat' },
-    { path: '/scent-profile', label: 'Profile' },
+    { path: '/account', label: 'Profile' },
     { path: '/my-collection', label: 'Collection' },
     { path: '/scan', label: 'Scan' },
+    { path: '/swipe', label: 'Swipe' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-gray-900/95 backdrop-blur-xl border-b border-gray-700/50 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center group no-underline">
-            <span className="text-5xl font-serif italic text-gray-900 tracking-wide group-hover:text-gray-700 transition-colors leading-none">Scentir</span>
+            <span className="text-5xl font-serif italic text-white tracking-wide group-hover:text-blue-300 transition-colors leading-none">Scentir</span>
           </Link>
 
           {/* Navigation Links */}
@@ -41,8 +44,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   location.pathname === item.path
-                    ? 'bg-gray-900 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50 shadow-lg'
+                    : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
                 }`}
               >
                 {item.label}
@@ -56,7 +59,7 @@ const Navigation = () => {
               appearance={{
                 elements: {
                   avatarBox: "w-10 h-10",
-                  userButtonPopoverCard: "shadow-xl"
+                  userButtonPopoverCard: "shadow-xl bg-gray-800 border border-gray-700"
                 }
               }}
             />
@@ -64,13 +67,13 @@ const Navigation = () => {
             <div className="flex items-center space-x-2">
               <Link
                 to="/sign-in"
-                className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
               >
                 Sign In
               </Link>
               <Link
                 to="/sign-up"
-                className="px-4 py-2 text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 rounded-lg transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium bg-blue-600/80 hover:bg-blue-600 text-white rounded-lg transition-all duration-200 border border-blue-500/50"
               >
                 Sign Up
               </Link>
@@ -80,7 +83,7 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-lg">
+      <div className="md:hidden border-t border-gray-700/50 bg-gray-900/95 backdrop-blur-xl">
         <div className="px-4 py-2 flex justify-center space-x-1 overflow-x-auto">
           {navItems.map((item) => (
             <Link
@@ -88,8 +91,8 @@ const Navigation = () => {
               to={item.path}
               className={`px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 ${
                 location.pathname === item.path
-                  ? 'bg-gray-900 text-white shadow-md'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50 shadow-lg'
+                  : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
               }`}
             >
               {item.label}
@@ -162,6 +165,19 @@ function App() {
           <div className="pt-16 md:pt-16">
             <Navigation />
             <ScanFragrance />
+          </div>
+        </ProtectedRoute>
+      } />
+      <Route path="/swipe-results" element={
+        <ProtectedRoute>
+          <SwipeResults />
+        </ProtectedRoute>
+      } />
+      <Route path="/swipe" element={
+        <ProtectedRoute>
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <Swipe />
           </div>
         </ProtectedRoute>
       } />

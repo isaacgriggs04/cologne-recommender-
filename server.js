@@ -27,7 +27,7 @@ const {
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
   // default to the newly created image index; override via env if needed
-  PINECONE_INDEX = 'base-clip-model',
+  PINECONE_INDEX = 'new-data-base-clip',
   // Pinecone index dimension (for padding/truncation)
   PINECONE_DIM = '512',
   PORT = process.env.PORT || 3001,
@@ -128,7 +128,7 @@ app.post('/api/scan', async (req, res) => {
     if (!embeddingRaw.length) {
       return res.status(500).json({ error: 'No embedding returned' });
     }
-    const targetDim = parseInt(PINECONE_DIM, 10) || 1024;
+    const targetDim = parseInt(PINECONE_DIM, 10) || 512;
     const embedding = padVector(embeddingRaw, targetDim);
 
     // 2) Query Pinecone
