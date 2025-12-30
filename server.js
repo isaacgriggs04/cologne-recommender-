@@ -201,20 +201,26 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-// Preload DINOv2 model on startup for faster first requests
-(async () => {
-  try {
-    console.log('Preloading DINOv2 model...');
-    await getDinov2Extractor();
-    console.log('DINOv2 model preloaded successfully');
-  } catch (error) {
-    console.error('Failed to preload DINOv2 model:', error);
-    // Continue starting server even if model preload fails
-  }
-})();
+// Preload DINOv2 model on startup for faster first requests (skip on Railway to avoid startup issues)
+const isRailway = process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_PROJECT_ID;
 
-app.listen(PORT, 'localhost', () => {
-  console.log(`Server running on localhost:${PORT}`);
+if (!isRailway) {
+  (async () => {
+    try {
+      console.log('Preloading DINOv2 model...');
+      await getDinov2Extractor();
+      console.log('DINOv2 model preloaded successfully');
+    } catch (error) {
+      console.error('Failed to preload DINOv2 model:', error);
+      // Continue starting server even if model preload fails
+    }
+  })();
+} else {
+  console.log('Skipping DINOv2 model preload on Railway deployment');
+}
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on 0.0.0.0:${PORT}`);
 });
 
 
