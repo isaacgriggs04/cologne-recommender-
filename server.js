@@ -205,7 +205,7 @@ app.get('*', (req, res) => {
 (async () => {
   try {
     console.log('Preloading DINOv2 model...');
-    await getDinov2Models();
+    await getDinov2Extractor();
     console.log('DINOv2 model preloaded successfully');
   } catch (error) {
     console.error('Failed to preload DINOv2 model:', error);
