@@ -19,19 +19,20 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // GCP_PROJECT_ID=heroic-calculus-480802-e3
 // VERTEX_LOCATION=us-central1 (or your chosen region)
 // PINECONE_API_KEY=...
-// PINECONE_INDEX=indexforimagerecognition
+// PINECONE_INDEX=dinov2-embeddings
 // PINECONE_ENVIRONMENT=us-east-1-aws
 
 const {
   GCP_PROJECT_ID,
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
-  // default to the newly created image index; override via env if needed
-  PINECONE_INDEX = 'new-data-base-clip',
-  // Pinecone index dimension (for padding/truncation)
-  PINECONE_DIM = '512',
+  // default to the DINOv2 embeddings index
+  PINECONE_INDEX = 'dinov2-embeddings',
   PORT = process.env.PORT || 3001,
 } = process.env;
+
+// DINOv2 configuration constants
+const EMBEDDING_DIMENSION = 768;
 
 if (!PINECONE_API_KEY) {
   console.error('Missing PINECONE_API_KEY env var');
@@ -56,17 +57,26 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: '12mb' })); // allow base64 images
 
-// ---------- Local CLIP embedding helper ----------
-let clipExtractor = null;
-async function getClipExtractor() {
-  if (clipExtractor) return clipExtractor;
-  // Use larger CLIP model for 1024-dimensional embeddings (768 + padding)
-  clipExtractor = await pipeline('image-feature-extraction', 'Xenova/clip-vit-base-patch32');
-  return clipExtractor;
+// ---------- Local DINOv2 embedding helper ----------
+let dinov2Extractor = null;
+
+async function getDinov2Extractor() {
+  if (dinov2Extractor) return dinov2Extractor;
+
+  console.log('Loading DINOv2 model...');
+  const startTime = Date.now();
+
+  // Load DINOv2 using pipeline for image feature extraction
+  dinov2Extractor = await pipeline('image-feature-extraction', 'Xenova/dinov2-base');
+
+  const loadTime = Date.now() - startTime;
+  console.log(`DINOv2 model loaded in ${loadTime}ms`);
+
+  return dinov2Extractor;
 }
 
 async function embedImageBase64(base64Data, mimeType = 'image/png') {
-  const extractor = await getClipExtractor();
+  const extractor = await getDinov2Extractor();
   const buffer = Buffer.from(base64Data, 'base64');
 
   // Convert to JPEG format
@@ -78,10 +88,16 @@ async function embedImageBase64(base64Data, mimeType = 'image/png') {
 
   try {
     // Pass the file path to the extractor
-    const output = await extractor(tempPath, { pooling: 'mean', normalize: true });
+    const output = await extractor(tempPath);
 
-    // output.data is Float32Array
-    return Array.from(output.data);
+    // Extract the CLS token (first 768 values from the 197376 output)
+    const clsEmbedding = Array.from(output.data).slice(0, EMBEDDING_DIMENSION);
+
+    // Normalize the embedding vector
+    const magnitude = Math.sqrt(clsEmbedding.reduce((sum, val) => sum + val * val, 0));
+    const normalizedEmbedding = clsEmbedding.map(val => val / magnitude);
+
+    return normalizedEmbedding;
   } finally {
     // Clean up temporary file
     try {
@@ -92,11 +108,7 @@ async function embedImageBase64(base64Data, mimeType = 'image/png') {
   }
 }
 
-function padVector(vec, targetDim) {
-  const out = vec.slice(0, targetDim);
-  while (out.length < targetDim) out.push(0);
-  return out;
-}
+// DINOv2 produces exactly 768-dimensional embeddings, no padding needed
 
 // ---------- Pinecone client ----------
 const pinecone = new Pinecone({
@@ -123,37 +135,49 @@ app.post('/api/scan', async (req, res) => {
     }
     const base64 = image.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
 
-    // 1) Embed
-    const embeddingRaw = await embedImageBase64(base64);
-    if (!embeddingRaw.length) {
+    // 1) Embed with timing
+    const embedStart = Date.now();
+    const embedding = await embedImageBase64(base64);
+    const embedTime = Date.now() - embedStart;
+
+    if (!embedding.length) {
       return res.status(500).json({ error: 'No embedding returned' });
     }
-    const targetDim = parseInt(PINECONE_DIM, 10) || 512;
-    const embedding = padVector(embeddingRaw, targetDim);
 
-    // 2) Query Pinecone
+    // 2) Query Pinecone with timing
+    const queryStart = Date.now();
     const query = await pineconeIndex.query({
       topK: 5,
       vector: embedding,
       includeMetadata: true,
     });
+    const queryTime = Date.now() - queryStart;
 
-    // 3) Build response with local metadata fallback
-    const matches = (query.matches || []).map((m) => {
-      const idx = m.metadata?.jsonIndex;
-      const fragrance =
-        typeof idx === 'number' && fragranceCache[idx]
-          ? fragranceCache[idx]
-          : null;
-      return {
-        score: m.score,
-        id: m.id,
-        metadata: m.metadata,
-        fragrance,
-      };
+    // 3) Build response with local metadata fallback and confidence threshold
+    const matches = (query.matches || [])
+      .filter(m => m.score >= 0.70) // DINOv2 confidence threshold
+      .map((m) => {
+        const idx = m.metadata?.jsonIndex;
+        const fragrance =
+          typeof idx === 'number' && fragranceCache[idx]
+            ? fragranceCache[idx]
+            : null;
+        return {
+          score: m.score,
+          id: m.id,
+          metadata: m.metadata,
+          fragrance,
+        };
+      });
+
+    res.json({
+      matches,
+      timing: {
+        embeddingTime: embedTime,
+        queryTime: queryTime,
+        totalTime: embedTime + queryTime
+      }
     });
-
-    res.json({ matches });
   } catch (err) {
     console.error('Scan error:', err);
     res.status(500).json({ error: 'Scan failed', details: err.message });
@@ -161,7 +185,12 @@ app.post('/api/scan', async (req, res) => {
 });
 
 app.get('/api/health', (_req, res) => {
-  res.json({ ok: true });
+  res.json({
+    ok: true,
+    model: "DINOv2-base",
+    embeddingDimension: EMBEDDING_DIMENSION,
+    pineconeIndex: PINECONE_INDEX
+  });
 });
 
 // Serve static files from Vite build
@@ -172,8 +201,20 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Preload DINOv2 model on startup for faster first requests
+(async () => {
+  try {
+    console.log('Preloading DINOv2 model...');
+    await getDinov2Models();
+    console.log('DINOv2 model preloaded successfully');
+  } catch (error) {
+    console.error('Failed to preload DINOv2 model:', error);
+    // Continue starting server even if model preload fails
+  }
+})();
+
+app.listen(PORT, 'localhost', () => {
+  console.log(`Server running on localhost:${PORT}`);
 });
 
 

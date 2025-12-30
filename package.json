@@ -12,7 +12,8 @@
     "deploy": "npm run build && npm run server",
     "railway:build": "npm run build",
     "ingest:pinecone": "node scripts/ingestPinecone.js",
-    "ingest:pinecone:clip": "node scripts/ingestPineconeClip.js"
+    "ingest:pinecone:clip": "node scripts/ingestPineconeClip.js",
+    "populate:dinov2": "PINECONE_API_KEY=pcsk_7EpWJi_476NfRXBBYZMaFBEkAv6tjozKaLKpsKBorXVHn4aCpmW5o2JZ5K7FBSUdCLepFF PINECONE_INDEX=dinov2-embeddings START_INDEX=207 node scripts/populate-dinov2.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
