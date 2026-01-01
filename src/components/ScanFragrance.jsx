@@ -131,7 +131,7 @@ const ScanFragrance = () => {
         
         {!isScanning && !capturedImage && (
           <div className="card-mobile bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 p-6 sm:p-8 text-center relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl sm:rounded-3xl opacity-20 blur-sm"></div>
+            <div className="absolute -inset-0.5 bg-blue-300 rounded-2xl sm:rounded-3xl opacity-20 blur-sm"></div>
             <div className="relative">
               <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 rounded-full bg-gray-700/50 flex items-center justify-center border border-gray-600/50">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 sm:w-12 sm:h-12 text-gray-400">

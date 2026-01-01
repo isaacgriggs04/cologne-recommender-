@@ -1,10 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 import { useUser } from '@clerk/clerk-react';
 import { useFragranceContext } from '../context/FragranceContext';
 import { generateScentProfileDescription } from '../services/claudeApi';
-import { processMessageContent, RecommendationCard } from './ChatContainer';
+import FragranceResponseRenderer from './FragranceResponseRenderer';
 import fragranceData from '../../fragrances_filtered.json';
 import FloatingChatButton from './FloatingChatButton';
 
@@ -83,9 +82,9 @@ const UserProfile = () => {
       <div className="w-full max-w-4xl animate-fade-in">
         {/* Profile Header */}
         <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden mb-8 relative">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl opacity-20 blur-sm"></div>
+          <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
           <div className="relative">
-            <div className="h-32 bg-gradient-to-r from-blue-900/50 via-purple-900/50 to-pink-900/50"></div>
+            <div className="h-32 bg-blue-900/50"></div>
             <div className="px-8 pb-8">
               <div className="relative flex justify-between items-end -mt-12 mb-6">
                 <div className="flex items-end">
@@ -120,7 +119,7 @@ const UserProfile = () => {
 
         {/* Recommendations Section */}
         <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700/50 p-8 relative">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl opacity-20 blur-sm"></div>
+          <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
           <div className="relative">
             <h2 className="text-lg font-bold text-white mb-4">Personalized Recommendations</h2>
             <p className="text-sm text-gray-400 mb-6">
@@ -131,7 +130,7 @@ const UserProfile = () => {
               <button
                 onClick={generateRecommendations}
                 disabled={isLoadingRecommendations || totalItems === 0}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
+                className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
               >
                 {totalItems === 0
                   ? 'Add fragrances to get recommendations'
@@ -145,7 +144,7 @@ const UserProfile = () => {
                 {isLoadingRecommendations && (
                   <div className="flex items-center justify-center py-8">
                     <div className="flex items-center space-x-3 text-gray-400">
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-500"></div>
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
                       <span>Finding your perfect matches...</span>
                     </div>
                   </div>
@@ -153,45 +152,11 @@ const UserProfile = () => {
 
                 {/* Recommendations Content */}
                 {!isLoadingRecommendations && recommendations && (
-                  <div className="text-gray-300 leading-relaxed space-y-6">
-                    {processMessageContent(recommendations).map((section, idx) => (
-                      <div key={idx} className="space-y-4">
-                        {/* Always show the markdown text first */}
-                        {section.lines && section.lines.length > 0 && (
-                          <div className="claude-message text-gray-300">
-                            <ReactMarkdown
-                              components={{
-                                p: ({node, ...props}) => <p className="mb-4" {...props} />,
-                                strong: ({node, ...props}) => <strong className="font-semibold text-white" {...props} />,
-                                em: ({node, ...props}) => <em className="italic" {...props} />,
-                                ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-2 ml-4" {...props} />,
-                                ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-2 ml-4" {...props} />,
-                                li: ({node, ...props}) => <li className="ml-2" {...props} />,
-                                code: ({node, inline, ...props}) =>
-                                  inline
-                                    ? <code className="bg-gray-900 px-1.5 py-0.5 rounded text-sm font-mono text-pink-300" {...props} />
-                                    : <code className="block bg-gray-900 p-3 rounded-lg text-sm font-mono text-pink-300 overflow-x-auto my-2" {...props} />,
-                                pre: ({node, ...props}) => <pre className="bg-gray-900 p-3 rounded-lg overflow-x-auto my-2" {...props} />,
-                                h1: ({node, ...props}) => <h1 className="text-2xl font-semibold text-white mt-6 mb-3" {...props} />,
-                                h2: ({node, ...props}) => <h2 className="text-xl font-semibold text-white mt-5 mb-2" {...props} />,
-                                h3: ({node, ...props}) => <h3 className="text-lg font-semibold text-white mt-4 mb-2" {...props} />,
-                              }}
-                            >
-                              {section.lines.join('\n')}
-                            </ReactMarkdown>
-                          </div>
-                        )}
-                        {/* Then show the fragrance card below if there's a match */}
-                        {section.fragrance && (
-                          <RecommendationCard
-                            fragrance={section.fragrance}
-                            onAddToWishlist={handleAddToWishlist}
-                            onViewDetails={handleViewDetails}
-                          />
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <FragranceResponseRenderer
+                    text={recommendations}
+                    onAddToWishlist={handleAddToWishlist}
+                    onViewDetails={handleViewDetails}
+                  />
                 )}
 
                 {/* Regenerate Button */}
@@ -200,7 +165,7 @@ const UserProfile = () => {
                     <button
                       onClick={generateRecommendations}
                       disabled={isLoadingRecommendations}
-                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
+                      className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
                     >
                       {isLoadingRecommendations ? 'Generating Recommendations...' : 'Regenerate Recommendations'}
                     </button>

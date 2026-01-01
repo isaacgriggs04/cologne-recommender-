@@ -190,7 +190,7 @@ const RecommendationCard = ({ fragrance, onAddToWishlist, onViewDetails }) => {
 
   return (
     <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-2xl p-6 hover:border-blue-500/50 transition-all duration-300 my-4 relative">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl opacity-20 blur-sm"></div>
+      <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
       <div className="relative flex flex-col md:flex-row gap-6">
         {/* Image Section */}
         <div className="w-full md:w-48 h-48 md:h-auto md:min-w-[192px] rounded-2xl bg-gray-900/50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-700/50">
@@ -476,29 +476,34 @@ const ChatContainer = () => {
   }, [hasInitialized, conversationHistory.length]); // Dependency on context values
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 py-8">
-      <div className="w-full max-w-3xl space-y-8 h-full flex flex-col">
-        {/* Welcome Message - only show when no conversation started */}
-        {conversationHistory.length === 0 && (
-          <div className="text-center space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-extralight tracking-tight text-white font-serif italic">
-              Fragrance Finder
-            </h1>
-            <p className="text-lg md:text-xl text-gray-400 font-light max-w-lg mx-auto leading-relaxed">
+    <div className="flex flex-col items-center justify-center h-full px-3 sm:px-4 py-4 sm:py-8">
+      <div className="w-full max-w-3xl space-y-4 sm:space-y-8 h-full flex flex-col">
+        {/* Welcome Message - always visible */}
+        <div className={`text-center space-y-3 sm:space-y-6 ${conversationHistory.length === 0 ? 'animate-fade-in' : ''}`}>
+          <h1 className={`font-extralight tracking-tight text-white font-serif italic transition-all duration-300 ${
+            conversationHistory.length === 0 
+              ? 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl' 
+              : 'text-xl sm:text-2xl md:text-3xl'
+          }`}>
+            Fragrance Finder
+          </h1>
+          {conversationHistory.length === 0 && (
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-lg mx-auto leading-relaxed px-2">
               A curated journey to discover your signature scent through conversation.
             </p>
-          </div>
-        )}
+          )}
+        </div>
         
         {/* Actions Bar */}
         {conversationHistory.length > 0 && (
-          <div className="flex justify-center pb-4">
+          <div className="flex justify-center pb-2 sm:pb-4">
             <button
               onClick={handleNewConversation}
-              className="group flex items-center gap-2 px-5 py-2.5 text-sm text-gray-400 hover:text-white bg-gray-800/60 hover:bg-gray-800/80 border border-gray-700/50 hover:border-gray-600/50 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+              className="group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm text-gray-400 hover:text-white bg-gray-800/60 hover:bg-gray-800/80 border border-gray-700/50 hover:border-gray-600/50 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-gray-500 group-hover:bg-emerald-400 transition-colors" />
-              Start New Conversation
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-500 group-hover:bg-emerald-400 transition-colors" />
+              <span className="hidden sm:inline">Start New Conversation</span>
+              <span className="sm:hidden">New Chat</span>
             </button>
           </div>
         )}
@@ -506,12 +511,12 @@ const ChatContainer = () => {
         {/* Main Chat Interface */}
         <div className="relative group flex-1 h-full flex flex-col">
           {/* Decorative backdrop blur */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
+          <div className="absolute -inset-1 bg-blue-300/20 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
           
-          <div className="relative bg-gray-800/60 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-2xl p-1 flex-1 flex flex-col overflow-hidden">
-            <div className="bg-gray-900/30 rounded-[1.4rem] p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
+          <div className="relative bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-gray-700/50 shadow-2xl p-1 flex-1 flex flex-col overflow-hidden">
+            <div className="bg-gray-900/30 rounded-[1.2rem] sm:rounded-[1.4rem] p-3 sm:p-4 md:p-6 lg:p-8 flex-1 flex flex-col overflow-hidden">
               {/* Scrollable Content Area */}
-              <div className="flex-1 overflow-y-auto mb-6 pr-2 space-y-6 scroll-smooth">
+              <div className="flex-1 overflow-y-auto mb-3 sm:mb-4 md:mb-6 pr-1 sm:pr-2 space-y-3 sm:space-y-4 md:space-y-6 scroll-smooth">
                 {conversationHistory.map((msg, idx) => {
                   let messageContent = null;
                   
@@ -527,20 +532,20 @@ const ChatContainer = () => {
                             <div className="claude-message">
                               <ReactMarkdown
                                 components={{
-                                  p: ({node, ...props}) => <p className="mb-4" {...props} />,
+                                  p: ({node, ...props}) => <p className="mb-2 sm:mb-3 md:mb-4 text-sm sm:text-base" {...props} />,
                                   strong: ({node, ...props}) => <strong className="font-semibold text-white" {...props} />,
                                   em: ({node, ...props}) => <em className="italic" {...props} />,
-                                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-2 ml-4" {...props} />,
-                                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-2 ml-4" {...props} />,
-                                  li: ({node, ...props}) => <li className="ml-2" {...props} />,
+                                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-sm sm:text-base" {...props} />,
+                                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-sm sm:text-base" {...props} />,
+                                  li: ({node, ...props}) => <li className="ml-1 sm:ml-2" {...props} />,
                                   code: ({node, inline, ...props}) => 
                                     inline 
-                                      ? <code className="bg-gray-900 px-1.5 py-0.5 rounded text-sm font-mono text-pink-300" {...props} />
-                                      : <code className="block bg-gray-900 p-3 rounded-lg text-sm font-mono text-pink-300 overflow-x-auto my-2" {...props} />,
-                                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-3 rounded-lg overflow-x-auto my-2" {...props} />,
-                                  h1: ({node, ...props}) => <h1 className="text-2xl font-semibold text-white mt-6 mb-3" {...props} />,
-                                  h2: ({node, ...props}) => <h2 className="text-xl font-semibold text-white mt-5 mb-2" {...props} />,
-                                  h3: ({node, ...props}) => <h3 className="text-lg font-semibold text-white mt-4 mb-2" {...props} />,
+                                      ? <code className="bg-gray-900 px-1 sm:px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-pink-300" {...props} />
+                                      : <code className="block bg-gray-900 p-2 sm:p-3 rounded-lg text-xs sm:text-sm font-mono text-pink-300 overflow-x-auto my-1 sm:my-2" {...props} />,
+                                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-2 sm:p-3 rounded-lg overflow-x-auto my-1 sm:my-2 text-xs sm:text-sm" {...props} />,
+                                  h1: ({node, ...props}) => <h1 className="text-xl sm:text-2xl font-semibold text-white mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3" {...props} />,
+                                  h2: ({node, ...props}) => <h2 className="text-lg sm:text-xl font-semibold text-white mt-3 sm:mt-4 md:mt-5 mb-1 sm:mb-2" {...props} />,
+                                  h3: ({node, ...props}) => <h3 className="text-base sm:text-lg font-semibold text-white mt-3 sm:mt-4 mb-1 sm:mb-2" {...props} />,
                                 }}
                               >
                                 {section.lines.join('\n')}
@@ -561,26 +566,26 @@ const ChatContainer = () => {
                   } else {
                     // User message
                     messageContent = (
-                      <p className="user-message whitespace-pre-wrap">
+                      <p className="user-message whitespace-pre-wrap text-sm sm:text-base break-words">
                         {msg.content}
                       </p>
                     );
                   }
 
                   return (
-                    <div key={idx} className={`flex items-start gap-4 animate-fade-in ${msg.role === 'user' ? 'justify-end' : ''}`} style={{ animationDelay: `${idx * 100}ms` }}>
+                    <div key={idx} className={`flex items-start gap-2 sm:gap-3 md:gap-4 animate-fade-in ${msg.role === 'user' ? 'justify-end' : ''}`} style={{ animationDelay: `${idx * 100}ms` }}>
                       {msg.role === 'assistant' && (
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-sm font-bold shadow-lg border-2 border-orange-300/50">
+                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg border-2 border-orange-300/50">
                           C
                         </div>
                       )}
-                      <div className={`max-w-[85%] space-y-2 ${msg.role === 'user' 
-                        ? 'bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl rounded-tr-sm p-5 shadow-xl border border-blue-400/50' 
-                        : 'bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-700/50'}`}>
+                      <div className={`max-w-[85%] sm:max-w-[80%] space-y-1 sm:space-y-2 ${msg.role === 'user' 
+                        ? 'bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl rounded-tr-sm p-3 sm:p-4 md:p-5 shadow-xl border border-blue-400/50 text-sm sm:text-base' 
+                        : 'bg-gray-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 border border-gray-700/50 text-sm sm:text-base'}`}>
                         {messageContent}
                       </div>
                       {msg.role === 'user' && (
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-sm font-bold shadow-lg border-2 border-blue-300/50">
+                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg border-2 border-blue-300/50">
                           U
                         </div>
                       )}

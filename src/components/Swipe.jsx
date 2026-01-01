@@ -242,8 +242,8 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
         }}
       >
         {/* Glowing border effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl opacity-60 blur-sm"></div>
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl opacity-40 blur"></div>
+        <div className="absolute -inset-1 bg-blue-300 rounded-2xl opacity-70 blur-sm"></div>
+        <div className="absolute -inset-0.5 bg-blue-400 rounded-2xl opacity-50 blur"></div>
         
         {/* Main translucent panel */}
         <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 shadow-2xl min-h-[400px] flex flex-col items-center">

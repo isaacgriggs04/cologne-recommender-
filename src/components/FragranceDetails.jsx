@@ -87,8 +87,19 @@ const FragranceDetails = () => {
         </div>
 
         <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden relative">
-          {/* Glowing border effect */}
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl opacity-30 blur-sm"></div>
+          {/* Glowing border effect with swirl gradient */}
+          <div 
+            className="absolute -inset-0.5 rounded-3xl opacity-40 blur-sm"
+            style={{
+              background: 'radial-gradient(circle at 30% 30%, rgba(147, 197, 253, 0.6) 0%, rgba(59, 130, 246, 0.4) 25%, rgba(30, 64, 175, 0.5) 50%, rgba(147, 197, 253, 0.3) 75%, rgba(255, 255, 255, 0.2) 100%)',
+            }}
+          ></div>
+          <div 
+            className="absolute -inset-1 rounded-3xl opacity-20 blur-md"
+            style={{
+              background: 'radial-gradient(circle at 70% 70%, rgba(30, 64, 175, 0.5) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(147, 197, 253, 0.4) 60%, rgba(255, 255, 255, 0.15) 100%)',
+            }}
+          ></div>
           <div className="relative flex flex-col md:flex-row">
             {/* Image Section */}
             <div className="md:w-1/3 bg-gray-900/50 p-8 flex items-center justify-center border-r border-gray-700/50">
