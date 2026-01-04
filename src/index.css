@@ -255,3 +255,26 @@ input[type="file"][capture] {
   color: #ffffff;
 }
 
+/* Fixed desktop scaling for Swipe page */
+.swipe-desktop-scale {
+  width: 1024px;
+  margin: 0 auto;
+  transform-origin: top center;
+  transform: scale(calc(100vw / 1024));
+  min-height: calc(100vh / (100vw / 1024));
+}
+
+@media (min-width: 1024px) {
+  .swipe-desktop-scale {
+    transform: none;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Ensure swipe container takes full width for scaling */
+.swipe-container {
+  width: 100vw;
+  overflow-x: hidden;
+}
+

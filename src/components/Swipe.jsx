@@ -578,16 +578,19 @@ const Swipe = () => {
 
   if (view === 'results') {
     return (
-      <div className="min-h-screen bg-[#F8F9FA] pt-20 pb-8 px-4 md:px-8">
-        <ResultsView categorizedFragrances={categorizedFragrances} onBack={handleBackToSwipe} />
-        <FloatingChatButton />
+      <div className="swipe-container">
+        <div className="swipe-desktop-scale min-h-screen bg-[#F8F9FA] pt-20 pb-8 px-4 md:px-8">
+          <ResultsView categorizedFragrances={categorizedFragrances} onBack={handleBackToSwipe} />
+          <FloatingChatButton />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="swipe-container">
+      <div className="swipe-desktop-scale min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl md:text-4xl font-serif italic text-white">Swipe</h1>
@@ -738,8 +741,9 @@ const Swipe = () => {
             <p className="text-gray-400">Loading fragrances...</p>
           </div>
         )}
+        </div>
+        <FloatingChatButton />
       </div>
-      <FloatingChatButton />
     </div>
   );
 };
