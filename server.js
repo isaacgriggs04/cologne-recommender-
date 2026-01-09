@@ -79,22 +79,45 @@ async function embedImageBase64(base64Data, mimeType = 'image/png') {
   const extractor = await getDinov2Extractor();
   const buffer = Buffer.from(base64Data, 'base64');
 
-  // Convert to JPEG format
-  const jpegBuffer = await sharp(buffer).jpeg().toBuffer();
+  // Load image with sharp to get dimensions and preprocess
+  const image = sharp(buffer);
+  const metadata = await image.metadata();
+  console.log(`Input image dimensions: ${metadata.width}x${metadata.height}`);
 
-  // Save as temporary file (transformers works better with file paths)
+  // Resize all images to 224x224, preserving aspect ratio using padding (contain)
+  const processedBuffer = await image
+    .resize(224, 224, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 1 }
+    })
+    .jpeg()
+    .toBuffer();
+
+  const processedMetadata = await sharp(processedBuffer).metadata();
+  console.log(`Preprocessed image dimensions: ${processedMetadata.width}x${processedMetadata.height}`);
+
+  // Save as temporary file
   const tempPath = path.join(os.tmpdir(), `temp_image_${Date.now()}.jpg`);
-  fs.writeFileSync(tempPath, jpegBuffer);
+  fs.writeFileSync(tempPath, processedBuffer);
 
   try {
     // Pass the file path to the extractor
     const output = await extractor(tempPath);
 
-    // Extract the CLS token (first 768 values from the 197376 output)
+    // Verify output shape and extract the CLS token (first EMBEDDING_DIMENSION values)
+    // DINOv2 outputs [1, 1, 768] for feature extraction; CLS is the first token
     const clsEmbedding = Array.from(output.data).slice(0, EMBEDDING_DIMENSION);
 
-    // Normalize the embedding vector
-    const magnitude = Math.sqrt(clsEmbedding.reduce((sum, val) => sum + val * val, 0));
+    // Normalize the embedding vector safely (guard against zero-norm)
+    const squaredSum = clsEmbedding.reduce((sum, val) => sum + val * val, 0);
+    const magnitude = Math.sqrt(squaredSum);
+    
+    if (magnitude === 0) {
+      console.warn('Warning: Zero-norm embedding encountered');
+      return new Array(EMBEDDING_DIMENSION).fill(0);
+    }
+    
+    console.log(`Embedding norm: ${magnitude.toFixed(4)}`);
     const normalizedEmbedding = clsEmbedding.map(val => val / magnitude);
 
     return normalizedEmbedding;
@@ -153,15 +176,19 @@ app.post('/api/scan', async (req, res) => {
     // 2) Query Pinecone with timing
     const queryStart = Date.now();
     const query = await pineconeIndex.query({
-      topK: 5,
+      topK: 10, // Increased topK to 10
       vector: embedding,
       includeMetadata: true,
     });
     const queryTime = Date.now() - queryStart;
 
-    // 3) Build response with local metadata fallback and confidence threshold
+    // Log top 5 query scores
+    const topScores = query.matches.slice(0, 5).map(m => m.score.toFixed(4));
+    console.log(`Top 5 query scores: [${topScores.join(', ')}]`);
+
+    // 3) Build response with local metadata fallback
+    // Removed hard similarity filtering to let client decide
     const matches = (query.matches || [])
-      .filter(m => m.score >= 0.70) // DINOv2 confidence threshold
       .map((m) => {
         // Try stable ID first, then fallback to jsonIndex for legacy vectors
         const fragranceId = m.metadata?.fragranceId;

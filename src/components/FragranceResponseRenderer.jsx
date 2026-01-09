@@ -50,3 +50,4 @@ const FragranceResponseRenderer = ({ text, onAddToWishlist, onViewDetails }) => 
 
 export default FragranceResponseRenderer;
 
+

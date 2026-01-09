@@ -63,17 +63,73 @@ const ScanFragrance = () => {
       const canvas = canvasRef.current;
       const video = videoRef.current;
 
-      // Guard against zero dimensions before metadata is ready
-      const width = video.videoWidth || video.clientWidth || 640;
-      const height = video.videoHeight || video.clientHeight || 480;
-      canvas.width = width;
-      canvas.height = height;
+      // Actual video resolution
+      const videoWidth = video.videoWidth;
+      const videoHeight = video.videoHeight;
+      
+      // Get displayed dimensions of the video element
+      const rect = video.getBoundingClientRect();
+      const displayWidth = rect.width;
+      const displayHeight = rect.height;
 
-      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+      // Calculate actual video content size within the element (handling object-contain)
+      const videoRatio = videoWidth / videoHeight;
+      const displayRatio = displayWidth / displayHeight;
+      
+      let actualContentWidth, actualContentHeight;
+      if (displayRatio > videoRatio) {
+        // Video is height-constrained
+        actualContentHeight = displayHeight;
+        actualContentWidth = displayHeight * videoRatio;
+      } else {
+        // Video is width-constrained
+        actualContentWidth = displayWidth;
+        actualContentHeight = displayWidth / videoRatio;
+      }
+
+      // Guide rectangle dimensions in display pixels (w-48/h-72 or sm:w-64/h-96)
+      const isSm = window.innerWidth >= 640;
+      const guideWidth = isSm ? 256 : 192;
+      const guideHeight = isSm ? 384 : 288;
+
+      // Calculate scale between display and actual resolution
+      const scaleX = videoWidth / actualContentWidth;
+      const scaleY = videoHeight / actualContentHeight;
+
+      // Center of the video element
+      const elementCenterX = displayWidth / 2;
+      const elementCenterY = displayHeight / 2;
+
+      // Guide rectangle bounds relative to element center
+      const rectX = elementCenterX - (guideWidth / 2);
+      const rectY = elementCenterY - (guideHeight / 2);
+
+      // Offset of the video content within the element (due to object-contain)
+      const contentOffsetX = (displayWidth - actualContentWidth) / 2;
+      const contentOffsetY = (displayHeight - actualContentHeight) / 2;
+
+      // Map guide rectangle to actual video coordinates
+      const sourceX = (rectX - contentOffsetX) * scaleX;
+      const sourceY = (rectY - contentOffsetY) * scaleY;
+      const sourceWidth = guideWidth * scaleX;
+      const sourceHeight = guideHeight * scaleY;
+
+      // Set canvas to the cropped size (preserving guide aspect ratio)
+      canvas.width = sourceWidth;
+      canvas.height = sourceHeight;
+
+      const ctx = canvas.getContext('2d');
+      // Crop to the guide area before converting to base64
+      ctx.drawImage(
+        video,
+        sourceX, sourceY, sourceWidth, sourceHeight, // Source crop
+        0, 0, sourceWidth, sourceHeight            // Destination
+      );
+
       const imageData = canvas.toDataURL('image/png');
       setCapturedImage(imageData);
       stopCamera();
-      setStatus('Processing image with Google Vision…');
+      setStatus('Processing image…');
       processImage(imageData);
     }
   };

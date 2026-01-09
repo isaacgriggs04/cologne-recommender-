@@ -32,3 +32,4 @@ const updatedFragrances = fragrances.map((f, index) => {
 fs.writeFileSync(dataPath, JSON.stringify(updatedFragrances, null, 2));
 console.log(`Successfully assigned unique IDs to ${updatedFragrances.length} fragrances.`);
 
+
