@@ -6,26 +6,26 @@ import fragranceData from '../../fragrances_filtered.json';
 const DiscoveryCard = ({ fragrance, onClick }) => (
   <div
     onClick={onClick}
-    className="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-xl p-4 cursor-pointer group hover:border-blue-500/50 hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out transform overflow-hidden relative flex flex-col h-full aspect-[3/4]"
+    className="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-xl p-3 sm:p-4 cursor-pointer group hover:border-blue-500/50 hover:scale-[1.02] sm:hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-500 ease-out transform overflow-hidden relative flex flex-col h-full min-h-[320px] sm:aspect-[3/4]"
   >
     {/* Glowing border effect on hover */}
     <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-purple-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"></div>
     
     {/* Name at top */}
-    <div className="relative mb-3">
-      <h3 className="text-lg font-medium text-white line-clamp-2 group-hover:text-blue-300 transition-colors text-center">{fragrance.Name}</h3>
+    <div className="relative mb-2 sm:mb-3">
+      <h3 className="text-base sm:text-lg font-medium text-white line-clamp-2 group-hover:text-blue-300 transition-colors text-center">{fragrance.Name}</h3>
       {fragrance.Brand && (
-        <p className="text-sm text-gray-400 text-center mt-1">{fragrance.Brand}</p>
+        <p className="text-xs sm:text-sm text-gray-400 text-center mt-0.5 sm:mt-1">{fragrance.Brand}</p>
       )}
     </div>
 
-    {/* Bigger image in the middle */}
-    <div className="relative flex-1 flex items-center justify-center my-3 min-h-0">
-      <div className="relative w-full h-full rounded-xl bg-gray-700/50 flex items-center justify-center overflow-hidden border border-gray-600/50 group-hover:border-blue-500/50 transition-colors">
+    {/* Image in the middle */}
+    <div className="relative flex-1 flex items-center justify-center my-2 sm:my-3 min-h-0">
+      <div className="relative w-full h-full max-h-[160px] sm:max-h-none rounded-xl bg-gray-700/50 flex items-center justify-center overflow-hidden border border-gray-600/50 group-hover:border-blue-500/50 transition-colors">
         {fragrance["Image URL"] ? (
-          <img src={fragrance["Image URL"]} alt={fragrance.Name} className="w-full h-full object-contain" />
+          <img src={fragrance["Image URL"]} alt={fragrance.Name} className="w-full h-full object-contain p-2" />
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 sm:w-12 sm:h-12 text-gray-500">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
           </svg>
         )}
@@ -33,9 +33,9 @@ const DiscoveryCard = ({ fragrance, onClick }) => (
     </div>
 
     {/* Notes at bottom */}
-    <div className="relative flex gap-2 flex-wrap justify-center mt-auto">
-      {(fragrance["General Notes"] || []).slice(0, 4).map((note, index) => (
-        <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
+    <div className="relative flex gap-1.5 sm:gap-2 flex-wrap justify-center mt-auto">
+      {(fragrance["General Notes"] || []).slice(0, 3).map((note, index) => (
+        <span key={index} className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
           {note}
         </span>
       ))}
@@ -48,16 +48,16 @@ const FilterDropdown = ({ label, options, value, onChange, placeholder = "All" }
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative flex-1 sm:flex-none min-w-[120px] sm:min-w-[140px]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 bg-gray-800/60 backdrop-blur-sm border rounded-lg px-3 py-2 text-sm font-medium hover:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-colors min-w-[140px] ${
+        className={`w-full flex items-center justify-between gap-2 bg-gray-800/60 backdrop-blur-sm border rounded-lg px-3 py-2 text-xs sm:text-sm font-medium hover:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-colors ${
           value ? 'border-blue-500/50 bg-blue-500/20 text-blue-300' : 'border-gray-700/50 text-gray-300'
         }`}
       >
         <span className="truncate">{value || placeholder}</span>
         <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ const FilterDropdown = ({ label, options, value, onChange, placeholder = "All" }
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute top-full mt-1 bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 rounded-lg shadow-2xl z-20 min-w-[200px] max-h-60 overflow-y-auto">
+          <div className="absolute top-full left-0 right-0 sm:right-auto mt-1 bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 rounded-lg shadow-2xl z-[60] sm:min-w-[200px] max-h-60 overflow-y-auto">
             <div className="py-1">
               <button
                 onClick={() => {
@@ -263,13 +263,13 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-24 pb-8 px-4 md:px-8">
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-24 sm:pt-28 pb-8 px-4 md:px-8">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
-          <div>
-            <h1 className="text-4xl font-serif italic text-white mb-2">Discover</h1>
-            <p className="text-lg text-gray-400 font-light">Explore our curated collection of fine fragrances.</p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl font-serif italic text-white mb-1 sm:mb-2">Discover</h1>
+            <p className="text-base sm:text-lg text-gray-400 font-light">Explore our curated collection of fine fragrances.</p>
             {hasActiveFilters && (
               <p className="text-sm text-blue-400 font-medium mt-1">
                 Showing {filteredFragrances.length} fragrances
@@ -278,7 +278,7 @@ const LandingPage = () => {
           </div>
 
           {/* Filter Dropdowns */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3">
             <FilterDropdown
               label="Gender"
               options={filterOptions.genders}
@@ -303,7 +303,7 @@ const LandingPage = () => {
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="text-sm font-medium text-orange-300 hover:text-orange-200 bg-orange-500/20 hover:bg-orange-500/30 px-4 py-2 rounded-lg border border-orange-500/50 transition-all whitespace-nowrap backdrop-blur-sm"
+                className="text-xs sm:text-sm font-medium text-orange-300 hover:text-orange-200 bg-orange-500/20 hover:bg-orange-500/30 px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-orange-500/50 transition-all whitespace-nowrap backdrop-blur-sm"
               >
                 Clear Filters
               </button>
@@ -311,11 +311,11 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="relative w-full md:w-96">
+        <div className="relative w-full md:w-96 mx-auto md:mx-0">
           <input
             type="text"
             placeholder="Search fragrances..."
-            className="w-full px-6 py-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 outline-none transition-all pl-12 text-white placeholder-gray-400"
+            className="w-full px-5 py-2.5 sm:px-6 sm:py-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 outline-none transition-all pl-10 sm:pl-12 text-sm sm:text-base text-white placeholder-gray-400"
             value={searchTerm}
             onChange={handleSearchChange}
             onKeyDown={handleKeyDown}

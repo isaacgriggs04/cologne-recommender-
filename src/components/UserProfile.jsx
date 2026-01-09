@@ -78,39 +78,39 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-8 pt-24 flex justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-8 pt-24 sm:pt-28 flex justify-center">
       <div className="w-full max-w-4xl animate-fade-in">
         {/* Profile Header */}
-        <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden mb-8 relative">
-          <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
+        <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden mb-6 sm:mb-8 relative">
+          <div className="absolute -inset-0.5 bg-blue-300 rounded-2xl sm:rounded-3xl opacity-10 blur-sm"></div>
           <div className="relative">
-            <div className="h-32 bg-blue-900/50"></div>
-            <div className="px-8 pb-8">
-              <div className="relative flex justify-between items-end -mt-12 mb-6">
+            <div className="h-24 sm:h-32 bg-blue-900/50"></div>
+            <div className="px-4 sm:px-8 pb-6 sm:pb-8">
+              <div className="relative flex justify-between items-end -mt-8 sm:-mt-12 mb-4 sm:mb-6">
                 <div className="flex items-end">
-                  <div className="w-24 h-24 rounded-full border-4 border-gray-800 shadow-md overflow-hidden bg-gray-700">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-800 shadow-md overflow-hidden bg-gray-700">
                     <img src={user.avatar} alt="Profile" className="w-full h-full object-cover" />
                   </div>
-                  <div className="ml-4 mb-1">
-                    <h1 className="text-2xl font-bold text-white">{user.name}</h1>
-                    <p className="text-sm text-gray-400">Member since {user.joined}</p>
+                  <div className="ml-3 sm:ml-4 mb-1">
+                    <h1 className="text-xl sm:text-2xl font-bold text-white">{user.name}</h1>
+                    <p className="text-[10px] sm:text-sm text-gray-400">Member since {user.joined}</p>
                   </div>
                 </div>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 border-t border-gray-700/50 pt-6">
-                <div className="text-center p-4 bg-gray-900/50 rounded-2xl border border-gray-700/50">
-                  <div className="text-2xl font-bold text-white">{user.stats.collection}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Fragrances</div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 border-t border-gray-700/50 pt-4 sm:pt-6">
+                <div className="text-center p-2 sm:p-4 bg-gray-900/50 rounded-xl sm:rounded-2xl border border-gray-700/50">
+                  <div className="text-lg sm:text-2xl font-bold text-white">{user.stats.collection}</div>
+                  <div className="text-[8px] sm:text-xs text-gray-400 uppercase tracking-wide font-medium">Owned</div>
                 </div>
-                <div className="text-center p-4 bg-gray-900/50 rounded-2xl border border-gray-700/50">
-                  <div className="text-2xl font-bold text-white">{user.stats.wishlist}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Wishlist</div>
+                <div className="text-center p-2 sm:p-4 bg-gray-900/50 rounded-xl sm:rounded-2xl border border-gray-700/50">
+                  <div className="text-lg sm:text-2xl font-bold text-white">{user.stats.wishlist}</div>
+                  <div className="text-[8px] sm:text-xs text-gray-400 uppercase tracking-wide font-medium">Wishlist</div>
                 </div>
-                <div className="text-center p-4 bg-gray-900/50 rounded-2xl border border-gray-700/50">
-                  <div className="text-2xl font-bold text-white">{user.stats.reviews}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Reviews</div>
+                <div className="text-center p-2 sm:p-4 bg-gray-900/50 rounded-xl sm:rounded-2xl border border-gray-700/50">
+                  <div className="text-lg sm:text-2xl font-bold text-white">{user.stats.reviews}</div>
+                  <div className="text-[8px] sm:text-xs text-gray-400 uppercase tracking-wide font-medium">Reviews</div>
                 </div>
               </div>
             </div>
@@ -118,19 +118,19 @@ const UserProfile = () => {
         </div>
 
         {/* Recommendations Section */}
-        <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700/50 p-8 relative">
-          <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
+        <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 p-5 sm:p-8 relative">
+          <div className="absolute -inset-0.5 bg-blue-300 rounded-2xl sm:rounded-3xl opacity-10 blur-sm"></div>
           <div className="relative">
-            <h2 className="text-lg font-bold text-white mb-4">Personalized Recommendations</h2>
-            <p className="text-sm text-gray-400 mb-6">
-              Get fragrance recommendations based on your collection ({collection.length} items) and wishlist ({wishlist.length} items)
+            <h2 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-4">Personalized Recommendations</h2>
+            <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6">
+              Get fragrance recommendations based on your collection ({collection.length}) and wishlist ({wishlist.length})
             </p>
 
             {!recommendationsShown ? (
               <button
                 onClick={generateRecommendations}
                 disabled={isLoadingRecommendations || totalItems === 0}
-                className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
+                className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform sm:hover:scale-[1.02] disabled:transform-none disabled:opacity-50 text-sm sm:text-base"
               >
                 {totalItems === 0
                   ? 'Add fragrances to get recommendations'
@@ -142,21 +142,23 @@ const UserProfile = () => {
               <div className="space-y-4">
                 {/* Loading State */}
                 {isLoadingRecommendations && (
-                  <div className="flex items-center justify-center py-8">
+                  <div className="flex items-center justify-center py-6 sm:py-8">
                     <div className="flex items-center space-x-3 text-gray-400">
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
-                      <span>Finding your perfect matches...</span>
+                      <div className="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-blue-500"></div>
+                      <span className="text-xs sm:text-base">Finding your perfect matches...</span>
                     </div>
                   </div>
                 )}
 
                 {/* Recommendations Content */}
                 {!isLoadingRecommendations && recommendations && (
-                  <FragranceResponseRenderer
-                    text={recommendations}
-                    onAddToWishlist={handleAddToWishlist}
-                    onViewDetails={handleViewDetails}
-                  />
+                  <div className="chat-recommendations">
+                    <FragranceResponseRenderer
+                      text={recommendations}
+                      onAddToWishlist={handleAddToWishlist}
+                      onViewDetails={handleViewDetails}
+                    />
+                  </div>
                 )}
 
                 {/* Regenerate Button */}
@@ -165,7 +167,7 @@ const UserProfile = () => {
                     <button
                       onClick={generateRecommendations}
                       disabled={isLoadingRecommendations}
-                      className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:opacity-50"
+                      className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform sm:hover:scale-[1.02] disabled:transform-none disabled:opacity-50 text-sm sm:text-base"
                     >
                       {isLoadingRecommendations ? 'Generating Recommendations...' : 'Regenerate Recommendations'}
                     </button>

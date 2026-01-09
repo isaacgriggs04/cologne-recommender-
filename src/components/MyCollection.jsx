@@ -7,7 +7,7 @@ import FloatingChatButton from './FloatingChatButton';
 const FragranceCard = ({ fragrance, onClick, onRemove }) => (
   <div
     onClick={onClick}
-    className="bg-gray-800/60 backdrop-blur-xl rounded-2xl border border-gray-700/50 shadow-xl p-6 cursor-pointer group hover:border-blue-500/50 hover:scale-105 transition-all duration-300 ease-in-out transform relative"
+    className="bg-gray-800/60 backdrop-blur-xl rounded-2xl border border-gray-700/50 shadow-xl p-4 sm:p-6 cursor-pointer group hover:border-blue-500/50 hover:scale-[1.02] sm:hover:scale-105 transition-all duration-300 ease-in-out transform relative"
   >
     {/* Glowing border effect on hover */}
     <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-purple-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"></div>
@@ -26,24 +26,24 @@ const FragranceCard = ({ fragrance, onClick, onRemove }) => (
         </svg>
       </button>
     )}
-    <div className="relative flex justify-between items-start mb-4">
-      <div className="flex-1 pr-4">
-        <h3 className="text-lg font-medium text-white line-clamp-1 group-hover:text-blue-300 transition-colors">{fragrance.name}</h3>
-        <p className="text-sm text-gray-400">{fragrance.brand}</p>
+    <div className="relative flex justify-between items-start mb-3 sm:mb-4">
+      <div className="flex-1 pr-3 sm:pr-4">
+        <h3 className="text-base sm:text-lg font-medium text-white line-clamp-1 group-hover:text-blue-300 transition-colors">{fragrance.name}</h3>
+        <p className="text-xs sm:text-sm text-gray-400 truncate">{fragrance.brand}</p>
       </div>
-      <div className="w-16 h-16 rounded-full bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-600/50 group-hover:border-blue-500/50 transition-colors">
+      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-600/50 group-hover:border-blue-500/50 transition-colors">
         {fragrance.image ? (
           <img src={fragrance.image} alt={fragrance.name} className="w-full h-full object-cover" />
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
           </svg>
         )}
       </div>
     </div>
-    <div className="relative flex gap-2 flex-wrap max-h-16 overflow-hidden">
-      {fragrance.notes.slice(0, 4).map((note, index) => (
-        <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
+    <div className="relative flex gap-1.5 sm:gap-2 flex-wrap max-h-16 overflow-hidden">
+      {fragrance.notes.slice(0, 3).map((note, index) => (
+        <span key={index} className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
           {note}
         </span>
       ))}
@@ -221,21 +221,21 @@ const MyCollection = () => {
   const filteredItems = activeTab === 'collection' ? getCollection() : getWishlist();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-8 pt-20">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-8 pt-24 sm:pt-28">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end md:items-end mb-8 gap-4">
-          <div>
-            <h1 className="text-4xl font-light tracking-tight text-white mb-2 font-serif italic">My Collection</h1>
-            <p className="text-lg text-gray-400 font-light">Manage your personal fragrance wardrobe</p>
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 sm:mb-8 gap-4 sm:gap-6">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl font-light tracking-tight text-white mb-1 sm:mb-2 font-serif italic">My Collection</h1>
+            <p className="text-sm sm:text-lg text-gray-400 font-light">Manage your personal fragrance wardrobe</p>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-center">
             {/* Tabs */}
-            <div className="bg-gray-800/60 backdrop-blur-sm p-1 rounded-full border border-gray-700/50 shadow-lg flex">
+            <div className="bg-gray-800/60 backdrop-blur-sm p-1 rounded-full border border-gray-700/50 shadow-lg flex flex-1 sm:flex-none">
               <button
                 onClick={() => setActiveTab('collection')}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`flex-1 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                   activeTab === 'collection'
                     ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50 shadow-md'
                     : 'text-gray-400 hover:text-white'
@@ -245,7 +245,7 @@ const MyCollection = () => {
               </button>
               <button
                 onClick={() => setActiveTab('wishlist')}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`flex-1 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                   activeTab === 'wishlist'
                     ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50 shadow-md'
                     : 'text-gray-400 hover:text-white'
@@ -257,19 +257,19 @@ const MyCollection = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group flex items-center gap-2 px-5 py-2.5 text-sm text-white bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl backdrop-blur-sm"
+              className="group flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm text-white bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-              <span className="hidden md:inline">Add Fragrance</span>
-              <span className="md:hidden">Add</span>
+              <span className="hidden sm:inline">Add Fragrance</span>
+              <span className="sm:hidden">Add</span>
             </button>
           </div>
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredItems.map((fragrance) => (
             <FragranceCard
               key={fragrance.id}
@@ -282,14 +282,14 @@ const MyCollection = () => {
           {/* Empty state card / Add button alternative */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex flex-col items-center justify-center p-6 h-full min-h-[200px] rounded-2xl border-2 border-dashed border-gray-700/50 hover:border-blue-500/50 hover:bg-gray-800/50 transition-all duration-200 group bg-gray-800/30 backdrop-blur-sm"
+            className="flex flex-col items-center justify-center p-4 sm:p-6 h-full min-h-[160px] sm:min-h-[200px] rounded-2xl border-2 border-dashed border-gray-700/50 hover:border-blue-500/50 hover:bg-gray-800/50 transition-all duration-200 group bg-gray-800/30 backdrop-blur-sm"
           >
-            <div className="w-12 h-12 rounded-full bg-gray-700/50 group-hover:bg-blue-500/20 flex items-center justify-center text-gray-400 group-hover:text-blue-300 mb-3 transition-colors border border-gray-600/50 group-hover:border-blue-500/50">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-700/50 group-hover:bg-blue-500/20 flex items-center justify-center text-gray-400 group-hover:text-blue-300 mb-2 sm:mb-3 transition-colors border border-gray-600/50 group-hover:border-blue-500/50">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-400 group-hover:text-white">
+            <span className="text-xs sm:text-sm font-medium text-gray-400 group-hover:text-white">
               Add to {activeTab === 'collection' ? 'Collection' : 'Wishlist'}
             </span>
           </button>

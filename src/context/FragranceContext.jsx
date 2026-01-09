@@ -37,6 +37,18 @@ export const FragranceProvider = ({ children }) => {
     return null;
   });
 
+  const [swipeHistoryUsed, setSwipeHistoryUsed] = useState(() => {
+    const saved = localStorage.getItem('swipeHistoryUsed');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return [];
+      }
+    }
+    return [];
+  });
+
   const [recommendationsShown, setRecommendationsShown] = useState(() => {
     // Load whether recommendations are shown from localStorage
     const saved = localStorage.getItem('recommendationsShown');
@@ -59,6 +71,15 @@ export const FragranceProvider = ({ children }) => {
       localStorage.removeItem('userRecommendations');
     }
   }, [recommendations]);
+
+  useEffect(() => {
+    // Save swipeHistoryUsed to localStorage whenever it changes
+    if (swipeHistoryUsed && swipeHistoryUsed.length > 0) {
+      localStorage.setItem('swipeHistoryUsed', JSON.stringify(swipeHistoryUsed));
+    } else {
+      localStorage.removeItem('swipeHistoryUsed');
+    }
+  }, [swipeHistoryUsed]);
 
   useEffect(() => {
     // Save recommendations shown state to localStorage
@@ -105,6 +126,8 @@ export const FragranceProvider = ({ children }) => {
       getWishlist,
       recommendations,
       setRecommendations,
+      swipeHistoryUsed,
+      setSwipeHistoryUsed,
       recommendationsShown,
       setRecommendationsShown,
       chatHistory,

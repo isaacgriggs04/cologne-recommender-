@@ -33,7 +33,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center group no-underline">
-            <span className="text-5xl font-serif italic text-white tracking-wide group-hover:text-blue-300 transition-colors leading-none">Scentir</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white tracking-wide group-hover:text-blue-300 transition-colors leading-none">Scentir</span>
           </Link>
 
           {/* Navigation Links */}

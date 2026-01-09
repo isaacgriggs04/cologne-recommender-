@@ -189,16 +189,16 @@ const RecommendationCard = ({ fragrance, onAddToWishlist, onViewDetails }) => {
   const topOccasion = occasionRanking.length > 0 ? occasionRanking[0].name : null;
 
   return (
-    <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-2xl p-6 hover:border-blue-500/50 transition-all duration-300 my-4 relative">
-      <div className="absolute -inset-0.5 bg-blue-300 rounded-3xl opacity-20 blur-sm"></div>
-      <div className="relative flex flex-col md:flex-row gap-6">
+    <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-gray-700/50 shadow-2xl p-4 sm:p-6 hover:border-blue-500/50 transition-all duration-300 my-3 sm:my-4 relative overflow-hidden">
+      <div className="absolute -inset-0.5 bg-blue-300 rounded-2xl sm:rounded-3xl opacity-10 blur-sm"></div>
+      <div className="relative flex flex-col md:flex-row gap-4 sm:gap-6">
         {/* Image Section */}
-        <div className="w-full md:w-48 h-48 md:h-auto md:min-w-[192px] rounded-2xl bg-gray-900/50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-700/50">
+        <div className="w-full md:w-40 lg:w-48 h-40 sm:h-48 md:h-auto md:min-w-[160px] lg:min-w-[192px] rounded-xl sm:rounded-2xl bg-gray-900/50 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-700/50">
           {imageUrl && !imageError ? (
             <img 
               src={imageUrl} 
               alt={fragrance.Name || 'Fragrance'} 
-              className="w-full h-full object-contain p-4"
+              className="w-full h-full object-contain p-3 sm:p-4"
               onError={(e) => {
                 console.log('Image failed to load:', imageUrl);
                 setImageError(true);
@@ -209,7 +209,7 @@ const RecommendationCard = ({ fragrance, onAddToWishlist, onViewDetails }) => {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 sm:w-12 sm:h-12 text-gray-500">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
               </svg>
             </div>
@@ -217,41 +217,41 @@ const RecommendationCard = ({ fragrance, onAddToWishlist, onViewDetails }) => {
         </div>
 
         {/* Details Section */}
-        <div className="flex-1 min-w-0">
-          <div className="mb-4">
-            <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">{fragrance.Brand}</h2>
-            <h3 className="text-2xl font-serif italic text-white mb-3">{fragrance.Name}</h3>
+        <div className="flex-1 min-w-0 flex flex-col">
+          <div className="mb-3 sm:mb-4">
+            <h2 className="text-[10px] sm:text-xs font-medium text-gray-400 uppercase tracking-wider mb-0.5 sm:mb-1">{fragrance.Brand}</h2>
+            <h3 className="text-xl sm:text-2xl font-serif italic text-white mb-2 sm:mb-3 leading-tight">{fragrance.Name}</h3>
             
             {/* Badges */}
-            <div className="flex items-center gap-2 text-sm mb-4 flex-wrap">
-              <span className="bg-gray-700/50 border border-gray-600/50 text-gray-300 px-3 py-1 rounded-full text-xs">{fragrance.Gender}</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs mb-3 sm:mb-4 flex-wrap">
+              <span className="bg-gray-700/50 border border-gray-600/50 text-gray-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full">{fragrance.Gender}</span>
               {fragrance.OilType && (
-                <span className="bg-gray-700/50 border border-gray-600/50 text-gray-300 px-3 py-1 rounded-full text-xs">{fragrance.OilType}</span>
+                <span className="bg-gray-700/50 border border-gray-600/50 text-gray-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full">{fragrance.OilType}</span>
               )}
               {topSeason && (
-                <span className="bg-blue-500/20 border border-blue-500/50 text-blue-300 px-3 py-1 rounded-full text-xs capitalize">
+                <span className="bg-blue-500/20 border border-blue-500/50 text-blue-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full capitalize">
                   {topSeason}
                 </span>
               )}
               {topOccasion && (
-                <span className="bg-purple-500/20 border border-purple-500/50 text-purple-300 px-3 py-1 rounded-full text-xs capitalize">
+                <span className="bg-purple-500/20 border border-purple-500/50 text-purple-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full capitalize">
                   {topOccasion}
                 </span>
               )}
               {fragrance.rating && (
-                <span className="flex items-center text-yellow-400 bg-yellow-500/20 border border-yellow-500/50 px-3 py-1 rounded-full text-xs">
-                  <span className="mr-1">★</span> {fragrance.rating}/5
+                <span className="flex items-center text-yellow-400 bg-yellow-500/20 border border-yellow-500/50 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full">
+                  <span className="mr-1">★</span> {fragrance.rating}
                 </span>
               )}
             </div>
 
             {/* Notes */}
             {notes.length > 0 && (
-              <div className="mb-4">
-                <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Notes</p>
-                <div className="flex flex-wrap gap-2">
-                  {notes.slice(0, 6).map((note, index) => (
-                    <span key={index} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
+              <div className="mb-3 sm:mb-4">
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1.5 sm:mb-2">Notes</p>
+                <div className="flex flex-wrap gap-1 sm:gap-2">
+                  {notes.slice(0, 4).map((note, index) => (
+                    <span key={index} className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-gray-700/50 text-gray-300 border border-gray-600/50">
                       {note}
                     </span>
                   ))}
@@ -259,50 +259,36 @@ const RecommendationCard = ({ fragrance, onAddToWishlist, onViewDetails }) => {
               </div>
             )}
 
-            {/* Accords */}
-            {accords.length > 0 && (
-              <div className="mb-4">
-                <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Accords</p>
-                <div className="flex flex-wrap gap-2">
-                  {accords.slice(0, 5).map((accord, index) => (
-                    <span key={index} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300 border border-blue-500/50 capitalize">
-                      {accord}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-gray-700/50">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-700/50">
               <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Longevity</p>
-                <p className="font-medium text-white text-sm">{fragrance.Longevity || "Moderate"}</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-0.5">Longevity</p>
+                <p className="font-medium text-white text-xs sm:text-sm">{fragrance.Longevity || "Moderate"}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Sillage</p>
-                <p className="font-medium text-white text-sm">{fragrance.Sillage || "Moderate"}</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-0.5">Sillage</p>
+                <p className="font-medium text-white text-xs sm:text-sm">{fragrance.Sillage || "Moderate"}</p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3 mt-auto">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mt-auto">
               <button
                 onClick={handleAddToWishlist}
                 disabled={isAdding || added}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors flex-1 md:flex-none justify-center flex backdrop-blur-sm ${
+                className={`px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-colors flex-1 md:flex-none justify-center flex backdrop-blur-sm ${
                   added
                     ? 'bg-green-500/20 text-green-300 border border-green-500/50'
                     : 'bg-gray-700/50 text-gray-300 hover:bg-gray-700 border border-gray-600/50'
                 }`}
               >
-                {added ? '✓ Added' : isAdding ? 'Adding...' : '+ Add to Wishlist'}
+                {added ? '✓ Added' : isAdding ? 'Adding...' : '+ Wishlist'}
               </button>
               <button
                 onClick={() => onViewDetails(fragrance)}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white transition-colors flex-1 md:flex-none justify-center flex backdrop-blur-sm"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-medium rounded-lg bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white transition-colors flex-1 md:flex-none justify-center flex backdrop-blur-sm"
               >
-                View Full Profile
+                View Details
               </button>
             </div>
           </div>
@@ -476,10 +462,10 @@ const ChatContainer = () => {
   }, [hasInitialized, conversationHistory.length]); // Dependency on context values
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-3 sm:px-4 py-4 sm:py-8">
-      <div className="w-full max-w-3xl space-y-4 sm:space-y-8 h-full flex flex-col">
+    <div className="flex flex-col items-center justify-center h-full px-2 sm:px-4 py-2 sm:py-8">
+      <div className="w-full max-w-3xl space-y-3 sm:space-y-8 h-full flex flex-col">
         {/* Welcome Message - always visible */}
-        <div className={`text-center space-y-3 sm:space-y-6 ${conversationHistory.length === 0 ? 'animate-fade-in' : ''}`}>
+        <div className={`text-center space-y-2 sm:space-y-6 ${conversationHistory.length === 0 ? 'animate-fade-in' : ''}`}>
           <h1 className={`font-extralight tracking-tight text-white font-serif italic transition-all duration-300 ${
             conversationHistory.length === 0 
               ? 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl' 
@@ -488,7 +474,7 @@ const ChatContainer = () => {
             Fragrance Finder
           </h1>
           {conversationHistory.length === 0 && (
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-lg mx-auto leading-relaxed px-2">
+            <p className="text-xs sm:text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-lg mx-auto leading-relaxed px-4">
               A curated journey to discover your signature scent through conversation.
             </p>
           )}
@@ -496,10 +482,10 @@ const ChatContainer = () => {
         
         {/* Actions Bar */}
         {conversationHistory.length > 0 && (
-          <div className="flex justify-center pb-2 sm:pb-4">
+          <div className="flex justify-center pb-1 sm:pb-4">
             <button
               onClick={handleNewConversation}
-              className="group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm text-gray-400 hover:text-white bg-gray-800/60 hover:bg-gray-800/80 border border-gray-700/50 hover:border-gray-600/50 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+              className="group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 text-[10px] sm:text-sm text-gray-400 hover:text-white bg-gray-800/60 hover:bg-gray-800/80 border border-gray-700/50 hover:border-gray-600/50 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
             >
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-500 group-hover:bg-emerald-400 transition-colors" />
               <span className="hidden sm:inline">Start New Conversation</span>
@@ -509,14 +495,14 @@ const ChatContainer = () => {
         )}
 
         {/* Main Chat Interface */}
-        <div className="relative group flex-1 h-full flex flex-col">
+        <div className="relative group flex-1 h-full flex flex-col min-h-0">
           {/* Decorative backdrop blur */}
-          <div className="absolute -inset-1 bg-blue-300/20 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
+          <div className="absolute -inset-1 bg-blue-300/20 rounded-2xl sm:rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000" />
           
-          <div className="relative bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-gray-700/50 shadow-2xl p-1 flex-1 flex flex-col overflow-hidden">
-            <div className="bg-gray-900/30 rounded-[1.2rem] sm:rounded-[1.4rem] p-3 sm:p-4 md:p-6 lg:p-8 flex-1 flex flex-col overflow-hidden">
+          <div className="relative bg-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-gray-700/50 shadow-2xl p-0.5 sm:p-1 flex-1 flex flex-col overflow-hidden">
+            <div className="bg-gray-900/30 rounded-[1rem] sm:rounded-[1.4rem] p-2 sm:p-4 md:p-6 lg:p-8 flex-1 flex flex-col overflow-hidden">
               {/* Scrollable Content Area */}
-              <div className="flex-1 overflow-y-auto mb-3 sm:mb-4 md:mb-6 pr-1 sm:pr-2 space-y-3 sm:space-y-4 md:space-y-6 scroll-smooth">
+              <div className="flex-1 overflow-y-auto mb-2 sm:mb-4 md:mb-6 pr-1 sm:pr-2 space-y-3 sm:space-y-4 md:space-y-6 scroll-smooth">
                 {conversationHistory.map((msg, idx) => {
                   let messageContent = null;
                   
@@ -526,26 +512,26 @@ const ChatContainer = () => {
                     const isIntroMessage = introAssistantIndex.current === idx;
 
                     messageContent = (
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         {sections.map((section, sIdx) => (
                           <div key={sIdx}>
                             <div className="claude-message">
                               <ReactMarkdown
                                 components={{
-                                  p: ({node, ...props}) => <p className="mb-2 sm:mb-3 md:mb-4 text-sm sm:text-base" {...props} />,
+                                  p: ({node, ...props}) => <p className="mb-2 sm:mb-3 md:mb-4 text-xs sm:text-base" {...props} />,
                                   strong: ({node, ...props}) => <strong className="font-semibold text-white" {...props} />,
                                   em: ({node, ...props}) => <em className="italic" {...props} />,
-                                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-sm sm:text-base" {...props} />,
-                                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-sm sm:text-base" {...props} />,
-                                  li: ({node, ...props}) => <li className="ml-1 sm:ml-2" {...props} />,
+                                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-1 sm:ml-4 text-xs sm:text-base" {...props} />,
+                                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 sm:mb-3 md:mb-4 space-y-1 sm:space-y-2 ml-1 sm:ml-4 text-xs sm:text-base" {...props} />,
+                                  li: ({node, ...props}) => <li className="ml-0.5 sm:ml-2" {...props} />,
                                   code: ({node, inline, ...props}) => 
                                     inline 
-                                      ? <code className="bg-gray-900 px-1 sm:px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-pink-300" {...props} />
-                                      : <code className="block bg-gray-900 p-2 sm:p-3 rounded-lg text-xs sm:text-sm font-mono text-pink-300 overflow-x-auto my-1 sm:my-2" {...props} />,
-                                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-2 sm:p-3 rounded-lg overflow-x-auto my-1 sm:my-2 text-xs sm:text-sm" {...props} />,
-                                  h1: ({node, ...props}) => <h1 className="text-xl sm:text-2xl font-semibold text-white mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3" {...props} />,
-                                  h2: ({node, ...props}) => <h2 className="text-lg sm:text-xl font-semibold text-white mt-3 sm:mt-4 md:mt-5 mb-1 sm:mb-2" {...props} />,
-                                  h3: ({node, ...props}) => <h3 className="text-base sm:text-lg font-semibold text-white mt-3 sm:mt-4 mb-1 sm:mb-2" {...props} />,
+                                      ? <code className="bg-gray-900 px-1 sm:px-1.5 py-0.5 rounded text-[10px] sm:text-sm font-mono text-pink-300" {...props} />
+                                      : <code className="block bg-gray-900 p-1.5 sm:p-3 rounded-lg text-[10px] sm:text-sm font-mono text-pink-300 overflow-x-auto my-1 sm:my-2" {...props} />,
+                                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-1.5 sm:p-3 rounded-lg overflow-x-auto my-1 sm:my-2 text-[10px] sm:text-sm" {...props} />,
+                                  h1: ({node, ...props}) => <h1 className="text-lg sm:text-2xl font-semibold text-white mt-3 sm:mt-6 mb-1 sm:mb-3" {...props} />,
+                                  h2: ({node, ...props}) => <h2 className="text-base sm:text-xl font-semibold text-white mt-2 sm:mt-5 mb-1 sm:mb-2" {...props} />,
+                                  h3: ({node, ...props}) => <h3 className="text-sm sm:text-lg font-semibold text-white mt-2 sm:mt-4 mb-1 sm:mb-2" {...props} />,
                                 }}
                               >
                                 {section.lines.join('\n')}
@@ -566,26 +552,26 @@ const ChatContainer = () => {
                   } else {
                     // User message
                     messageContent = (
-                      <p className="user-message whitespace-pre-wrap text-sm sm:text-base break-words">
+                      <p className="user-message whitespace-pre-wrap text-xs sm:text-base break-words">
                         {msg.content}
                       </p>
                     );
                   }
 
                   return (
-                    <div key={idx} className={`flex items-start gap-2 sm:gap-3 md:gap-4 animate-fade-in ${msg.role === 'user' ? 'justify-end' : ''}`} style={{ animationDelay: `${idx * 100}ms` }}>
+                    <div key={idx} className={`flex items-start gap-1.5 sm:gap-3 md:gap-4 animate-fade-in ${msg.role === 'user' ? 'justify-end' : ''}`} style={{ animationDelay: `${idx * 100}ms` }}>
                       {msg.role === 'assistant' && (
-                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg border-2 border-orange-300/50">
+                        <div className="flex-shrink-0 w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-[10px] sm:text-sm font-bold shadow-lg border border-orange-300/50">
                           C
                         </div>
                       )}
-                      <div className={`max-w-[85%] sm:max-w-[80%] space-y-1 sm:space-y-2 ${msg.role === 'user' 
-                        ? 'bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl rounded-tr-sm p-3 sm:p-4 md:p-5 shadow-xl border border-blue-400/50 text-sm sm:text-base' 
-                        : 'bg-gray-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 border border-gray-700/50 text-sm sm:text-base'}`}>
+                      <div className={`max-w-[90%] sm:max-w-[80%] space-y-1 ${msg.role === 'user' 
+                        ? 'bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl rounded-tr-sm p-2.5 sm:p-4 md:p-5 shadow-xl border border-blue-400/50 text-xs sm:text-base' 
+                        : 'bg-gray-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg p-2.5 sm:p-4 md:p-6 border border-gray-700/50 text-xs sm:text-base'}`}>
                         {messageContent}
                       </div>
                       {msg.role === 'user' && (
-                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg border-2 border-blue-300/50">
+                        <div className="flex-shrink-0 w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-[10px] sm:text-sm font-bold shadow-lg border border-blue-300/50">
                           U
                         </div>
                       )}
@@ -595,29 +581,29 @@ const ChatContainer = () => {
 
                 {/* Loading State - inside scroll area */}
                 {isLoading && (
-                  <div className="flex justify-start py-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex gap-1.5">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                        <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                        <div className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" />
+                  <div className="flex justify-start py-2 sm:py-4">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                        <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                        <div className="w-1.5 h-1.5 bg-pink-400 rounded-full animate-bounce" />
                       </div>
-                      <p className="text-xs text-gray-400 uppercase tracking-widest font-medium">Thinking</p>
+                      <p className="text-[10px] text-gray-400 uppercase tracking-widest font-medium">Thinking</p>
                     </div>
                   </div>
                 )}
                 
                 {/* Error State */}
                 {error && (
-                  <div className="bg-red-500/20 backdrop-blur-sm border border-red-500/50 rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400" />
-                    <p className="text-red-300 text-sm">{error}</p>
+                  <div className="bg-red-500/20 backdrop-blur-sm border border-red-500/50 rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                    <p className="text-red-300 text-xs sm:text-sm">{error}</p>
                   </div>
                 )}
               </div>
 
               {/* Input Area - Fixed at bottom */}
-              <div className="relative mt-auto">
+              <div className="relative mt-auto pt-2">
                 <InputBox 
                   onInputChange={handleInputChange}
                   onInputSubmit={handleInputSubmit}

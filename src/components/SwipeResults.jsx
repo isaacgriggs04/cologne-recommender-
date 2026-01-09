@@ -10,10 +10,15 @@ import fragranceData from '../../fragrances_filtered.json';
 const SwipeResults = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { addFragrance } = useFragranceContext();
-  const [loading, setLoading] = useState(true);
+  const { 
+    addFragrance, 
+    recommendations, 
+    setRecommendations, 
+    swipeHistoryUsed, 
+    setSwipeHistoryUsed 
+  } = useFragranceContext();
+  const [loading, setLoading] = useState(!recommendations);
   const [error, setError] = useState(null);
-  const [recommendations, setRecommendations] = useState(null);
 
   const swipeHistory = location.state?.swipeHistory || [];
 
@@ -41,13 +46,28 @@ const SwipeResults = () => {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
-        setLoading(true);
-        setError(null);
-
         if (swipeHistory.length === 0) {
           setError('No swipe history found. Please swipe through some fragrances first.');
+          setLoading(false);
           return;
         }
+
+        // Check if we already have recommendations for THIS swipe history
+        // We'll compare history length and the last item to see if it's the same
+        const isSameHistory = recommendations && 
+                             swipeHistoryUsed && 
+                             swipeHistory.length === swipeHistoryUsed.length &&
+                             swipeHistory[swipeHistory.length - 1]?.fragrance?.Name === 
+                             swipeHistoryUsed[swipeHistoryUsed.length - 1]?.fragrance?.Name;
+
+        if (isSameHistory) {
+          console.log('Using cached recommendations');
+          setLoading(false);
+          return;
+        }
+
+        setLoading(true);
+        setError(null);
 
         // Prepare swipe data
         const swipeData = prepareSwipeData(swipeHistory);
@@ -57,12 +77,14 @@ const SwipeResults = () => {
 
         if (!hasMeaningfulSwipes) {
           setError('You need to swipe through fragrances first. Try loving, liking, or hating some fragrances to get personalized recommendations.');
+          setLoading(false);
           return;
         }
 
         // Get recommendations
         const result = await getSwipeBasedRecommendations(swipeData);
         setRecommendations(result);
+        setSwipeHistoryUsed([...swipeHistory]);
 
       } catch (err) {
         console.error('Error fetching swipe recommendations:', err);
@@ -73,11 +95,11 @@ const SwipeResults = () => {
     };
 
     fetchRecommendations();
-  }, [swipeHistory]);
+  }, [swipeHistory, recommendations, swipeHistoryUsed, setRecommendations, setSwipeHistoryUsed]);
 
   const handleRefreshRecommendations = async () => {
     const swipeData = prepareSwipeData(swipeHistory);
-    const hasMeaningfulSwipes = swipeData.loved.length > 0 || swipeData.liked.length > 0 || swipeData.hated.length > 0;
+    const hasMeaningfulSwipes = swipeData.loved.length > 0 || swipeData.liked.length > 0 || swipeData.meh.length > 0;
 
     if (!hasMeaningfulSwipes) {
       setError('You need to swipe through fragrances first. Try loving, liking, or hating some fragrances to get personalized recommendations.');
@@ -89,6 +111,7 @@ const SwipeResults = () => {
       setError(null);
       const result = await getSwipeBasedRecommendations(swipeData);
       setRecommendations(result);
+      setSwipeHistoryUsed([...swipeHistory]);
     } catch (err) {
       console.error('Error refreshing recommendations:', err);
       setError(err.message || 'Failed to generate recommendations. Please try again.');
@@ -140,22 +163,22 @@ const SwipeResults = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-24 sm:pt-28 pb-8 px-4 md:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-serif italic text-white">Your Personalized Recommendations</h1>
-          <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8 gap-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white text-center sm:text-left leading-tight">Your Recommendations</h1>
+          <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
             <button
               onClick={handleRefreshRecommendations}
-              className="bg-gray-700/50 hover:bg-gray-700 border border-gray-600 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm backdrop-blur-sm"
+              className="flex-1 sm:flex-none bg-gray-700/50 hover:bg-gray-700 border border-gray-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm backdrop-blur-sm"
               disabled={loading}
             >
               Refresh
             </button>
             <button
               onClick={() => navigate('/swipe')}
-              className="bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm backdrop-blur-sm"
+              className="flex-1 sm:flex-none bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm backdrop-blur-sm"
             >
               Swipe More
             </button>
@@ -164,25 +187,25 @@ const SwipeResults = () => {
 
         {/* Analysis Section */}
         {recommendations?.analysis && (
-          <div className="bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/30 p-6 mb-8">
-            <h2 className="text-xl font-serif italic text-white mb-4">Your Scent Profile</h2>
-            <div className="claude-message text-gray-300">
+          <div className="bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/30 p-5 sm:p-6 mb-6 sm:mb-8">
+            <h2 className="text-lg sm:text-xl font-serif italic text-white mb-3 sm:mb-4">Your Scent Profile</h2>
+            <div className="claude-message">
               <ReactMarkdown
                 components={{
-                  p: ({node, ...props}) => <p className="mb-4" {...props} />,
+                  p: ({node, ...props}) => <p className="mb-3 sm:mb-4 text-xs sm:text-base" {...props} />,
                   strong: ({node, ...props}) => <strong className="font-semibold text-white" {...props} />,
                   em: ({node, ...props}) => <em className="italic" {...props} />,
-                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-2 ml-4" {...props} />,
-                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-2 ml-4" {...props} />,
-                  li: ({node, ...props}) => <li className="ml-2" {...props} />,
+                  ul: ({node, ...props}) => <ul className="list-disc list-inside mb-3 sm:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-xs sm:text-base" {...props} />,
+                  ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-3 sm:mb-4 space-y-1 sm:space-y-2 ml-2 sm:ml-4 text-xs sm:text-base" {...props} />,
+                  li: ({node, ...props}) => <li className="ml-1 sm:ml-2" {...props} />,
                   code: ({node, inline, ...props}) => 
                     inline 
-                      ? <code className="bg-gray-900 px-1.5 py-0.5 rounded text-sm font-mono text-pink-300" {...props} />
-                      : <code className="block bg-gray-900 p-3 rounded-lg text-sm font-mono text-pink-300 overflow-x-auto my-2" {...props} />,
-                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-3 rounded-lg overflow-x-auto my-2" {...props} />,
-                  h1: ({node, ...props}) => <h1 className="text-2xl font-semibold text-white mt-6 mb-3" {...props} />,
-                  h2: ({node, ...props}) => <h2 className="text-xl font-semibold text-white mt-5 mb-2" {...props} />,
-                  h3: ({node, ...props}) => <h3 className="text-lg font-semibold text-white mt-4 mb-2" {...props} />,
+                      ? <code className="bg-gray-900 px-1 sm:px-1.5 py-0.5 rounded text-[10px] sm:text-sm font-mono text-pink-300" {...props} />
+                      : <code className="block bg-gray-900 p-2 sm:p-3 rounded-lg text-[10px] sm:text-sm font-mono text-pink-300 overflow-x-auto my-1 sm:my-2" {...props} />,
+                  pre: ({node, ...props}) => <pre className="bg-gray-900 p-2 sm:p-3 rounded-lg overflow-x-auto my-1 sm:my-2 text-[10px] sm:text-sm" {...props} />,
+                  h1: ({node, ...props}) => <h1 className="text-xl sm:text-2xl font-semibold text-white mt-4 sm:mt-6 mb-2 sm:mb-3" {...props} />,
+                  h2: ({node, ...props}) => <h2 className="text-lg sm:text-xl font-semibold text-white mt-3 sm:mt-5 mb-1 sm:mb-2" {...props} />,
+                  h3: ({node, ...props}) => <h3 className="text-base sm:text-lg font-semibold text-white mt-3 sm:mt-4 mb-1 sm:mb-2" {...props} />,
                 }}
               >
                 {recommendations.analysis}
@@ -193,13 +216,15 @@ const SwipeResults = () => {
 
         {/* Recommendations Section */}
         {recommendations?.recommendations && (
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 p-6">
-            <h2 className="text-xl font-serif italic text-white mb-6">Recommended Fragrances</h2>
-            <FragranceResponseRenderer 
-              text={recommendations.recommendations}
-              onAddToWishlist={handleAddToWishlist}
-              onViewDetails={handleViewDetails}
-            />
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 p-5 sm:p-6 mb-8">
+            <h2 className="text-lg sm:text-xl font-serif italic text-white mb-4 sm:mb-6">Recommended Fragrances</h2>
+            <div className="chat-recommendations">
+              <FragranceResponseRenderer 
+                text={recommendations.recommendations}
+                onAddToWishlist={handleAddToWishlist}
+                onViewDetails={handleViewDetails}
+              />
+            </div>
           </div>
         )}
       </div>

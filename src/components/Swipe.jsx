@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FloatingChatButton from './FloatingChatButton';
 import fragranceData from '../../fragrances_filtered.json';
+import { useFragranceContext } from '../context/FragranceContext';
 
 const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
   const cardRef = useRef(null);
@@ -137,7 +138,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
 
 
   return (
-    <div className="relative flex flex-col items-center space-y-8 w-full max-w-md mx-auto select-none">
+    <div className="relative flex flex-col items-center space-y-4 sm:space-y-8 w-full max-w-md mx-auto select-none">
       {/* Direction indicators with glowing effects - show when dragging */}
       {isDragging && (
         <>
@@ -147,13 +148,13 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
           }`}>
             <div className="relative">
               <div className="absolute inset-0 bg-teal-400 rounded-full blur-lg opacity-60"></div>
-              <div className="relative bg-teal-500/90 backdrop-blur-sm text-white p-3 rounded-full border-2 border-teal-300 shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+              <div className="relative bg-teal-500/90 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full border-2 border-teal-300 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 sm:w-8 sm:h-8">
                   <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
                 </svg>
               </div>
             </div>
-            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 text-xs font-medium text-teal-300 whitespace-nowrap transition-opacity ${
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] sm:text-xs font-medium text-teal-300 whitespace-nowrap transition-opacity ${
               swipeDirection === 'love' ? 'opacity-100' : 'opacity-0'
             }`}>
               Love
@@ -166,13 +167,13 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
           }`}>
             <div className="relative">
               <div className="absolute inset-0 bg-orange-400 rounded-full blur-lg opacity-60"></div>
-              <div className="relative bg-orange-500/90 backdrop-blur-sm text-white p-3 rounded-full border-2 border-orange-300 shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-8 h-8">
+              <div className="relative bg-orange-500/90 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full border-2 border-orange-300 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-6 h-6 sm:w-8 sm:h-8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
             </div>
-            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 text-xs font-medium text-orange-300 whitespace-nowrap transition-opacity ${
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] sm:text-xs font-medium text-orange-300 whitespace-nowrap transition-opacity ${
               swipeDirection === 'meh' ? 'opacity-100' : 'opacity-0'
             }`}>
               Meh
@@ -185,13 +186,13 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
           }`}>
             <div className="relative">
               <div className="absolute inset-0 bg-green-400 rounded-full blur-lg opacity-60"></div>
-              <div className="relative bg-green-500/90 backdrop-blur-sm text-white p-3 rounded-full border-2 border-green-300 shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+              <div className="relative bg-green-500/90 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full border-2 border-green-300 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 sm:w-8 sm:h-8">
                   <path d="M7.493 19.5l-.01-.004a4.5 4.5 0 01-.02-8.542 4.5 4.5 0 018.03 3.748l1.303 3.938a3.75 3.75 0 01-3.659 4.805h-.243a2.25 2.25 0 01-2.015-1.5l-1.67-4.24zm11.29-.006l-.01.004a4.5 4.5 0 01-.02-8.542 4.5 4.5 0 018.03 3.748l1.303 3.938a3.75 3.75 0 01-3.659 4.805h-.243a2.25 2.25 0 01-2.015-1.5l-1.67-4.24z" />
                 </svg>
               </div>
             </div>
-            <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 text-xs font-medium text-green-300 whitespace-nowrap transition-opacity ${
+            <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-1 text-[10px] sm:text-xs font-medium text-green-300 whitespace-nowrap transition-opacity ${
               swipeDirection === 'like' ? 'opacity-100' : 'opacity-0'
             }`}>
               Like
@@ -204,13 +205,13 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
           }`}>
             <div className="relative">
               <div className="absolute inset-0 bg-gray-400 rounded-full blur-lg opacity-60"></div>
-              <div className="relative bg-gray-500/90 backdrop-blur-sm text-white p-3 rounded-full border-2 border-gray-300 shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-8 h-8">
+              <div className="relative bg-gray-500/90 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full border-2 border-gray-300 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-6 h-6 sm:w-8 sm:h-8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
                 </svg>
               </div>
             </div>
-            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 text-xs font-medium text-gray-300 whitespace-nowrap transition-opacity ${
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] sm:text-xs font-medium text-gray-300 whitespace-nowrap transition-opacity ${
               swipeDirection === 'skip' ? 'opacity-100' : 'opacity-0'
             }`}>
               Skip
@@ -229,7 +230,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
         onTouchStart={handleDragStart}
         onTouchMove={handleDragMove}
         onTouchEnd={handleDragEnd}
-        className="relative"
+        className="relative w-full"
         style={{
           transform: isDragging
             ? `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${dragOffset.x * 0.05}deg)`
@@ -245,11 +246,11 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
         <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl blur-md"></div>
         
         {/* Main translucent panel */}
-        <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 shadow-2xl min-h-[400px] flex flex-col items-center">
+        <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 sm:p-8 shadow-2xl min-h-[360px] sm:min-h-[400px] flex flex-col items-center">
           {/* Centered Content */}
-          <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="flex-1 flex flex-col items-center justify-center w-full">
             {/* Fragrance Image */}
-            <div className="w-48 h-64 mb-6 flex items-center justify-center">
+            <div className="w-40 h-56 sm:w-48 sm:h-64 mb-4 sm:mb-6 flex items-center justify-center">
               {fragrance["Image URL"] ? (
                 <img
                   src={fragrance["Image URL"]}
@@ -259,7 +260,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gray-800/50 rounded-xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16 text-gray-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 sm:w-16 sm:h-16 text-gray-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
                   </svg>
                 </div>
@@ -267,14 +268,14 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
             </div>
 
             {/* Fragrance Info Text */}
-            <div className="text-center space-y-2">
-              <h3 className="text-white text-2xl font-semibold">{fragrance.Brand}</h3>
-              <h2 className="text-white text-3xl font-bold">{fragrance.Name}</h2>
+            <div className="text-center space-y-1 sm:space-y-2 px-2">
+              <h3 className="text-gray-300 text-lg sm:text-2xl font-semibold truncate w-full">{fragrance.Brand}</h3>
+              <h2 className="text-white text-xl sm:text-3xl font-bold line-clamp-2">{fragrance.Name}</h2>
               {fragrance.OilType && (
-                <p className="text-gray-300 text-sm">{fragrance.OilType}</p>
+                <p className="text-gray-400 text-xs sm:text-sm">{fragrance.OilType}</p>
               )}
               {fragrance.Gender && (
-                <p className="text-gray-400 text-xs uppercase tracking-wider">{fragrance.Gender}</p>
+                <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-wider">{fragrance.Gender}</p>
               )}
             </div>
           </div>
@@ -285,10 +286,10 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
               e.stopPropagation();
               onCardClick();
             }}
-            className="relative group mt-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/50 text-blue-300 px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200 backdrop-blur-sm flex items-center gap-2 hover:scale-105"
+            className="relative group mt-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/50 text-blue-300 px-5 py-2 sm:px-6 sm:py-3 rounded-lg text-sm font-medium shadow-lg transition-all duration-200 backdrop-blur-sm flex items-center gap-2 hover:scale-105"
           >
             <div className="absolute inset-0 bg-blue-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 relative z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 relative z-10">
               <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
             <span className="relative z-10">View Details</span>
@@ -297,28 +298,28 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
       </div>
 
       {/* Fallback buttons - minimal, below card */}
-      <div className="grid grid-cols-4 gap-3 mt-4">
+      <div className="grid grid-cols-4 gap-2 sm:gap-3 mt-4 w-full">
         <button
           onClick={handleMehIt}
-          className="bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/50 text-orange-300 px-3 py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-xs whitespace-nowrap backdrop-blur-sm"
+          className="bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/50 text-orange-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
         >
           ✕ Meh
         </button>
         <button
           onClick={handleLikeIt}
-          className="bg-green-500/20 hover:bg-green-500/30 border border-green-500/50 text-green-300 px-3 py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-xs whitespace-nowrap backdrop-blur-sm"
+          className="bg-green-500/20 hover:bg-green-500/30 border border-green-500/50 text-green-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
         >
           ↑ Like
         </button>
         <button
           onClick={handleLoveIt}
-          className="bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/50 text-teal-300 px-3 py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-xs whitespace-nowrap backdrop-blur-sm"
+          className="bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/50 text-teal-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
         >
           ♥ Love
         </button>
         <button
           onClick={handleSkip}
-          className="bg-gray-500/20 hover:bg-gray-500/30 border border-gray-500/50 text-gray-300 px-3 py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-xs whitespace-nowrap backdrop-blur-sm"
+          className="bg-gray-500/20 hover:bg-gray-500/30 border border-gray-500/50 text-gray-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
         >
           ↓ Skip
         </button>
@@ -391,6 +392,7 @@ const ResultsView = ({ categorizedFragrances, onBack }) => {
 
 const Swipe = () => {
   const navigate = useNavigate();
+  const { setRecommendations, setSwipeHistoryUsed } = useFragranceContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [view, setView] = useState('swipe'); // 'swipe' or 'results'
   const [swipeHistory, setSwipeHistory] = useState([]);
@@ -499,9 +501,11 @@ const Swipe = () => {
     setCategorizedFragrances({
       love: [],
       like: [],
-      hate: [],
+      meh: [],
       skip: []
     });
+    setRecommendations(null);
+    setSwipeHistoryUsed([]);
     localStorage.removeItem('swipeProgress');
   };
 
