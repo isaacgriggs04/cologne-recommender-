@@ -26,8 +26,8 @@ const {
   GCP_PROJECT_ID,
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
-  // default to the DINOv2 embeddings index
-  PINECONE_INDEX = 'dinov2-embeddings',
+  // default to the DINOv2 embeddings index with permanent IDs
+  PINECONE_INDEX = 'dinov2-embeddings-with-permanent-ids',
   PORT = process.env.PORT || 3001,
 } = process.env;
 
@@ -118,10 +118,16 @@ const pineconeIndex = pinecone.index(PINECONE_INDEX);
 
 // ---------- Load fragrance metadata once ----------
 const FRAGRANCE_PATH = path.join(process.cwd(), 'fragrances_filtered.json');
-let fragranceCache = [];
+let fragranceMap = {};
 try {
   const raw = fs.readFileSync(FRAGRANCE_PATH, 'utf-8');
-  fragranceCache = JSON.parse(raw);
+  const array = JSON.parse(raw);
+  array.forEach(f => {
+    if (f.id) {
+      fragranceMap[f.id] = f;
+    }
+  });
+  console.log(`Loaded ${Object.keys(fragranceMap).length} fragrances into lookup map`);
 } catch (err) {
   console.error('Failed to load fragrances_filtered.json', err);
 }
@@ -157,11 +163,14 @@ app.post('/api/scan', async (req, res) => {
     const matches = (query.matches || [])
       .filter(m => m.score >= 0.70) // DINOv2 confidence threshold
       .map((m) => {
-        const idx = m.metadata?.jsonIndex;
-        const fragrance =
-          typeof idx === 'number' && fragranceCache[idx]
-            ? fragranceCache[idx]
-            : null;
+        // Try stable ID first, then fallback to jsonIndex for legacy vectors
+        const fragranceId = m.metadata?.fragranceId;
+        const jsonIdx = m.metadata?.jsonIndex;
+        
+        const fragrance = fragranceId && fragranceMap[fragranceId] 
+          ? fragranceMap[fragranceId]
+          : (typeof jsonIdx === 'number' ? Object.values(fragranceMap)[jsonIdx] : null);
+
         return {
           score: m.score,
           id: m.id,

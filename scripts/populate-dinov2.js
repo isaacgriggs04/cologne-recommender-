@@ -12,7 +12,7 @@ dotenv.config();
 
 const {
   PINECONE_API_KEY,
-  PINECONE_INDEX = 'dinov2-embeddings',
+  PINECONE_INDEX = 'dinov2-embeddings-with-permanent-ids',
   BATCH_SIZE = 5,
   START_INDEX = 0, // Set this to resume from a specific index
 } = process.env;
@@ -191,7 +191,8 @@ async function main() {
 
       // Prepare metadata
       const metadata = {
-        jsonIndex: i,
+        fragranceId: f.id, // Store stable ID
+        jsonIndex: i, // Keep for legacy support
         name: f.Name || '',
         brand: f.Brand || '',
         imageUrl: url,
@@ -202,7 +203,7 @@ async function main() {
       };
 
       points.push({
-        id: `fragrance-${i}`,
+        id: f.id || `fragrance-${i}`, // Use stable ID as vector ID
         values: embedding,
         metadata: metadata,
       });

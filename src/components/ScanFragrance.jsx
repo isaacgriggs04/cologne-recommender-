@@ -211,8 +211,8 @@ const ScanFragrance = () => {
                 <div className="space-y-2 sm:space-y-3">
                   {matches.map((match, index) => {
                     const fragrance = match.fragrance;
-                    // Use the jsonIndex from metadata as primary, fallback to indexOf
-                    const fragranceIndex = match.metadata?.jsonIndex ?? fragranceData.indexOf(fragrance);
+                    // Find the current index in the local JSON data based on the unique ID
+                    const fragranceIndex = fragranceData.findIndex(f => f.id === fragrance.id);
                     return (
                       <button
                         key={index}

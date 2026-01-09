@@ -170,7 +170,10 @@ function App() {
       } />
       <Route path="/swipe-results" element={
         <ProtectedRoute>
-          <SwipeResults />
+          <div className="pt-16 md:pt-16">
+            <Navigation />
+            <SwipeResults />
+          </div>
         </ProtectedRoute>
       } />
       <Route path="/swipe" element={

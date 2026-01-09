@@ -8,7 +8,7 @@ const {
   GCP_PROJECT_ID,
   VERTEX_LOCATION = 'us-east-1',
   PINECONE_API_KEY,
-  PINECONE_INDEX = 'ndexforimagerecognition-img',
+  PINECONE_INDEX = 'dinov2-embeddings-with-permanent-ids',
   PINECONE_DIM = '2048',
   // Use public Google image embedding publisher model
   VERTEX_IMAGE_MODEL = 'multimodalembedding',
@@ -98,9 +98,10 @@ async function main() {
       }
       const embedding = padVector(embeddingRaw, targetDim);
       points.push({
-        id: `fragrance-${i}`,
+        id: f.id || `fragrance-${i}`,
         values: embedding,
         metadata: {
+          fragranceId: f.id,
           name: f.Name || '',
           brand: f.Brand || '',
           jsonIndex: i,

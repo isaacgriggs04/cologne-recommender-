@@ -6,8 +6,9 @@ import { Pinecone } from '@pinecone-database/pinecone';
 import { pipeline } from '@xenova/transformers';
 import sharp from 'sharp';
 
-const PINECONE_API_KEY = 'pcsk_3hH679_Mj82WvAP5xEu5bDw1JaDmz1ZZheUnKZxcAZEwQ9cKLGxFyQ85XNoconst PINECONE_INDEX = 'new-data-base-clip';
-const PINECONE_DIM = '512';
+const PINECONE_API_KEY = 'pcsk_3hH679_Mj82WvAP5xEu5bDw1JaDmz1ZZheUnKZxcAZEwQ9cKLGxFyQ85XNowVjpFjke969';
+const PINECONE_INDEX = 'dinov2-embeddings-with-permanent-ids';
+const PINECONE_DIM = '768';
 const BATCH_SIZE = 5;
 
 let clipExtractor = null;

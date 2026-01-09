@@ -241,9 +241,8 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
           touchAction: 'none'
         }}
       >
-        {/* Glowing border effect */}
-        <div className="absolute -inset-1 bg-blue-300 rounded-2xl opacity-70 blur-sm"></div>
-        <div className="absolute -inset-0.5 bg-blue-400 rounded-2xl opacity-50 blur"></div>
+        {/* Light blue glow effect */}
+        <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl blur-md"></div>
         
         {/* Main translucent panel */}
         <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 shadow-2xl min-h-[400px] flex flex-col items-center">
@@ -402,7 +401,7 @@ const Swipe = () => {
     skip: []
   });
   const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedGenders, setSelectedGenders] = useState(['men', 'women', 'unisex']); // Default to all genders selected
+  const [selectedGenders, setSelectedGenders] = useState(['men', 'women', 'unisex']); // Default to all
   const [shuffledFragrances, setShuffledFragrances] = useState([]);
 
   // Shuffle array function
@@ -415,7 +414,7 @@ const Swipe = () => {
     return shuffled;
   };
 
-  // Filter fragrances based on selected genders and shuffle them
+  // Filter fragrances based on selected genders
   const filteredFragrances = fragranceData.filter(fragrance =>
     selectedGenders.includes(fragrance.Gender?.toLowerCase())
   );
@@ -424,7 +423,7 @@ const Swipe = () => {
   useEffect(() => {
     setShuffledFragrances(shuffleArray(filteredFragrances));
     setCurrentIndex(0); // Reset to first fragrance when filters change
-    // Clear saved progress when filters change since the order is now randomized
+    // Clear saved progress when filters change
     localStorage.removeItem('swipeProgress');
     setSwipeHistory([]);
     setCategorizedFragrances({
@@ -434,11 +433,6 @@ const Swipe = () => {
       skip: []
     });
   }, [selectedGenders]);
-
-  // Initialize shuffled fragrances on first load
-  useEffect(() => {
-    setShuffledFragrances(shuffleArray(filteredFragrances));
-  }, []); // Run once on component mount
 
   // Load saved progress from localStorage
   useEffect(() => {
@@ -505,7 +499,7 @@ const Swipe = () => {
     setCategorizedFragrances({
       love: [],
       like: [],
-      meh: [],
+      hate: [],
       skip: []
     });
     localStorage.removeItem('swipeProgress');
@@ -518,8 +512,7 @@ const Swipe = () => {
     liked: categorizedFragrances.like.length,
     loved: categorizedFragrances.love.length,
     skipped: categorizedFragrances.skip.length,
-    total: totalSwipes,
-    progress: currentIndex >= shuffledFragrances.length ? 'Completed!' : `${currentIndex + 1} of ${shuffledFragrances.length}`
+    total: totalSwipes
   };
 
   const handleSwipe = (action) => {
@@ -566,31 +559,39 @@ const Swipe = () => {
     }
   };
 
-  const handleShowResults = () => {
-    setView('results');
-  };
-
   const handleBackToSwipe = () => {
     setView('swipe');
   };
 
   const currentFragrance = shuffledFragrances[currentIndex];
 
+  // Show loading state if fragrances haven't loaded yet
+  if (!shuffledFragrances) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto flex items-center justify-center">
+          <div className="text-center py-16">
+            <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading fragrances...</p>
+          </div>
+        </div>
+        <FloatingChatButton />
+      </div>
+    );
+  }
+
   if (view === 'results') {
     return (
-      <div className="swipe-container">
-        <div className="swipe-desktop-scale min-h-screen bg-[#F8F9FA] pt-20 pb-8 px-4 md:px-8">
-          <ResultsView categorizedFragrances={categorizedFragrances} onBack={handleBackToSwipe} />
-          <FloatingChatButton />
-        </div>
+      <div className="min-h-screen bg-[#F8F9FA] pt-20 pb-8 px-4 md:px-8">
+        <ResultsView categorizedFragrances={categorizedFragrances} onBack={handleBackToSwipe} />
+        <FloatingChatButton />
       </div>
     );
   }
 
   return (
-    <div className="swipe-container">
-      <div className="swipe-desktop-scale min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
+      <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl md:text-4xl font-serif italic text-white">Swipe</h1>
@@ -642,8 +643,6 @@ const Swipe = () => {
                           setSelectedGenders(prev => prev.filter(g => g !== gender.value));
                         }
                       }
-                      // Reset current index when filter changes to avoid out of bounds
-                      setCurrentIndex(0);
                     }}
                     className="sr-only"
                   />
@@ -711,7 +710,7 @@ const Swipe = () => {
             <SwipeCard fragrance={currentFragrance} onSwipe={handleSwipe} onCardClick={handleCardClick} />
 
             {/* Stats Display - moved below card to avoid blocking upward swipes */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 w-full max-w-md">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-md">
               <div className="bg-gray-800/50 backdrop-blur-sm border border-orange-500/30 rounded-lg p-3 text-center shadow-lg">
                 <div className="text-xl font-bold text-orange-400">{stats.meh}</div>
                 <div className="text-xs text-gray-400">Meh</div>
@@ -728,10 +727,6 @@ const Swipe = () => {
                 <div className="text-xl font-bold text-gray-400">{stats.skipped}</div>
                 <div className="text-xs text-gray-400">Skipped</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-blue-500/30 rounded-lg p-3 text-center shadow-lg md:col-span-1 col-span-2">
-                <div className="text-sm font-bold text-blue-300">{stats.progress}</div>
-                <div className="text-xs text-gray-400">Progress</div>
-              </div>
             </div>
           </div>
         ) : (
@@ -741,9 +736,8 @@ const Swipe = () => {
             <p className="text-gray-400">Loading fragrances...</p>
           </div>
         )}
-        </div>
-        <FloatingChatButton />
       </div>
+      <FloatingChatButton />
     </div>
   );
 };
