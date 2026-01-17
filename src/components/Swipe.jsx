@@ -138,7 +138,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
 
 
   return (
-    <div className="relative flex flex-col items-center space-y-4 sm:space-y-8 w-full max-w-md mx-auto select-none">
+    <div className="relative flex flex-col items-center space-y-2 w-full max-w-md mx-auto select-none h-full justify-center">
       {/* Direction indicators with glowing effects - show when dragging */}
       {isDragging && (
         <>
@@ -188,7 +188,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
               <div className="absolute inset-0 bg-green-400 rounded-full blur-lg opacity-60"></div>
               <div className="relative bg-green-500/90 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full border-2 border-green-300 shadow-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 sm:w-8 sm:h-8">
-                  <path d="M7.493 19.5l-.01-.004a4.5 4.5 0 01-.02-8.542 4.5 4.5 0 018.03 3.748l1.303 3.938a3.75 3.75 0 01-3.659 4.805h-.243a2.25 2.25 0 01-2.015-1.5l-1.67-4.24zm11.29-.006l-.01.004a4.5 4.5 0 01-.02-8.542 4.5 4.5 0 018.03 3.748l1.303 3.938a3.75 3.75 0 01-3.659 4.805h-.243a2.25 2.25 0 01-2.015-1.5l-1.67-4.24z" />
+                  <path d="M7.493 18.75c-.425 0-.82-.236-.975-.632A7.48 7.48 0 016 15.375c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75 2.25 2.25 0 012.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.45-.24zm-3.75 0a1.5 1.5 0 01-1.5-1.5v-6a1.5 1.5 0 011.5-1.5h2.25a.75.75 0 010 1.5H6v6h.75a.75.75 0 010 1.5h-3z" />
                 </svg>
               </div>
             </div>
@@ -230,7 +230,7 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
         onTouchStart={handleDragStart}
         onTouchMove={handleDragMove}
         onTouchEnd={handleDragEnd}
-        className="relative w-full"
+        className="relative w-full flex-1 min-h-0"
         style={{
           transform: isDragging
             ? `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${dragOffset.x * 0.05}deg)`
@@ -246,21 +246,21 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
         <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl blur-md"></div>
         
         {/* Main translucent panel */}
-        <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 sm:p-8 shadow-2xl min-h-[360px] sm:min-h-[400px] flex flex-col items-center">
+        <div className="relative bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-4 md:p-6 shadow-2xl w-full h-full flex flex-col items-center mx-auto">
           {/* Centered Content */}
-          <div className="flex-1 flex flex-col items-center justify-center w-full">
+          <div className="flex-1 flex flex-col items-center justify-center w-full min-h-0 overflow-hidden">
             {/* Fragrance Image */}
-            <div className="w-40 h-56 sm:w-48 sm:h-64 mb-4 sm:mb-6 flex items-center justify-center">
+            <div className="flex-1 w-full flex items-center justify-center relative mb-2 min-h-0">
               {fragrance["Image URL"] ? (
                 <img
                   src={fragrance["Image URL"]}
                   alt={fragrance.Name}
-                  className="w-full h-full object-contain pointer-events-none"
+                  className="max-h-full max-w-full w-auto object-contain pointer-events-none rounded-lg drop-shadow-2xl"
                   draggable={false}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gray-800/50 rounded-xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 sm:w-16 sm:h-16 text-gray-500">
+                <div className="w-full h-full max-h-[200px] flex items-center justify-center bg-gray-800/50 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-gray-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
                   </svg>
                 </div>
@@ -268,62 +268,75 @@ const SwipeCard = ({ fragrance, onSwipe, onCardClick }) => {
             </div>
 
             {/* Fragrance Info Text */}
-            <div className="text-center space-y-1 sm:space-y-2 px-2">
-              <h3 className="text-gray-300 text-lg sm:text-2xl font-semibold truncate w-full">{fragrance.Brand}</h3>
-              <h2 className="text-white text-xl sm:text-3xl font-bold line-clamp-2">{fragrance.Name}</h2>
-              {fragrance.OilType && (
-                <p className="text-gray-400 text-xs sm:text-sm">{fragrance.OilType}</p>
-              )}
-              {fragrance.Gender && (
-                <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-wider">{fragrance.Gender}</p>
-              )}
+            <div className="text-center space-y-0.5 px-2 flex-none w-full">
+              <h3 className="text-gray-400 text-[10px] sm:text-xs font-medium uppercase tracking-wider truncate w-full">{fragrance.Brand}</h3>
+              <h2 className="text-white text-base sm:text-xl font-bold line-clamp-1 leading-tight">{fragrance.Name}</h2>
+              <div className="flex items-center justify-center gap-1.5 mt-1">
+                {fragrance.OilType && (
+                  <span className="px-1.5 py-0.5 rounded-full bg-gray-800/80 border border-gray-700 text-[8px] sm:text-[10px] text-gray-300">
+                    {fragrance.OilType}
+                  </span>
+                )}
+                {fragrance.Gender && (
+                  <span className="px-1.5 py-0.5 rounded-full bg-gray-800/80 border border-gray-700 text-[8px] sm:text-[10px] text-gray-300 uppercase tracking-wide">
+                    {fragrance.Gender}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* View Details Button */}
+          {/* Fallback buttons - Integrated inside card for mobile, customized layout */}
+          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-2 mt-3 flex-none">
+            <button
+              onClick={handleMehIt}
+              className="md:col-span-1 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 text-orange-400 py-2.5 rounded-xl font-medium transition-all active:scale-95 flex items-center justify-center gap-1.5 backdrop-blur-sm"
+            >
+              <span className="text-base">✕</span>
+              <span className="text-xs">Meh</span>
+            </button>
+            <button
+              onClick={handleLikeIt}
+              className="md:col-span-1 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 text-green-400 py-2.5 rounded-xl font-medium transition-all active:scale-95 flex items-center justify-center gap-1.5 backdrop-blur-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                <path d="M7.493 18.75c-.425 0-.82-.236-.975-.632A7.48 7.48 0 016 15.375c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75 2.25 2.25 0 012.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.45-.24zm-3.75 0a1.5 1.5 0 01-1.5-1.5v-6a1.5 1.5 0 011.5-1.5h2.25a.75.75 0 010 1.5H6v6h.75a.75.75 0 010 1.5h-3z" />
+              </svg>
+              <span className="text-xs">Like</span>
+            </button>
+            <button
+              onClick={handleLoveIt}
+              className="md:col-span-1 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 text-teal-400 py-2.5 rounded-xl font-medium transition-all active:scale-95 flex items-center justify-center gap-1.5 backdrop-blur-sm"
+            >
+              <span className="text-base">♥</span>
+              <span className="text-xs">Love</span>
+            </button>
+            <button
+              onClick={handleSkip}
+              className="md:col-span-1 bg-gray-500/10 hover:bg-gray-500/20 border border-gray-500/30 text-gray-400 py-2.5 rounded-xl font-medium transition-all active:scale-95 flex items-center justify-center gap-1.5 backdrop-blur-sm"
+            >
+              <span className="text-base">↓</span>
+              <span className="text-xs">Skip</span>
+            </button>
+          </div>
+
+          {/* View Details Button - Positioned absolutely or integrated */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               onCardClick();
             }}
-            className="relative group mt-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/50 text-blue-300 px-5 py-2 sm:px-6 sm:py-3 rounded-lg text-sm font-medium shadow-lg transition-all duration-200 backdrop-blur-sm flex items-center gap-2 hover:scale-105"
+            className="mt-2 w-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-300 py-1.5 rounded-lg text-[10px] sm:text-xs font-medium transition-all flex items-center justify-center gap-1.5"
           >
-            <div className="absolute inset-0 bg-blue-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 relative z-10">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
             </svg>
-            <span className="relative z-10">View Details</span>
+            View Details
           </button>
         </div>
       </div>
 
-      {/* Fallback buttons - minimal, below card */}
-      <div className="grid grid-cols-4 gap-2 sm:gap-3 mt-4 w-full">
-        <button
-          onClick={handleMehIt}
-          className="bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/50 text-orange-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
-        >
-          ✕ Meh
-        </button>
-        <button
-          onClick={handleLikeIt}
-          className="bg-green-500/20 hover:bg-green-500/30 border border-green-500/50 text-green-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
-        >
-          ↑ Like
-        </button>
-        <button
-          onClick={handleLoveIt}
-          className="bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/50 text-teal-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
-        >
-          ♥ Love
-        </button>
-        <button
-          onClick={handleSkip}
-          className="bg-gray-500/20 hover:bg-gray-500/30 border border-gray-500/50 text-gray-300 px-2 py-2 sm:px-3 sm:py-2 rounded-lg font-medium shadow-lg transition-all duration-200 text-[10px] sm:text-xs whitespace-nowrap backdrop-blur-sm"
-        >
-          ↓ Skip
-        </button>
-      </div>
+      {/* Fallback buttons - removed from here as they are now inside the card */}
     </div>
   );
 };
@@ -594,47 +607,46 @@ const Swipe = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-20 pb-8 px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
+    <div className="h-[calc(100vh-3.5rem)] md:h-[calc(100vh-4rem)] bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 pt-2 pb-0 px-2 md:px-8 overflow-hidden flex flex-col touch-none">
+      <div className="max-w-md md:max-w-4xl mx-auto w-full flex-1 flex flex-col min-h-0">
+        <div className="flex justify-between items-center mb-1 flex-none px-1 relative z-20">
           <div>
-            <h1 className="text-3xl md:text-4xl font-serif italic text-white">Swipe</h1>
+            <h1 className="text-xl md:text-3xl font-serif italic text-white/90">Swipe</h1>
             {(swipeHistory.length > 0 || currentIndex > 0) && (
-              <p className="text-sm text-gray-400 mt-1">Progress saved automatically</p>
+              <p className="text-[10px] md:text-xs text-gray-500">Auto-saved</p>
             )}
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             {(swipeHistory.length > 0 || currentIndex > 0) && (
               <button
                 onClick={resetProgress}
-                className="bg-gray-700/50 hover:bg-gray-700 border border-gray-600 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm backdrop-blur-sm"
-                title="Reset all progress and start from beginning"
+                className="bg-gray-800/80 hover:bg-gray-700 border border-gray-700 text-gray-300 px-3 py-1.5 rounded-full font-medium transition-colors text-xs backdrop-blur-sm"
+                title="Reset all progress"
               >
-                Reset Progress
+                Reset
               </button>
             )}
             {swipeHistory.length > 0 && (
               <button
                 onClick={() => navigate('/swipe-results', { state: { swipeHistory } })}
-                className="bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white px-6 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm shadow-lg"
+                className="bg-blue-600/80 hover:bg-blue-600 border border-blue-500/50 text-white px-3 py-1.5 rounded-full font-medium transition-colors backdrop-blur-sm shadow-lg text-xs"
               >
-                See My Results ({swipeHistory.length})
+                Results ({swipeHistory.length})
               </button>
             )}
           </div>
         </div>
 
         {/* Gender Filter */}
-        <div className="mb-8">
-          <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg p-4 max-w-md mx-auto">
-            <h3 className="text-white text-sm font-medium mb-3 text-center">Filter by Gender</h3>
-            <div className="flex justify-center gap-4">
+        <div className="mb-2 flex-none relative z-20">
+          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-full p-1 max-w-sm mx-auto">
+            <div className="flex justify-between gap-1 items-center px-1">
               {[
-                { value: 'men', label: 'Male', color: 'blue' },
-                { value: 'women', label: 'Female', color: 'pink' },
+                { value: 'men', label: 'Men', color: 'blue' },
+                { value: 'women', label: 'Women', color: 'pink' },
                 { value: 'unisex', label: 'Unisex', color: 'purple' }
               ].map((gender) => (
-                <label key={gender.value} className="flex items-center cursor-pointer group">
+                <label key={gender.value} className="flex-1 flex items-center justify-center cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={selectedGenders.includes(gender.value)}
@@ -650,36 +662,26 @@ const Swipe = () => {
                     }}
                     className="sr-only"
                   />
-                  <div className={`w-5 h-5 border-2 rounded-md mr-2 transition-all duration-200 ${
+                  <div className={`px-2 md:px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium transition-all duration-200 w-full text-center border ${
                     selectedGenders.includes(gender.value)
-                      ? `bg-${gender.color}-500 border-${gender.color}-400 shadow-lg shadow-${gender.color}-500/25`
-                      : 'bg-gray-700 border-gray-600 group-hover:border-gray-500'
-                  }`}>
-                    {selectedGenders.includes(gender.value) && (
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                  </div>
-                  <span className={`text-sm font-medium transition-colors ${
-                    selectedGenders.includes(gender.value) ? 'text-white' : 'text-gray-400 group-hover:text-gray-300'
+                      ? `bg-${gender.color}-500/20 text-${gender.color}-300 border-${gender.color}-500/50 shadow-[0_0_10px_rgba(var(--${gender.color}-500-rgb),0.2)]`
+                      : 'bg-transparent text-gray-500 border-transparent hover:bg-gray-700/30'
                   }`}>
                     {gender.label}
-                  </span>
+                  </div>
                 </label>
               ))}
-            </div>
-            <div className="text-center mt-2">
-              <span className="text-xs text-gray-500">
-                {shuffledFragrances.length} fragrance{shuffledFragrances.length !== 1 ? 's' : ''} selected
+              <span className="text-[10px] text-gray-600 ml-1 border-l border-gray-700/50 pl-2 whitespace-nowrap min-w-[3ch] text-center">
+                {shuffledFragrances.length}
               </span>
             </div>
           </div>
         </div>
 
+        <div className="flex-1 flex flex-col justify-center min-h-0 relative pb-2 items-center">
         {currentIndex >= shuffledFragrances.length ? (
           // Completion state
-          <div className="text-center py-16">
+          <div className="text-center py-8">
             <div className="bg-gray-800/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-2xl p-8 max-w-md mx-auto">
               <div className="text-green-400 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16 mx-auto">
@@ -710,26 +712,28 @@ const Swipe = () => {
             </div>
           </div>
         ) : currentFragrance ? (
-          <div className="flex flex-col items-center space-y-8">
-            <SwipeCard fragrance={currentFragrance} onSwipe={handleSwipe} onCardClick={handleCardClick} />
+          <div className="flex flex-col items-center h-full justify-center w-full max-w-[85%] sm:max-w-sm md:max-w-md mx-auto">
+            <div className="flex-1 w-full flex flex-col justify-center min-h-0 py-8 md:py-12">
+              <SwipeCard fragrance={currentFragrance} onSwipe={handleSwipe} onCardClick={handleCardClick} />
+            </div>
 
-            {/* Stats Display - moved below card to avoid blocking upward swipes */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-md">
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-orange-500/30 rounded-lg p-3 text-center shadow-lg">
-                <div className="text-xl font-bold text-orange-400">{stats.meh}</div>
-                <div className="text-xs text-gray-400">Meh</div>
+            {/* Stats Display - moved below card */}
+            <div className="grid grid-cols-4 gap-2 w-full flex-none mt-2 px-1">
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-orange-500/10 rounded-lg p-1 text-center">
+                <div className="text-xs md:text-sm font-bold text-orange-400 leading-none">{stats.meh}</div>
+                <div className="text-[8px] md:text-[9px] text-gray-500 uppercase tracking-wide">Meh</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-green-500/30 rounded-lg p-3 text-center shadow-lg">
-                <div className="text-xl font-bold text-green-400">{stats.liked}</div>
-                <div className="text-xs text-gray-400">Liked</div>
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-green-500/10 rounded-lg p-1 text-center">
+                <div className="text-xs md:text-sm font-bold text-green-400 leading-none">{stats.liked}</div>
+                <div className="text-[8px] md:text-[9px] text-gray-500 uppercase tracking-wide">Liked</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-teal-500/30 rounded-lg p-3 text-center shadow-lg">
-                <div className="text-xl font-bold text-teal-400">{stats.loved}</div>
-                <div className="text-xs text-gray-400">Loved</div>
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-teal-500/10 rounded-lg p-1 text-center">
+                <div className="text-xs md:text-sm font-bold text-teal-400 leading-none">{stats.loved}</div>
+                <div className="text-[8px] md:text-[9px] text-gray-500 uppercase tracking-wide">Loved</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-500/30 rounded-lg p-3 text-center shadow-lg">
-                <div className="text-xl font-bold text-gray-400">{stats.skipped}</div>
-                <div className="text-xs text-gray-400">Skipped</div>
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-500/10 rounded-lg p-1 text-center">
+                <div className="text-xs md:text-sm font-bold text-gray-500 leading-none">{stats.skipped}</div>
+                <div className="text-[8px] md:text-[9px] text-gray-600 uppercase tracking-wide">Skip</div>
               </div>
             </div>
           </div>
@@ -740,6 +744,7 @@ const Swipe = () => {
             <p className="text-gray-400">Loading fragrances...</p>
           </div>
         )}
+        </div>
       </div>
       <FloatingChatButton />
     </div>
